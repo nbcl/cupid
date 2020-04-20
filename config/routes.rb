@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  devise_for :locals
+  devise_for :users
   root 'welcome#index'
   get 'welcome', to: 'welcome#index'
   get 'welcome/hello', to: 'welcome#hello'
