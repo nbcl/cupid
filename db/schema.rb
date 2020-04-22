@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_22_160626) do
+ActiveRecord::Schema.define(version: 2020_04_22_172041) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,18 @@ ActiveRecord::Schema.define(version: 2020_04_22_160626) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "cita", force: :cascade do |t|
+    t.date "fecha"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user1_id"
+    t.bigint "user2_id"
+    t.bigint "local_id"
+    t.index ["local_id"], name: "index_cita_on_local_id"
+    t.index ["user1_id"], name: "index_cita_on_user1_id"
+    t.index ["user2_id"], name: "index_cita_on_user2_id"
   end
 
   create_table "comentarios", force: :cascade do |t|
@@ -83,6 +95,9 @@ ActiveRecord::Schema.define(version: 2020_04_22_160626) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "cita", "locals"
+  add_foreign_key "cita", "users", column: "user1_id"
+  add_foreign_key "cita", "users", column: "user2_id"
   add_foreign_key "comentarios", "locals"
   add_foreign_key "comentarios", "users"
 end

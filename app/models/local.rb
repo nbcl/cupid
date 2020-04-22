@@ -5,4 +5,5 @@ class Local < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :comentarios
+  has_many :cita
 end
