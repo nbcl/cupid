@@ -10,10 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_20_165614) do
+ActiveRecord::Schema.define(version: 2020_04_22_160626) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "admins", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_admins_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "comentarios", force: :cascade do |t|
+    t.text "contenido"
+    t.date "fecha"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "local_id"
+    t.bigint "user_id"
+    t.index ["local_id"], name: "index_comentarios_on_local_id"
+    t.index ["user_id"], name: "index_comentarios_on_user_id"
+  end
 
   create_table "gustos", force: :cascade do |t|
     t.string "nombre"
@@ -35,6 +58,10 @@ ActiveRecord::Schema.define(version: 2020_04_20_165614) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.float "valoracion"
+    t.string "comuna"
+    t.text "descripcion"
     t.index ["email"], name: "index_locals_on_email", unique: true
     t.index ["reset_password_token"], name: "index_locals_on_reset_password_token", unique: true
   end
@@ -56,4 +83,6 @@ ActiveRecord::Schema.define(version: 2020_04_20_165614) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "comentarios", "locals"
+  add_foreign_key "comentarios", "users"
 end
