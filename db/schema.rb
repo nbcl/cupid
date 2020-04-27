@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_22_172041) do
+ActiveRecord::Schema.define(version: 2020_04_27_164150) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 2020_04_22_172041) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
+    t.string "nombre"
     t.float "valoracion"
     t.string "comuna"
     t.text "descripcion"
@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(version: 2020_04_22_172041) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
+    t.string "nombre"
     t.date "edad"
     t.string "descripcion"
     t.string "comuna"
@@ -96,8 +96,5 @@ ActiveRecord::Schema.define(version: 2020_04_22_172041) do
   end
 
   add_foreign_key "cita", "locals"
-  add_foreign_key "cita", "users", column: "user1_id"
-  add_foreign_key "cita", "users", column: "user2_id"
   add_foreign_key "comentarios", "locals"
-  add_foreign_key "comentarios", "users"
 end
