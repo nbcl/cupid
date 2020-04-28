@@ -52,7 +52,7 @@
                       <ul class="list-unstyled mt-3 mb-4">
                           <li> Edita tu informacion de Perfil y elige nuevos gustos </li>
                       </ul>
-                      <a href="<%= edit_user_registration_path %>"><button type="button" class="btn btn-lg btn-block btn-outline-primary">Editar</button></a>
+                      <a href="/users/perfil?id=<%= current_user.id%>"><button type="button" class="btn btn-lg btn-block btn-outline-primary">Editar</button></a>
                   </div>
               </div>
           </div>
@@ -67,7 +67,7 @@
 
   <div class="container">
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4"></div>
             <a href="<%= new_user_session_path %>"><button type="button" class="btn btn-lg btn-block btn-outline-primary">Login</button></a>
         </div>
     </div>

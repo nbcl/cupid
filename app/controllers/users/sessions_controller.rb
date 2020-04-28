@@ -18,6 +18,10 @@ class Users::SessionsController < Devise::SessionsController
     super
   end
 
+  # SHOW /perfil
+  
+
+
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.
