@@ -10,4 +10,16 @@ class VistasController < ApplicationController
         @user.destroy
         render 'welcome/index'
     end
+
+    def show_local
+        @local = Local.find(params[:id])
+        render 'locals/perfil'
+    end
+
+    def destroy_local
+        session[:local_id] = nil
+        @local = Local.find(params[:id])
+        @local.destroy
+        render 'welcome/index'
+    end
 end

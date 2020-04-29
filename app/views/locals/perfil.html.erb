@@ -1,0 +1,24 @@
+<div class="col-md-4">
+    <div class="card mb-4 shadow-sm text-center">
+        <div class="card-header">
+            <h4 class="my-0 font-weight-normal">Mi Local</h4>
+        </div>
+        <div class="card-body">
+            
+            <h1 class="card-title pricing-card-title"> 👥 <%= current_local.nombre%></h1>
+            
+            <ul class="list-unstyled mt-3 mb-4">
+                <li> Email: <%= current_local.email %> </li>
+                <li> Descripcion: <%= current_local.descripcion %> </li>    
+            </ul>
+            <a href="/locals/edit"><button type="button" class="btn btn-lg btn-block btn-outline-primary">Editar</button></a>
+            <br>
+            <a href="/"><button type="button" class="btn btn-lg btn-block btn-outline-primary">Home</button></a>
+            <br>
+            <br>
+            <%= link_to "Log Out", destroy_local_session_path, method: :delete%>
+            <br>
+            <br>
+        </div>
+    </div>
+</div>    

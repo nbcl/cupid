@@ -7,10 +7,14 @@ Rails.application.routes.draw do
   get 'welcome', to: 'welcome#index'
   get 'welcome/hello', to: 'welcome#hello' 
   get 'users/perfil', to: 'vistas#show_user'
-  get 'users/delete', to: 'vistas#destroy_user'
+  get 'locals/perfil', to: 'vistas#show_local'
 
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
+  end
+
+  devise_scope :locals do
+    get '/locals/sign_out' => 'devise/sessions#destroy'
   end
 
   #get '/ruta_nueva' => 'devise/template_nueva#new', :as => :new_user_registration_nombre
