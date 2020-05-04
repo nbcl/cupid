@@ -23,6 +23,11 @@
     <%= f.telephone_field :telefono, autofocus: true, autocomplete: "telefono" %>
   </div>
 
+  <div>
+    <%= f.label :genero %><br />
+    <%= f.select :genero, %w{Hombre Mujer Otro}, :prompt => 'Select', required: true, placeholder: 'Genero', class: 'form-control' %>
+  </div>
+
   <div class='field'>
     <%= f.label :comuna %><br />
     <%= f.text_field :comuna, autofocus: true, autocomplete: "comuna" %>

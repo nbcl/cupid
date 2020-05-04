@@ -1,1 +1,15 @@
 /* Este estilo esta apto para editarlo */
+
+.col-md-4 {
+    display: flex;
+    justify-content: center;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-login-local {
+    margin: 0px 6px 0px 46px;
+}

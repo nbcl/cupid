@@ -1,0 +1,19 @@
+<h1>Editar Gusto</h1>
+
+<%= form_with(model: @gusto, url: gusto_path(@gusto.id), method: :patch) do |form| %>
+  <div class="field">
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre %>
+  </div>
+
+  <div class="field">
+    <%= form.label :descripcion %>
+    <%= form.text_field :descripcion %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', gustos_path %>

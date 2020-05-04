@@ -1,0 +1,14 @@
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @user.nombre %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @user.descripcion %>
+</p>
+
+<%# <%= link_to 'Editar Local', locals_edit_path(@gusto.id) %>
+<%= link_to 'Eliminar Usuario', user_path(@user.id), method: :delete, alert: 'Estás seguro?' %>
+<%= link_to 'Back', :back %>

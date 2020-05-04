@@ -1,10 +1,10 @@
 # Custom Cop Config
 
-# Extended LineLenght to 130
+# Extended LineLength to 130
 Layout/LineLength:
   Max: 130
 
-# Selected brackets as defautl SimbolArray Style
+# Selected brackets as default SymbolArray Style
 Style/SymbolArray:
   EnforcedStyle: brackets
 
@@ -44,7 +44,7 @@ Style/Documentation:
 
 
 # Default Cop Adds
-# This Cops where added to Rubocop by the default isntallation but are not configured by default.
+# This Cops where added to Rubocop by the default installation but are not configured by default.
 # Enabled them as true. Suggested in Rubocop Autoconfig command.
 
 Lint/RaiseException:

@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+<h1>Locales de DCCitas</h1>
+
+<table class="lista-locales">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Nombre</th>
+    <th>Email</th>
+    <th>Valoracion</th>
+    <th colspan="3">Comuna</th>
+    <th>Descripcion</th>
+    <th colspan="3"> Acciones </th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @locals.each do |local| %>
+    <tr>
+      <td><%= local.id %></td>
+      <td><%= local.nombre %></td>
+      <td><%= local.email %></td>
+      <td><%= local.valoracion %></td>
+      <td><%= local.comuna %></td>
+      <td><%= local.descripcion %></td>
+<!--      <td><%#= gusto.users.all %></td>-->
+      <td><%= link_to 'Ver', local_path(local.id) %>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+
+
+<br>
+<%= link_to 'Back', :back%>
+<br>
+<a href="/">Volver al Inicio</a>

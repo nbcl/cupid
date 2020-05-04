@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @local.nombre %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @local.descripcion %>
+</p>
+
+<%# <%= link_to 'Editar Local', locals_edit_path(@gusto.id) %> %>
+<%= link_to 'Eliminar Local', local_path(@local.id), method: :delete, alert: 'Estás seguro?' %>
+<%= link_to 'Back', :back %>

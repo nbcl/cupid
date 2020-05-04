@@ -1,0 +1,36 @@
+<h1> Lista de Usuarios DCCitas<h1>
+
+<table>
+  <tr>
+    <tr>Name</tr>
+    <tr>Email</tr>
+    <tr>Fecha de nacimiento</tr>
+    <tr>Genero</tr>
+    <tr>Comuna</tr>
+    <tr>Telefono</tr>
+    <tr>Descripcion</tr>
+
+  </tr>
+  <% @users.each do |u| %>
+  <tr>
+    <td><%= u.nombre %></td>
+    <td><%= u.email %></td>
+    <td><%= u.edad %></td>
+    <td><%= u.genero %></td>
+    <td><%= u.comuna %></td>
+    <td><%= u.telefono %></td>
+    <td><%= u.descripcion %></td>
+    <td><%= link_to 'Ver', user_path(u.id) %>
+  </tr>
+  
+  <% end %>
+
+</table>
+
+<%# <%= link_to "Delete User",  controller: "users/registrations", action: 'destroy', id: @current_user %> 
+
+
+<br>
+<%= link_to 'Back', :back%>
+<br>
+<a href="/">Volver al Inicio</a>
