@@ -1,4 +1,6 @@
 # frozen_string_literal: true
+
+# This controller contains all the methods for hand-made CRUD's
 class VistasController < ApplicationController
   def show_user
     @user = User.find(params[:id])
@@ -44,7 +46,7 @@ class VistasController < ApplicationController
     @users = User.all
     render 'admins/lista_usuarios'
   end
-  
+
   def show_admin_usuario
     @user = User.find(params[:id])
     render 'users/show'
@@ -55,5 +57,9 @@ class VistasController < ApplicationController
     @user.destroy
     redirect_to admins_users_path, notice: 'Usuario eliminado con éxito'
   end
-  
+
+  def show_user_locals
+    @locals = Local.all
+    render 'users/lista_locales'
+  end
 end

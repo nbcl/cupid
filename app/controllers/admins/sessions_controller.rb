@@ -1,27 +1,28 @@
 # frozen_string_literal: true
 
+# This controller has the necessary methods for keeping track of the sessions in the
+# app for the Administrator
 class Admins::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
   #  GET /resource/sign_in
-   def new
-     super
-   end
+  def new
+    super
+  end
 
   #  POST /resource/sign_in
-   def create
-     super
-   end
+  def create
+    super
+  end
 
   #  DELETE /resource/sign_out
-   def destroy
-     super
-   end
+  def destroy
+    super
+  end
 
-    
-    def show_local
-      @local = Local.find(params[:id])
-    end 
+  def show_local
+    @local = Local.find(params[:id])
+  end
 
   # protected
 

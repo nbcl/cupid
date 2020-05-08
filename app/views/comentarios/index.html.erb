@@ -1,0 +1,34 @@
+<!--<p id="notice"><%#= notice %></p>-->
+
+<h1>Comentarios</h1>
+
+<table class="lista-gustos">
+  <thead>
+  <tr>
+    <th style="padding:10px">Usuario</th>
+    <th style="padding:10px">Local</th>
+    <th style="padding:10px">Fecha</th>
+    <th style="padding:10px">Contenido</th>
+    <th style="padding:10px"> Acciones </th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @comentarios.each do |comentario| %>
+    <tr>
+      <td style="padding:10px"><%= comentario.user_id %></td>
+      <td style="padding:10px"><%= comentario.local_id %></td>
+      <td style="padding:10px"><%= comentario.fecha %></td>
+      <td style="padding:10px"><%= comentario.contenido %></td>
+      <td style="padding:10px"><%= link_to 'Ver', comentario_path(comentario.id) %>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+<% if user_signed_in? %>
+  <a href="/comentarios/new?id=">Crear Comentario</a>
+<% end %>
+<br>
+<a href="/">Volver al Inicio</a>

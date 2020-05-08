@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddGenderToUsers < ActiveRecord::Migration[5.2]
   def change
     # Add 'default: 0'

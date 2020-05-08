@@ -13,3 +13,7 @@
 .btn-login-local {
     margin: 0px 6px 0px 46px;
 }
+
+table, th, td {
+    border: 1px solid black;
+}

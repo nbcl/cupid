@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddUserToCita < ActiveRecord::Migration[5.2]
   def change
     change_table(:cita) do |c|

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# This controller allows the application to keep track of the current session, to log in, log out
 class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
@@ -19,8 +20,6 @@ class Users::SessionsController < Devise::SessionsController
   end
 
   # SHOW /perfil
-  
-
 
   # protected
 

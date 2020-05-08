@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Usuario:</strong>
+  <%= @comentario.user_id %>
+</p>
+
+<p>
+  <strong>Local:</strong>
+  <%= @comentario.local_id %>
+</p>
+
+<p>
+  <strong>Fecha de Creacion:</strong>
+  <%= @comentario.fecha %>
+</p>
+
+<p>
+  <strong>Contenido:</strong>
+  <%= @comentario.contenido %>
+</p>
+
+<%= link_to 'Editar Comentario', comentarios_edit_path(@comentario.id) %>
+<%= link_to 'Eliminar Comentario', comentario_path(@comentario.id), method: :delete, alert: 'Estás seguro?' %>
+<%= link_to 'Lista Comentarios', comentarios_path %>

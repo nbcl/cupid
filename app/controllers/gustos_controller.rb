@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# This controller allows for CRUD operations methods in the application for Model Gusto
 class GustosController < ApplicationController
   def new
     @gusto = Gusto.new
@@ -30,7 +33,6 @@ class GustosController < ApplicationController
     else
       redirect_to gustos_new_path, notice: 'Ocurrió un error al crear el gusto.'
     end
-
   end
 
   def update
@@ -49,5 +51,4 @@ class GustosController < ApplicationController
     @gusto.destroy
     redirect_to gustos_path, notice: 'Gusto eliminado con éxito'
   end
-
 end

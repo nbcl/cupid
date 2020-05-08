@@ -30,7 +30,7 @@
           <a href="/"><button type="button" class="btn btn-lg btn-block btn-outline-primary">Home</button></a>
           <br>
           <br>
-          <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "btn btn-lg btn-block btn-outline-primary"%>
+          <%= button_to "Log Out", destroy_user_session_path, :class => "btn btn-lg btn-block btn-outline-primary", method: :delete %>
 
         </div>
       </div>

@@ -1,0 +1,30 @@
+<h1>Nuevo Comentario de <%= current_user.nombre %> para <%= @local.nombre %></h1>
+
+<%= form_with(model: @comentario, method: :post) do |form| %>
+
+  <div class="field">
+    <%= form.label :fecha %><br />
+    <%= form.date_field :fecha, autofocus: true, autocomplete: "fecha", value: Date.today %>
+  </div>
+
+  <div class='field'>
+    <%= form.label :contenido %><br />
+    <%= form.text_area :contenido, autofocus: true, autocomplete: "contenido", :cols => 30, :rows => 10 %>
+  </div>
+
+  <div>
+    <%= form.label :local %> <br />
+    <%= form.number_field :local_id, autofocus: true, autocomplete: "local_id", value: @local.id %>
+  </div>
+
+  <div>
+    <%= form.label :user %> <br />
+    <%= form.number_field :user_id, autofocus: true, autocomplete: "user_id", value: current_user.id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', users_locales_path %>

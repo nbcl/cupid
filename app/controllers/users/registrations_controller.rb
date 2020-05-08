@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# This controller allow the app to register new Instances of Model and delete them
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
