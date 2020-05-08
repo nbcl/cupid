@@ -1,0 +1,14 @@
+  <!-- DESCOMENTAR PARA TRABAJAR EN SWIPER 
+  <% @users = User.all %>
+  <% @users.each do |user| %>
+    <%= user.nombre %><br/>
+  <% end %>
+  DESCOMENTAR PARA TRABAJAR EN SWIPER -->
+
+  <!-- DESCOMENTAR CUANDO SE HAGA PAPERCLIP
+  <div class="row">
+  <% if @user.avatar? %>
+    <%= image_tag @user.avatar.url(:thumb) %>
+  <% end %>
+  </div>
+  DESCOMENTAR CUANDO SE HAGA PAPERCLIP -->

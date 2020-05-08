@@ -1,0 +1,40 @@
+<html lang="es">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mi Perfil</title>
+</head>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card mb-4 shadow-sm text-center">
+        <div class="card-header">
+          <h4 class="my-0 font-weight-normal">Mi Perfil</h4>
+        </div>
+        <div class="card-body">
+          <h1 class="card-title pricing-card-title"> 👥 <%= current_user.nombre%></h1>
+          <ul class="list-unstyled mt-3 mb-4">
+            <li> Email: <%= current_user.email %> </li>
+            <li> Fecha de Nacimiento: <%= current_user.edad %> </li>
+            <li> Genero: <%= current_user.genero %> </li>
+            <li> Comuna: <%= current_user.comuna %> </li>
+            <li> Telefono: <%= current_user.telefono %> </li>
+            <li> Descripcion: <%= current_user.descripcion %> </li>
+          </ul>
+
+          <a href="/users/edit"><button type="button" class="btn btn-lg btn-block btn-outline-primary">Editar</button></a>
+          <br>
+          <br>
+          <a href="/gustos?id=<%= current_user.id%>"><button type="button" class="btn btn-lg btn-block btn-outline-primary">Ver Gustos</button></a>
+          <br>
+          <br>
+          <a href="/"><button type="button" class="btn btn-lg btn-block btn-outline-primary">Home</button></a>
+          <br>
+          <br>
+          <%= button_to "Log Out", destroy_user_session_path, :class => "btn btn-lg btn-block btn-outline-primary", method: :delete %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</html>

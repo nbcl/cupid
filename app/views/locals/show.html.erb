@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id:</strong>
+  <%= @local.id %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @local.nombre %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @local.descripcion %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @local.email %>
+</p>
+
+<p>
+  <strong>Comuna:</strong>
+  <%= @local.comuna %>
+</p>
+
+<%#= link_to 'Editar Local', locals_edit_path(@local.id) %>
+<% if admin_signed_in? %>
+  <%= link_to 'Eliminar Local', local_path(@local.id), method: :delete, alert: 'Estás seguro?' %>
+<% end %>
+<%= link_to 'Back', :back %>

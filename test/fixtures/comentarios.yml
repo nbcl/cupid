@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  contenido: MyText
+  fecha: 2020-04-22
+
+two:
+  contenido: MyText
+  fecha: 2020-04-22

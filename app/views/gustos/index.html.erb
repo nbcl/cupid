@@ -1,0 +1,32 @@
+<!--<p id="notice"><%#= notice %></p>-->
+
+<h1>Gustos de <%= current_user.nombre %></h1>
+
+<table class="lista-gustos">
+  <thead>
+  <tr>
+    <th style="padding:10px">Nombre</th>
+    <th style="padding:10px">Descripcion</th>
+    <th style="padding:10px"> Acciones </th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @gustos.each do |gusto| %>
+    <tr>
+      <td style="padding:10px"><%= gusto.nombre %></td>
+      <td style="padding:10px"><%= gusto.descripcion %></td>
+<!--      <td><%#= gusto.users.all %></td>-->
+      <td style="padding:10px"><%= link_to 'Ver', gusto_path(gusto.id) %>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<a href="/gustos/new?id=<%= current_user.id %>">Crear Gusto</a>
+<br>
+<%#= link_to 'Back', :back %>
+<br>
+<a href="/users/perfil?id=<%= current_user.id %>">Volver al Perfil</a>

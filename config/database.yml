@@ -15,8 +15,6 @@
 # gem 'pg'
 #
 
-host: localhost
-
 default: &default
   adapter: postgresql
   encoding: unicode

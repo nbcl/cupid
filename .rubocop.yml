@@ -1,10 +1,18 @@
 # Custom Cop Config
-
-# Extended LineLenght to 130
+AllCops:
+  Exclude:
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - 'bin/{rails,rake}'
+    - 'app/helpers/*'
+    - 'app/channels/**/*'
+    - !ruby/regexp /old_and_unused\.rb$/
+# Extended LineLength to 130
 Layout/LineLength:
-  Max: 130
+  Max: 100
 
-# Selected brackets as defautl SimbolArray Style
+# Selected brackets as default SymbolArray Style
 Style/SymbolArray:
   EnforcedStyle: brackets
 
@@ -23,8 +31,10 @@ Style/MixinUsage:
 # Added exclude to ClassAndModuleChildren for test .rb file.
 # 'test_helper.rb' uses compact class statement 'ActiveSupport::TestCase'. Excluded reason: Auto-gen file.
 Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
   Exclude:
     - 'test/test_helper.rb'
+    - 'app/channels/**/*'
 
 
 # Added exclude to Documentation for multiple files.
@@ -41,10 +51,11 @@ Style/Documentation:
     - 'app/helpers/welcome_helper.rb'
     - 'app/mailers/application_mailer.rb'
     - 'app/models/application_record.rb'
+    - 'app/models/*'
 
 
 # Default Cop Adds
-# This Cops where added to Rubocop by the default isntallation but are not configured by default.
+# This Cops where added to Rubocop by the default installation but are not configured by default.
 # Enabled them as true. Suggested in Rubocop Autoconfig command.
 
 Lint/RaiseException:

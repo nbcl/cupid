@@ -1,4 +1,184 @@
-<h2>Hello World!</h2>
-<p>
-    The time is now: <%= Time.now %>
-</p>
+
+
+
+<% if user_signed_in? %>
+  
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4"> DCCitas </h1>
+    <p class="lead">Bienvenido a DCCitas, <%= current_user.nombre %> <%= current_user.edadNumeros %> <%= current_user.genero %>.</p>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm text-center">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">Citas</h4>
+                </div>
+                <div class="card-body">
+                    <h1 class="card-title pricing-card-title"> 🌎 Perfiles</h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li>Busca entre todos los usuarios de DCCitas.</li>
+                    </ul>
+                <a href="#"><button type="button" class="btn btn-lg btn-block btn-primary">Acceder</button></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm text-center">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">Locales</h4>
+                </div>
+                <div class="card-body">
+                    <h1 class="card-title pricing-card-title"> 🏙️ Locales</h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li>Busca los locales que estan afiliados con DCCitas.</li>
+                    </ul>
+                    <a href="<%= users_locales_path %>"><button type="button" class="btn btn-lg btn-block btn-outline-primary">Buscar</button></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm text-center">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">Formulario</h4>
+                </div>
+                <div class="card-body">
+                    <h1 class="card-title pricing-card-title"> 👥 Perfil</h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li> Edita tu informacion de Perfil y elige nuevos gustos </li>
+                    </ul>
+                    <a href="/users/perfil?id=<%= current_user.id%>"><button type="button" class="btn btn-lg btn-block btn-outline-primary">Editar</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<% elsif local_signed_in? %>
+
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4"> DCCitas </h1>
+    <p class="lead">Bienvenido a DCCitas, <%= current_local.nombre %>.</p>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm text-center">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">Citas</h4>
+                </div>
+                <div class="card-body">
+                    <h1 class="card-title pricing-card-title"> 🌎 Ver Comentarios</h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li>Revisa comentarios de los usuarios sobre el local.</li>
+                    </ul>
+                <a href="#"><button type="button" class="btn btn-lg btn-block btn-primary">Informacion</button></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm text-center">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">Locales</h4>
+                </div>
+                <div class="card-body">
+                    <h1 class="card-title pricing-card-title"> 🏙️ Locales</h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li>Busca los locales que estan afiliados con DCCitas.</li>
+                    </ul>
+                    <a href="#"><button type="button" class="btn btn-lg btn-block btn-outline-primary">Buscar</button></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm text-center">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">Formulario</h4>
+                </div>
+                <div class="card-body">
+                    <h1 class="card-title pricing-card-title"> 👥 Local</h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li> Edita tu informacion de tu Local</li>
+                    </ul>
+                    <a href="/locals/perfil?id=<%= current_local.id%>"><button type="button" class="btn btn-lg btn-block btn-outline-primary">Editar</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% elsif admin_signed_in? %>
+
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4"> DCCitas </h1>
+    <p class="lead">Bienvenido a DCCitas, Admin.</p>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm text-center">
+                <div class="card-body">
+                    <h1 class="card-title pricing-card-title"> 🏙️ Locales</h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li>Ver todos los Locales</li>
+                    </ul>
+                    <a href="<%= admins_locales_path %>"><button type="button" class="btn btn-lg btn-block btn-outline-primary">Administrar</button></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm text-center">
+                <div class="card-body">
+                    <h1 class="card-title pricing-card-title"> 👥 Usuarios</h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li> Ver todos los usuarios</li>
+                    </ul>
+                    <a href="<%= admins_users_path %>"><button type="button" class="btn btn-lg btn-block btn-outline-primary">Administrar</button></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm text-center">
+            <div class="card-body">
+              <h1 class="card-title pricing-card-title"> 👥 Comentarios</h1>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li> Ver todos los comentarios</li>
+              </ul>
+              <a href="/comentarios"><button type="button" class="btn btn-lg btn-block btn-outline-primary">Administrar</button></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm text-center">
+                <div class="card-body">
+                    <a href="<%= destroy_admin_session_path %>"><button type="button" class="btn btn-lg btn-block btn-outline-primary">Log Out</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% else %>
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4"> DCCitas </h1>
+    <p class="lead">Bienvenido a DCCitas, Visita.</p>
+</div>
+
+<div class="container">
+<div class="row">
+    <div class="col-md-4">
+        <a href="<%= new_user_session_path %>"><button type="button" class="btn btn-lg btn-block btn-outline-primary btn-login">Login as User</button></a>
+        <br>
+        <br>
+        <a href="<%= new_local_session_path %>"><button type="button" class="btn btn-lg btn-block btn-outline-primary">Login as Local</button></a>
+        <br>
+        <br>
+        <a href="<%= new_admin_session_path %>"><button type="button" class="btn btn-lg btn-block btn-outline-primary btn-login-admin">Login as Admin</button></a>
+    </div>
+</div>
+</div>
+
+<% end %>
+

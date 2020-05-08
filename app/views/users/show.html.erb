@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id:</strong>
+  <%= @user.id %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @user.nombre %>
+</p>
+
+<p>
+  <strong>Edad:</strong>
+  <%= @user.edadNumeros %>
+</p>
+
+<p>
+  <strong>Genero:</strong>
+  <%= @user.genero %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @user.descripcion %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Comuna:</strong>
+  <%= @user.comuna %>
+</p>
+
+<p>
+  <strong>Telefono:</strong>
+  <%= @user.telefono %>
+</p>
+
+<%# <%= link_to 'Editar Local', locals_edit_path(@gusto.id) %>
+<%= link_to 'Eliminar Usuario', user_path(@user.id), method: :delete, alert: 'Estás seguro?' %>
+<%= link_to 'Back', :back %>
