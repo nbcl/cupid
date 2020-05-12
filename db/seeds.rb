@@ -11,8 +11,8 @@
 # gustos = Gusto.create([{ nombre: 'Musica', descripcion: 'Te gusta la musica' },
 #                        { nombre: 'Comida', descripcion: 'Te gusta la comida' }])
 #
-# admin = Admin.new(email: 'admin@admin.cl', password: '123456')
-# admin.save
+admin = Admin.new(email: 'admin@admin.cl', password: '123456')
+admin.save
 
 # comentario = Comentario.new(fecha: '12/12/2020', contenido: 'Hola', user: User.find(14), local: Local.find(5))
 # comentario.save
