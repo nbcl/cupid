@@ -8,7 +8,7 @@
     <th style="padding:10px">Nombre</th>
     <th style="padding:10px">Email</th>
     <th style="padding:10px">Valoracion</th>
-    <th style="padding:10px">Comuna</th>
+<!--    <th style="padding:10px">Comuna</th>-->
     <th style="padding:10px">Descripcion</th>
     <th style="padding:10px"> Acciones </th>
   </tr>
@@ -21,7 +21,7 @@
       <td style="padding:10px"><%= local.nombre %></td>
       <td style="padding:10px"><%= local.email %></td>
       <td style="padding:10px"><%= local.valoracion %></td>
-      <td style="padding:10px"><%= local.comuna %></td>
+<!--      <td style="padding:10px"><%#= local.comuna %></td>-->
       <td style="padding:10px"><%= local.descripcion %></td>
       <td style="padding:10px"><%= link_to 'Ver', local_path(local.id) %>  <%= link_to 'Dejar un Comentario' , comentarios_new_path(local.id) %></td>
     </tr>

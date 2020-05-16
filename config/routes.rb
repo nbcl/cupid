@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'platos/new'
+  get 'platos/index'
+  get 'platos/show'
+  get 'platos/edit'
   devise_for :admins, controllers: { sessions: 'admins/sessions' }
   devise_for :users, controllers: { sessions: 'users/sessions', registration: 'users/registrations' }
   devise_for :locals, controllers: { sessions: 'locals/sessions', registration: 'locals/registrations' }

@@ -1,0 +1,2 @@
+class Plato < ApplicationRecord
+end
