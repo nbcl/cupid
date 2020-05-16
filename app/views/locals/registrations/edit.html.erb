@@ -18,10 +18,10 @@
     <%= f.text_area :descripcion, autofocus: true, autocomplete: "descripcion", :cols => 30, :rows => 10 %>
   </div>
 
-  <div class='field'>
-    <%= f.label :comuna%><br />
-    <%= f.text_field :comuna, autofocus: true, autocomplete: "comuna"%>
-  </div>
+<!--  <div class='field'>-->
+<!--    <%#= f.label :comuna%><br />-->
+    <%#= f.text_field :comuna, autofocus: true, autocomplete: "comuna"%>
+<!--  </div>-->
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
