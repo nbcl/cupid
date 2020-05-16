@@ -28,10 +28,10 @@
     <%= f.select :genero, %w{Hombre Mujer Otro}, :prompt => 'Select', required: true, placeholder: 'Genero', class: 'form-control' %>
   </div>
 
-  <div class='field'>
-    <%= f.label :comuna %><br />
-    <%= f.text_field :comuna, autofocus: true, autocomplete: "comuna" %>
-  </div>
+<!--  <div class="field">-->
+<!--    <%#= f.label :comuna %><br>-->
+    <%#= f.collection_select :comuna, Comuna.all, :itself, :nombre %>
+<!--  </div>-->
 
   <div class='field'>
     <%= f.label :descripcion%><br />

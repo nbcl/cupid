@@ -6,6 +6,7 @@ class Local < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_one :comuna
   has_many :comentarios
   has_many :cita
 end
