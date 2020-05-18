@@ -25,77 +25,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6084fd8-bdfb-43da-ad8f-02fa1df0932c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/assets/javascripts/comentarios.coffee" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/assets/stylesheets/comentarios.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/controllers/comentarios_controller.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/helpers/comentarios_helper.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/comentarios/edit.html.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/comentarios/index.html.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/comentarios/new.html.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/comentarios/show.html.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/users/lista_locales.html.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/controllers/comentarios_controller_test.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/rgaona.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/rgaona.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.rubocop.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.rubocop.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/admins/sessions_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/admins/sessions_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/gustos_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/gustos_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/users/registrations_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/users/registrations_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/users/sessions_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/users/sessions_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/vistas_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/vistas_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/welcome_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/welcome_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/helpers/gustos_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/helpers/gustos_helper.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/helpers/vistas_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/helpers/vistas_helper.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/admin.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/admin.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/citum.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/citum.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/comentario.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/comentario.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/gusto.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/gusto.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/local.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/local.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/admins/lista_locales.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admins/lista_locales.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/admins/lista_usuarios.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admins/lista_usuarios.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/gustos/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/gustos/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/gustos/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/gustos/new.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/locals/perfil.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/locals/perfil.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/locals/registrations/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/locals/registrations/edit.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/locals/registrations/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/locals/registrations/new.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/locals/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/locals/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/users/perfil.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/perfil.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/users/registrations/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/registrations/edit.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/users/registrations/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/registrations/new.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/users/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/welcome/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/welcome/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20200420160409_devise_create_users.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20200420160409_devise_create_users.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20200420160603_devise_create_locals.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20200420160603_devise_create_locals.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20200420163405_add_fields_to_users.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20200420163405_add_fields_to_users.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20200420164134_create_gustos.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20200420164134_create_gustos.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20200420165614_create_join_table_gusto_user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20200420165614_create_join_table_gusto_user.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20200422154627_add_fields_to_locals.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20200422154627_add_fields_to_locals.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20200422154748_create_comentarios.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20200422154748_create_comentarios.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20200422160409_add_local_to_comentarios.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20200422160409_add_local_to_comentarios.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20200422160458_add_user_to_comentarios.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20200422160458_add_user_to_comentarios.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20200422160626_devise_create_admins.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20200422160626_devise_create_admins.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20200422170241_create_cita.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20200422170241_create_cita.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20200422171050_add_user_to_cita.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20200422171050_add_user_to_cita.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20200422172041_add_local_to_cita.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20200422172041_add_local_to_cita.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20200427164031_change_users_column_name.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20200427164031_change_users_column_name.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20200427164150_change_locals_column_name.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20200427164150_change_locals_column_name.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20200502171700_add_gender_to_users.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20200502171700_add_gender_to_users.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20200502173401_change_users_column_name2.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20200502173401_change_users_column_name2.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/locals/menu.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/locals/menu.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/seeds.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/seeds.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/controllers/gustos_controller_test.rb" beforeDir="false" afterPath="$PROJECT_DIR$/test/controllers/gustos_controller_test.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/controllers/vistas_controller_test.rb" beforeDir="false" afterPath="$PROJECT_DIR$/test/controllers/vistas_controller_test.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/models/admin_test.rb" beforeDir="false" afterPath="$PROJECT_DIR$/test/models/admin_test.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/models/citum_test.rb" beforeDir="false" afterPath="$PROJECT_DIR$/test/models/citum_test.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/models/comentario_test.rb" beforeDir="false" afterPath="$PROJECT_DIR$/test/models/comentario_test.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/models/gusto_test.rb" beforeDir="false" afterPath="$PROJECT_DIR$/test/models/gusto_test.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/models/local_test.rb" beforeDir="false" afterPath="$PROJECT_DIR$/test/models/local_test.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/models/user_test.rb" beforeDir="false" afterPath="$PROJECT_DIR$/test/models/user_test.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,6 +50,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Ruby.ViewRefParam.DefaultExtension" value="html.erb" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -244,6 +177,8 @@
       <workItem from="1588438256097" duration="9365000" />
       <workItem from="1588544657499" duration="14933000" />
       <workItem from="1588952266819" duration="11228000" />
+      <workItem from="1589819482443" duration="613000" />
+      <workItem from="1589823550125" duration="188000" />
     </task>
     <servers />
   </component>
