@@ -1,14 +1,14 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-4 card" style='border:1px solid rgba(0,0,0,.125); margin-top: 5vh; padding-bottom: 3vh; padding-top: 3vh;'>
+        <div class="col-md-5 card" style='border:1px solid rgba(0,0,0,.125); margin-top: 5vh; padding-bottom: 3vh; padding-top: 3vh;'>
             <div class="card mb-4 shadow-sm text-center">
                 <div class="card-header">
                     <h4 class="my-0 font-weight-normal"></h4>
                 </div>
-                <img src="https://via.placeholder.com/150"/>
+                <img class="rounded-circle" src="https://via.placeholder.com/150"/>
                 <div class="card-body">
                     <h3 class="card-title pricing-card-title"> <%= @destino.nombre %></h3>
-                    <ul class="list-unstyled mt-3 mb-4">
+                    <ul class="list-unstyled mt-3 mb-4;" >
                         <li>Mi edad es <%= @destino.edad_numeros %> años.</li>
                         <li>Vivo en la comuna <%= @destino.comuna_id %>.</li>
                         <li><%= @destino.descripcion %> Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
@@ -19,40 +19,42 @@
                     <%= form_with(model: @Interaction, method: :post) do |form| %>
                         <div class="field">
                             <%= check_box_tag(:like) %>
-                            <%= label_tag(:like, "❤️ me gusta") %>
+                            <%= label_tag(:like, "❤️") %>
                         </div>
 
                         <div class="actions">
-                            <%= form.submit %>
+                            <%= form.submit 'Confirmar' %>
+                        </div>
+
+                        <div class="">
+                            <%= link_to 'Back', interactions_find_path %>
                         </div>
                         
-                        <div>
+                        <div class="invisible">
                             <%= form.label :user %> <br />
                             <%= form.number_field :user_id, autofocus: true, autocomplete: "user_id", value: current_user.id %>
                         </div>
 
-                        <div>
+                        <div class="invisible">
                             <%= form.number_field :user_id_destiny, autofocus: true, autocomplete: "user_id_destiny", value: @destino.id %>
                         </div>
                     <% end %>
-                    <%= link_to 'Back', interactions_find_path %>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-
 <!-- El siguiente codigo realiza la llamada a las interaciones y crea un Match si existe Like de ambos lados -->
 <% @likesme = ActiveRecord::Base.connection %>
 <% result = @likesme.exec_query('SELECT * FROM Interactions WHERE user_id ='+ @destino.id.to_s+';') %>
 <% result.each do |row| %>
     <% 
-    if row['user_id_destiny'] == current_user.id
+    if row['user_id_destiny'] == current_user.id and row['like'] 
         @likesmeback = ActiveRecord::Base.connection
         resultback = @likesmeback.exec_query('SELECT * FROM Interactions WHERE user_id ='+ current_user.id.to_s+';')
         resultback.each do |row2|
-            if row2['user_id_destiny'] == @destino.id
+            if row2['user_id_destiny'] == @destino.id and row2['like']
                 Match.where(user_id1: @destino.id, user_id2: current_user.id).first_or_initialize.save
             end
         end

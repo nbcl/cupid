@@ -5,28 +5,31 @@
     <p class="lead">Bienvenido a DCCitas, <%= current_user.nombre %>!</p>
 </div>
 
-
 <div class="container">
 <% @users.each do |user| %>
+    <% if user.id != current_user.id%>
     <div class="row">
         <div class="col-md-4 card" style='border:1px solid rgba(0,0,0,.125); margin-top: 5vh; padding-bottom: 3vh; padding-top: 3vh;'>
             <div class="card mb-4 shadow-sm text-center">
                 <div class="card-header">
                     <h4 class="my-0 font-weight-normal"></h4>
                 </div>
-                <img src="https://via.placeholder.com/150"/>
+                <img class="rounded-circle" src="https://via.placeholder.com/150"/>
                 <div class="card-body">
                     <h3 class="card-title pricing-card-title"> <%= user.nombre %></h3>
                     <ul class="list-unstyled mt-3 mb-4">
                         <li>Mi edad es <%= user.edad_numeros %> años.</li>
                         <li>Vivo en la comuna 1<%= user.comuna_id %>.</li>
                     </ul>
-                <%= link_to '❤️' , interactions_new_path(user.id) %>
-                <%= link_to '❌' , interactions_new_path(user.id) %>
+                    <h1>
+                    <%= link_to '❤️' , interactions_new_path(user.id) %>
+                    <%= link_to '❌' , interactions_new_path(user.id) %>
+                    </h1>
                 </div>
             </div>
         </div>
     </div>
+    <% end %>
 <% end %>
 </div>
 
