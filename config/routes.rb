@@ -2,10 +2,6 @@
 
 Rails.application.routes.draw do
   get 'matches/create'
-  get 'platos/new'
-  get 'platos/index'
-  get 'platos/show'
-  get 'platos/edit'
   devise_for :admins, controllers: { sessions: 'admins/sessions' }
   devise_for :users, controllers: { sessions: 'users/sessions', registration: 'users/registrations' }
   devise_for :locals, controllers: { sessions: 'locals/sessions', registration: 'locals/registrations' }
@@ -30,7 +26,7 @@ Rails.application.routes.draw do
 
   # Rutas del CRUD Gusto
   # Create
-  get 'gustos/new', to: 'gustos#new'
+  get 'gustos/new', to: 'gustos#new', as: :gustos_new
   post 'gustos', to: 'gustos#create'
   # Read
   get 'gustos', to: 'gustos#index'
@@ -57,6 +53,22 @@ Rails.application.routes.draw do
   # Delete
   delete 'comentarios/:id', to: 'comentarios#destroy'
 
+  # Rutas del CRUD Plato
+  # Create
+  get 'platos/new', to: 'platos#new'
+  post 'platos', to: 'platos#create'
+
+  # Read
+  get 'platos', to: 'platos#index'
+  get 'platos/:id', to: 'platos#show', as: :plato
+  # Update
+  get 'platos/:id/edit', to: 'platos#edit', as: :platos_edit
+  patch 'platos/:id/', to: 'platos#update'
+  put 'platos/:id/', to: 'platos#update'
+  # Delete
+  delete 'platos/:id', to: 'platos#destroy'
+
+
   # Rutas del CRUD Admin
   get 'admins/locales', to: 'vistas#show_admin_locales'
   get 'admins/locals/:id', to: 'vistas#show_admin_local', as: :local
@@ -78,6 +90,16 @@ Rails.application.routes.draw do
    # Matches
    # No get/post methods made for matches yet
 
+  # Ruta para ver el menu de un local
+  get 'locals/menu', to: 'platos#index'
+
+  # Rutas para ver y agregar gusto a un usuario
+  get 'users/gustos', to: 'vistas#show_user_gustos'
+  get 'user/gustos', to: 'vistas#add_user_gusto', as: :user_gusto
+  get 'user/gusto', to: 'vistas#delete_user_gusto', as: :eliminar_gusto
+
+  # Rutas para ver los comentarios de un local
+  get 'locals/comentarios', to: 'vistas#show_local_comentarios'
 
   # get '/ruta_nueva' => 'devise/template_nueva#new', :as => :new_user_registration_nombre
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

@@ -1,2 +1,25 @@
-<h1>Platos#edit</h1>
-<p>Find me in app/views/platos/edit.html.erb</p>
+<h1>Editar Comentario</h1>
+
+<%= form_with(model: @plato, url: plato_path(@plato.id), method: :patch) do |form| %>
+
+  <div class="field">
+    <%= form.label :nombre %> <br />
+    <%= form.text_field :nombre, autofocus: true, autocomplete: "nombre" %>
+  </div>
+
+  <div class='field'>
+    <%= form.label :descripcion %><br />
+    <%= form.text_area :descripcion, autofocus: true, autocomplete: "descripcion", :cols => 30, :rows => 10 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :precio %><br />
+    <%= form.number_field :precio, autofocus: true, autocomplete: "precio" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', gustos_path %>

@@ -5,6 +5,7 @@
       <w>acciones</w>
       <w>administrar</w>
       <w>afiliados</w>
+      <w>agregar</w>
       <w>apto</w>
       <w>authenticatable</w>
       <w>bienvenido</w>
@@ -22,11 +23,14 @@
       <w>condes</w>
       <w>confirmable</w>
       <w>contenido</w>
+      <w>contiene</w>
+      <w>controlador</w>
       <w>creacion</w>
       <w>creado</w>
       <w>crear</w>
       <w>dejar</w>
       <w>descripcion</w>
+      <w>disponibles</w>
       <w>edad</w>
       <w>editado</w>
       <w>editar</w>
@@ -48,15 +52,18 @@
       <w>inicio</w>
       <w>lascondes</w>
       <w>lista</w>
+      <w>metodos</w>
       <w>mujer</w>
       <w>musica</w>
       <w>nacimiento</w>
+      <w>necesarios</w>
       <w>nombre</w>
       <w>nuble</w>
       <w>nueva</w>
       <w>nuevo</w>
       <w>nuevos</w>
       <w>numeros</w>
+      <w>obtener</w>
       <w>ocurrió</w>
       <w>omniauth</w>
       <w>omniauthable</w>

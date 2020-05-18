@@ -107,6 +107,8 @@ ActiveRecord::Schema.define(version: 2020_05_18_043556) do
     t.integer "precio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "local_id"
+    t.index ["local_id"], name: "index_platos_on_local_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -132,5 +134,6 @@ ActiveRecord::Schema.define(version: 2020_05_18_043556) do
   add_foreign_key "comentarios", "locals"
   add_foreign_key "interactions", "users"
   add_foreign_key "locals", "comunas"
+  add_foreign_key "platos", "locals"
   add_foreign_key "users", "comunas"
 end

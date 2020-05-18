@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nombre])
     devise_parameter_sanitizer.permit(:sign_up, keys: [:telefono])
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:comuna])
+    # devise_parameter_sanitizer.permit(:sign_up, keys: [:comuna])
     devise_parameter_sanitizer.permit(:sign_up, keys: [:descripcion])
     devise_parameter_sanitizer.permit(:sign_up, keys: [:edad])
     devise_parameter_sanitizer.permit(:sign_up, keys: [:genero])
@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
 
   def update_permitted_parameters
     devise_parameter_sanitizer.permit(:account_update, keys: [:nombre])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:comuna])
+    # devise_parameter_sanitizer.permit(:account_update, keys: [:comuna])
     devise_parameter_sanitizer.permit(:account_update, keys: [:telefono])
     devise_parameter_sanitizer.permit(:account_update, keys: [:descripcion])
     devise_parameter_sanitizer.permit(:account_update, keys: [:edad])

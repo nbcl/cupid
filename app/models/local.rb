@@ -9,4 +9,5 @@ class Local < ApplicationRecord
   # belongs_to :comuna
   has_many :comentarios
   has_many :cita
+  has_many :platos
 end

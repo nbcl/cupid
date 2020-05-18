@@ -1,6 +1,6 @@
 <!--<p id="notice"><%#= notice %></p>-->
 
-<h1>Gustos disponibles</h1>
+<h1>Mis Gustos</h1>
 
 <table class="lista-gustos">
   <thead>
@@ -12,23 +12,18 @@
   </thead>
 
   <tbody>
-  <% @gustos.each do |gusto| %>
-    <% unless gusto.in?(current_user.gustos) %>
-      <tr>
+  <% current_user.gustos.each do |gusto| %>
+    <tr>
         <td style="padding:10px"><%=  gusto.nombre  %></td>
         <td style="padding:10px"><%=  gusto.descripcion  %></td>
-        <td style="padding:10px"><%=  link_to 'Ver', gusto_path(gusto.id)  %>
-          <%= link_to 'Agregar a mis gustos', user_gusto_path(gusto_id: gusto.id, user_id: current_user.id) %> </td>
-      </tr>
-    <% end %>
+        <td style="padding:10px"><%=  link_to 'Eliminar de Mis Gustos', eliminar_gusto_path(gusto_id: gusto.id, user_id: current_user.id) %></td>
+    </tr>
   <% end %>
   </tbody>
 </table>
 
 <br>
 
-<a href="/gustos/new">Crear Gusto</a>
-<br>
-<%#= link_to 'Back', :back %>
+<a href="/gustos">Agregar nuevos gustos</a>
 <br>
 <a href="/users/perfil?id=<%= current_user.id %>">Volver al Perfil</a>

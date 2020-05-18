@@ -30,7 +30,7 @@
 
 <!--  <div class="field">-->
 <!--    <%#= f.label :comuna %><br>-->
-    <%#= f.collection_select :comuna, Comuna.all, :itself, :nombre %>
+    <%#= f.select :comuna_id, Comuna.all.collect { |c|  [c.nombre, c.id] }, include_blank: true %>
 <!--  </div>-->
 
   <div class='field'>

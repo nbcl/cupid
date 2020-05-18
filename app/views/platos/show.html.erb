@@ -1,2 +1,27 @@
-<h1>Platos#show</h1>
-<p>Find me in app/views/platos/show.html.erb</p>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @plato.nombre%>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @plato.descripcion %>
+</p>
+
+<p>
+  <strong>Precio:</strong>
+  <%= @plato.precio %>
+</p>
+
+<p>
+  <strong>Local:</strong>
+  <%= @local.nombre %>
+</p>
+
+<% if local_signed_in? and @plato.local_id == current_local.id %>
+  <%= link_to 'Editar Plato', platos_edit_path(@plato.id) %>
+<% end %>
+<%= link_to 'Eliminar Plato', plato_path(@plato.id), method: :delete, alert: 'Estás seguro?' %>
+<%= link_to 'Volver al menu', locals_menu_path %>
