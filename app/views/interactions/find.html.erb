@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4"> DCCitas </h1>
+    <p class="lead">Bienvenido a DCCitas, <%= current_user.nombre %>!</p>
+</div>
+
+
+<div class="container">
+<% @users.each do |user| %>
+    <div class="row">
+        <div class="col-md-4 card" style='border:1px solid rgba(0,0,0,.125); margin-top: 5vh; padding-bottom: 3vh; padding-top: 3vh;'>
+            <div class="card mb-4 shadow-sm text-center">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal"></h4>
+                </div>
+                <img src="https://via.placeholder.com/150"/>
+                <div class="card-body">
+                    <h3 class="card-title pricing-card-title"> <%= user.nombre %></h3>
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li>Mi edad es <%= user.edad_numeros %> años.</li>
+                        <li>Vivo en la comuna 1<%= user.comuna_id %>.</li>
+                    </ul>
+                <%= link_to '❤️' , interactions_new_path(user.id) %>
+                <%= link_to '❌' , interactions_new_path(user.id) %>
+                </div>
+            </div>
+        </div>
+    </div>
+<% end %>
+</div>
+
+<!--- Esto servira cuando implementemos las comunas
+
+<% @connection = ActiveRecord::Base.connection %>
+<% result = @connection.exec_query('SELECT * FROM Interactions; ') %>
+<% result.each do |row| %>
+    <p><%= row['id'] %> </p>
+<%end%>
+-->
+
+<br>
+<br>
+<a href="/">Volver al Inicio</a>

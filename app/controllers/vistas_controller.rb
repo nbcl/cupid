@@ -62,4 +62,10 @@ class VistasController < ApplicationController
     @locals = Local.all
     render 'users/lista_locales'
   end
+
+  def show_user_users
+    @users = User.all
+    render 'interactions/find'
+    @test = ActiveRecord::Base.connection.execute("SELECT * FROM Interactions;").to_a
+  end
 end

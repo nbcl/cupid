@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'matches/create'
   get 'platos/new'
   get 'platos/index'
   get 'platos/show'
@@ -67,6 +68,16 @@ Rails.application.routes.draw do
 
   # Ruta para ver locales por usuario
   get 'users/locales', to: 'vistas#show_user_locals'
+
+  # Interactions
+  # Create
+  get 'interactions/new/:id', to: 'interactions#new', as: :interactions_new
+  post 'interactions/new/:id', to: 'interactions#create'
+  get 'interactions/find',  to: 'vistas#show_user_users'
+  
+   # Matches
+   # No get/post methods made for matches yet
+
 
   # get '/ruta_nueva' => 'devise/template_nueva#new', :as => :new_user_registration_nombre
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

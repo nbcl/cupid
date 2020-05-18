@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_16_192341) do
+ActiveRecord::Schema.define(version: 2020_05_18_043556) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,6 +68,15 @@ ActiveRecord::Schema.define(version: 2020_05_16_192341) do
     t.bigint "user_id", null: false
   end
 
+  create_table "interactions", force: :cascade do |t|
+    t.boolean "like"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.integer "user_id_destiny"
+    t.index ["user_id"], name: "index_interactions_on_user_id"
+  end
+
   create_table "locals", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -83,6 +92,13 @@ ActiveRecord::Schema.define(version: 2020_05_16_192341) do
     t.index ["comuna_id"], name: "index_locals_on_comuna_id"
     t.index ["email"], name: "index_locals_on_email", unique: true
     t.index ["reset_password_token"], name: "index_locals_on_reset_password_token", unique: true
+  end
+
+  create_table "matches", force: :cascade do |t|
+    t.integer "user_id1"
+    t.integer "user_id2"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "platos", force: :cascade do |t|
@@ -114,6 +130,7 @@ ActiveRecord::Schema.define(version: 2020_05_16_192341) do
 
   add_foreign_key "cita", "locals"
   add_foreign_key "comentarios", "locals"
+  add_foreign_key "interactions", "users"
   add_foreign_key "locals", "comunas"
   add_foreign_key "users", "comunas"
 end

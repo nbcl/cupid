@@ -1,6 +1,4 @@
 
-
-
 <% if user_signed_in? %>
   
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
@@ -20,7 +18,7 @@
                     <ul class="list-unstyled mt-3 mb-4">
                         <li>Busca entre todos los usuarios de DCCitas.</li>
                     </ul>
-                <a href="#"><button type="button" class="btn btn-lg btn-block btn-primary">Acceder</button></a>
+                <a href="<%= interactions_find_path %>"><button type="button" class="btn btn-lg btn-block btn-primary">Acceder</button></a>
                 </div>
             </div>
         </div>
