@@ -8,9 +8,13 @@
       <w>agregar</w>
       <w>apto</w>
       <w>authenticatable</w>
+      <w>años</w>
       <w>bienvenido</w>
+      <w>blanco</w>
       <w>busca</w>
       <w>buscar</w>
+      <w>busqueda</w>
+      <w>cambiar</w>
       <w>chicureo</w>
       <w>cita</w>
       <w>citas</w>
@@ -28,6 +32,7 @@
       <w>creacion</w>
       <w>creado</w>
       <w>crear</w>
+      <w>dccitas</w>
       <w>dejar</w>
       <w>descripcion</w>
       <w>disponibles</w>
@@ -45,6 +50,7 @@
       <w>estás</w>
       <w>fecha</w>
       <w>formulario</w>
+      <w>fullheight</w>
       <w>genero</w>
       <w>gustos</w>
       <w>hola</w>
@@ -52,10 +58,12 @@
       <w>inicio</w>
       <w>lascondes</w>
       <w>lista</w>
+      <w>mejor</w>
       <w>metodos</w>
       <w>mujer</w>
       <w>musica</w>
       <w>nacimiento</w>
+      <w>navbar</w>
       <w>necesarios</w>
       <w>nombre</w>
       <w>nuble</w>
@@ -68,6 +76,7 @@
       <w>omniauth</w>
       <w>omniauthable</w>
       <w>otro</w>
+      <w>pareja</w>
       <w>perfil</w>
       <w>perfiles</w>
       <w>platos</w>
@@ -82,18 +91,24 @@
       <w>ruta</w>
       <w>rutas</w>
       <w>seguro</w>
+      <w>seleccione</w>
+      <w>sitio</w>
       <w>sobre</w>
+      <w>tagline</w>
       <w>telefono</w>
       <w>timeoutable</w>
       <w>todos</w>
       <w>trackable</w>
+      <w>turbolinks</w>
       <w>unstyled</w>
       <w>usuario</w>
       <w>usuarios</w>
       <w>valoracion</w>
       <w>visita</w>
       <w>vitacura</w>
+      <w>vivo</w>
       <w>volver</w>
+      <w>widescreen</w>
       <w>éxito</w>
     </words>
   </dictionary>

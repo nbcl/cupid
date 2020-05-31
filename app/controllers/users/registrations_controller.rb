@@ -2,10 +2,8 @@
 
 # This controller allow the app to register new Instances of Model and delete them
 class Users::RegistrationsController < Devise::RegistrationsController
-  before_action :user_params, only: [:create]
+  before_action :configure_sign_up_params, only: [:new]
   before_action :configure_account_update_params, only: [:update]
-  before_action :obtener_comuna, only: [:update]
-  before_action :user_params, only: [:update]
   # GET /resource/sign_up
   def new
     super
@@ -13,14 +11,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    @user = User.create(user_params)
-    # puts user_params
-    # @user.comuna_id = user_params[:comuna_id]
-    if @user.save
-      redirect_to root_path, notice: 'Usuario creado con éxito'
-    else
-      redirect_to new_user_registration_path, notice: 'Ocurrió un error al crear el usuario.'
-    end
+    super
   end
 
   # GET /resource/edit
@@ -49,10 +40,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   protected
 
-  def obtener_comuna
-    @comuna = Comuna.find(comuna_params[:id])
-  end
-
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nombre])
@@ -77,10 +64,4 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super(resource)
   end
 
-  private
-
-  def user_params
-    params.require(:user).permit(:nombre, :edad,
-                                 :email, :telefono, :genero, :comuna_id) # and here
-  end
 end

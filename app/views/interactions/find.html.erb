@@ -1,37 +1,72 @@
-<p id="notice"><%= notice %></p>
-
-<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-    <h1 class="display-4"> DCCitas </h1>
-    <p class="lead">Bienvenido a DCCitas, <%= current_user.nombre %>!</p>
-</div>
-
-<div class="container">
-<% @users.each do |user| %>
-    <% if user.id != current_user.id%>
-    <div class="row">
-        <div class="col-md-4 card" style='border:1px solid rgba(0,0,0,.125); margin-top: 5vh; padding-bottom: 3vh; padding-top: 3vh;'>
-            <div class="card mb-4 shadow-sm text-center">
-                <div class="card-header">
-                    <h4 class="my-0 font-weight-normal"></h4>
-                </div>
-                <img class="rounded-circle" src="https://via.placeholder.com/150"/>
-                <div class="card-body">
-                    <h3 class="card-title pricing-card-title"> <%= user.nombre %></h3>
-                    <ul class="list-unstyled mt-3 mb-4">
-                        <li>Mi edad es <%= user.edad_numeros %> años.</li>
-                        <li>Vivo en la comuna 1<%= user.comuna_id %>.</li>
-                    </ul>
-                    <h1>
+<section class="hero is-fullheight is-danger">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title"> Busqueda </h1>
+      <% @users.each do |user| %>
+        <% if user.id != current_user.id%>
+          <div class="columns is-centered">
+            <div class="column is-4-desktop is-4-widescreen">
+              <div class="box">
+                <article class="media">
+                  <div class="media-left">
+                    <figure class="image is-150x150">
+                      <img class="rounded-circle" src="https://via.placeholder.com/150" alt=""/>
+                    </figure>
+                  </div>
+                  <div class="media-content">
+                    <div class="content">
+                      <h3 class="title" style="color: hsl(0, 0%, 21%)"> <%= user.nombre %></h3>
+                      <p>
+                        Mi edad es <%= user.edad_numeros %> años.
+                        Vivo en la comuna 1<%= user.comuna_id %>.
+                      </p>
+                    </div>
+                  </div>
+                </article>
+              </div>
+              <div class="columns is-centered">
+                <div class="column is-centered">
+                  <div class="box">
                     <%= link_to '❤️' , interactions_new_path(user.id) %>
-                    <%= link_to '❌' , interactions_new_path(user.id) %>
-                    </h1>
+                  </div>
                 </div>
+                <div class="column"></div>
+                <div class="column">
+                  <div class="box">
+                    <%= link_to '❌' , interactions_new_path(user.id) %>
+                  </div>
+                </div>
+
+              </div>
+
             </div>
-        </div>
+<!--            <div class="column is-5-tablet is-4-desktop is-4-widescreen">-->
+<!--              <div class="box is-centered">-->
+<!--                <img class="rounded-circle" src="https://via.placeholder.com/150" alt=""/>-->
+<!--                <h3 class="title" style="color: hsl(0, 0%, 21%)"> <%#= user.nombre %></h3>-->
+<!--                <div class="content">-->
+<!--                  <p>-->
+<!--                    Mi edad es <%#= user.edad_numeros %> años.-->
+<!--                    Vivo en la comuna 1<%#= user.comuna_id %>.-->
+<!--                  </p>-->
+<!--                </div>-->
+
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="column is-1-desktop is-1-widescreen">-->
+<!--              <div class="box">-->
+                <%#= link_to '❌' , interactions_new_path(user.id) %>
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="columns">-->
+
+
+          </div>
+        <% end %>
+      <% end %>
+      <a href="/" class="button is-warning">Volver al Inicio</a>
     </div>
-    <% end %>
-<% end %>
-</div>
 
 <!--- Esto servira cuando implementemos las comunas
 
@@ -42,6 +77,6 @@
 <%end%>
 -->
 
-<br>
-<br>
-<a href="/">Volver al Inicio</a>
+
+  </div>
+</section>

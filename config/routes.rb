@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get 'welcome', to: 'welcome#index'
   get 'welcome/hello', to: 'welcome#hello'
-  get 'users/perfil', to: 'vistas#show_user'
+  get 'users/perfil/:id', to: 'vistas#show_user', as: :user_perfil
   get 'locals/perfil', to: 'vistas#show_local'
 
   devise_scope :user do

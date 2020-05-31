@@ -25,14 +25,47 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6084fd8-bdfb-43da-ad8f-02fa1df0932c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/images/champagne.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/helpers/form_helper.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/rgaona.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/rgaona.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/grupo33-proyecto.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/grupo33-proyecto.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/locals/menu.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/locals/menu.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/users/registrations_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/users/registrations_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/comuna.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/comuna.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/admins/sessions/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admins/sessions/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/admins/shared/_links.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admins/shared/_links.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/comentarios/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/comentarios/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/gustos/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/gustos/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/gustos/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/gustos/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/gustos/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/gustos/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/interactions/find.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/interactions/find.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/locals/registrations/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/locals/registrations/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/locals/sessions/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/locals/sessions/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/locals/shared/_links.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/locals/shared/_links.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/users/lista_gustos.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/lista_gustos.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/users/lista_locales.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/lista_locales.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/users/perfil.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/perfil.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/users/registrations/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/registrations/edit.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/users/registrations/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/registrations/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/users/sessions/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/sessions/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/users/shared/_links.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/shared/_links.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/welcome/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/welcome/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Ruby File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -55,7 +88,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/assets/images" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -63,6 +96,11 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/assets/images" />
+    </key>
   </component>
   <component name="RunManager" selected="Rails.Development: grupo33-proyecto">
     <configuration name="Development: grupo33-proyecto" type="RailsRunConfigurationType" factoryName="Rails">
@@ -178,7 +216,16 @@
       <workItem from="1588544657499" duration="14933000" />
       <workItem from="1588952266819" duration="11228000" />
       <workItem from="1589819482443" duration="613000" />
-      <workItem from="1589823550125" duration="188000" />
+      <workItem from="1589823550125" duration="788000" />
+      <workItem from="1590097875577" duration="752000" />
+      <workItem from="1590232610289" duration="19095000" />
+      <workItem from="1590273571448" duration="4587000" />
+      <workItem from="1590321063331" duration="13417000" />
+      <workItem from="1590443934656" duration="628000" />
+      <workItem from="1590446868716" duration="1404000" />
+      <workItem from="1590609306066" duration="2489000" />
+      <workItem from="1590791578830" duration="3288000" />
+      <workItem from="1590959038860" duration="4511000" />
     </task>
     <servers />
   </component>
@@ -214,69 +261,73 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state width="482" height="646" key="DebuggerActiveHint/0.27.1920.1053@0.27.1920.1053" timestamp="1588975272469" />
-    <state width="1878" height="330" key="GridCell.Tab.0.bottom" timestamp="1588975382997">
+    <state width="1878" height="330" key="GridCell.Tab.0.bottom" timestamp="1590962715039">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1878" height="330" key="GridCell.Tab.0.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1588975382997" />
-    <state width="1878" height="330" key="GridCell.Tab.0.center" timestamp="1588975382997">
+    <state width="1878" height="330" key="GridCell.Tab.0.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1590962715039" />
+    <state width="1878" height="330" key="GridCell.Tab.0.center" timestamp="1590962715039">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1878" height="330" key="GridCell.Tab.0.center/0.27.1920.1053@0.27.1920.1053" timestamp="1588975382997" />
-    <state width="1878" height="330" key="GridCell.Tab.0.left" timestamp="1588975382996">
+    <state width="1878" height="330" key="GridCell.Tab.0.center/0.27.1920.1053@0.27.1920.1053" timestamp="1590962715039" />
+    <state width="1878" height="330" key="GridCell.Tab.0.left" timestamp="1590962715038">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1878" height="330" key="GridCell.Tab.0.left/0.27.1920.1053@0.27.1920.1053" timestamp="1588975382996" />
-    <state width="1878" height="330" key="GridCell.Tab.0.right" timestamp="1588975382997">
+    <state width="1878" height="330" key="GridCell.Tab.0.left/0.27.1920.1053@0.27.1920.1053" timestamp="1590962715038" />
+    <state width="1878" height="330" key="GridCell.Tab.0.right" timestamp="1590962715039">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1878" height="330" key="GridCell.Tab.0.right/0.27.1920.1053@0.27.1920.1053" timestamp="1588975382997" />
-    <state width="1878" height="330" key="GridCell.Tab.1.bottom" timestamp="1588975382998">
+    <state width="1878" height="330" key="GridCell.Tab.0.right/0.27.1920.1053@0.27.1920.1053" timestamp="1590962715039" />
+    <state width="1878" height="330" key="GridCell.Tab.1.bottom" timestamp="1590962715040">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1878" height="330" key="GridCell.Tab.1.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1588975382998" />
-    <state width="1878" height="330" key="GridCell.Tab.1.center" timestamp="1588975382998">
+    <state width="1878" height="330" key="GridCell.Tab.1.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1590962715040" />
+    <state width="1878" height="330" key="GridCell.Tab.1.center" timestamp="1590962715040">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1878" height="330" key="GridCell.Tab.1.center/0.27.1920.1053@0.27.1920.1053" timestamp="1588975382998" />
-    <state width="1878" height="330" key="GridCell.Tab.1.left" timestamp="1588975382997">
+    <state width="1878" height="330" key="GridCell.Tab.1.center/0.27.1920.1053@0.27.1920.1053" timestamp="1590962715040" />
+    <state width="1878" height="330" key="GridCell.Tab.1.left" timestamp="1590962715039">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1878" height="330" key="GridCell.Tab.1.left/0.27.1920.1053@0.27.1920.1053" timestamp="1588975382997" />
-    <state width="1878" height="330" key="GridCell.Tab.1.right" timestamp="1588975382998">
+    <state width="1878" height="330" key="GridCell.Tab.1.left/0.27.1920.1053@0.27.1920.1053" timestamp="1590962715039" />
+    <state width="1878" height="330" key="GridCell.Tab.1.right" timestamp="1590962715040">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1878" height="330" key="GridCell.Tab.1.right/0.27.1920.1053@0.27.1920.1053" timestamp="1588975382998" />
-    <state width="1878" height="330" key="GridCell.Tab.2.bottom" timestamp="1588975382999">
+    <state width="1878" height="330" key="GridCell.Tab.1.right/0.27.1920.1053@0.27.1920.1053" timestamp="1590962715040" />
+    <state width="1878" height="330" key="GridCell.Tab.2.bottom" timestamp="1590962715041">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1878" height="330" key="GridCell.Tab.2.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1588975382999" />
-    <state width="1878" height="330" key="GridCell.Tab.2.center" timestamp="1588975382998">
+    <state width="1878" height="330" key="GridCell.Tab.2.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1590962715041" />
+    <state width="1878" height="330" key="GridCell.Tab.2.center" timestamp="1590962715040">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1878" height="330" key="GridCell.Tab.2.center/0.27.1920.1053@0.27.1920.1053" timestamp="1588975382998" />
-    <state width="1878" height="330" key="GridCell.Tab.2.left" timestamp="1588975382998">
+    <state width="1878" height="330" key="GridCell.Tab.2.center/0.27.1920.1053@0.27.1920.1053" timestamp="1590962715040" />
+    <state width="1878" height="330" key="GridCell.Tab.2.left" timestamp="1590962715040">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1878" height="330" key="GridCell.Tab.2.left/0.27.1920.1053@0.27.1920.1053" timestamp="1588975382998" />
-    <state width="1878" height="330" key="GridCell.Tab.2.right" timestamp="1588975382999">
+    <state width="1878" height="330" key="GridCell.Tab.2.left/0.27.1920.1053@0.27.1920.1053" timestamp="1590962715040" />
+    <state width="1878" height="330" key="GridCell.Tab.2.right" timestamp="1590962715041">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1878" height="330" key="GridCell.Tab.2.right/0.27.1920.1053@0.27.1920.1053" timestamp="1588975382999" />
-    <state x="1505" y="173" width="992" height="737" key="SettingsEditor" timestamp="1588545002486">
-      <screen x="577" y="0" width="1920" height="1080" />
+    <state width="1878" height="330" key="GridCell.Tab.2.right/0.27.1920.1053@0.27.1920.1053" timestamp="1590962715041" />
+    <state x="464" y="188" width="992" height="737" key="SettingsEditor" timestamp="1590244523119">
+      <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="1505" y="173" key="SettingsEditor/0.1080.1920.1080/577.0.1920.1080@577.0.1920.1080" timestamp="1588545002486" />
-    <state x="464" y="188" width="992" height="737" key="SettingsEditor/0.27.1920.1053@0.27.1920.1053" timestamp="1588456730190" />
+    <state x="464" y="188" width="992" height="737" key="SettingsEditor/0.27.1920.1053@0.27.1920.1053" timestamp="1590244523119" />
+    <state width="960" height="526" key="XDebugger.FullValuePopup" timestamp="1590959431169">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state width="960" height="526" key="XDebugger.FullValuePopup/0.27.1920.1053@0.27.1920.1053" timestamp="1590959431169" />
     <state x="2084" y="456" width="413" height="175" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588561621745">
       <screen x="577" y="0" width="1920" height="1080" />
     </state>
     <state x="2084" y="456" width="413" height="175" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.1080.1920.1080/577.0.1920.1080@577.0.1920.1080" timestamp="1588561621745" />
-    <state x="623" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1588979113852">
+    <state x="623" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1590249536304">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="623" y="259" width="672" height="678" key="search.everywhere.popup/0.27.1920.1053@0.27.1920.1053" timestamp="1588979113852" />
+    <state x="623" y="259" width="672" height="678" key="search.everywhere.popup/0.27.1920.1053@0.27.1920.1053" timestamp="1590249536304" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/grupo33_proyecto@Development__grupo33_proyecto.rcov" NAME="Development: grupo33-proyecto Coverage Results" MODIFIED="1588974669594" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="grupo33-proyecto" />
+    <SUITE FILE_PATH="coverage/grupo33_proyecto@Development__grupo33_proyecto.rcov" NAME="Development: grupo33-proyecto Coverage Results" MODIFIED="1590960428235" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="grupo33-proyecto" />
   </component>
 </project>

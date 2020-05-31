@@ -12,12 +12,12 @@
     <%= form.text_area :contenido, autofocus: true, autocomplete: "contenido", :cols => 30, :rows => 10 %>
   </div>
 
-  <div>
+  <div class="is-invisible">
     <%= form.label :local %> <br />
     <%= form.number_field :local_id, autofocus: true, autocomplete: "local_id", value: @local.id %>
   </div>
 
-  <div>
+  <div class="is-invisible">
     <%= form.label :user %> <br />
     <%= form.number_field :user_id, autofocus: true, autocomplete: "user_id", value: current_user.id %>
   </div>
