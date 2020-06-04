@@ -48,6 +48,21 @@
               </div>
             </div>
 
+            <div class="field" style="margin-top: 5vh; padding-left: 2vh;">
+                <div class="columns">
+                    <% if resource.avatar.attached? %>
+                    <figure>
+                        <%= image_tag resource.avatar, class: 'image is-128x128 is-rounded' %>
+                    </figure>
+                    <% else %>
+                        <p>No tienes una imagen aun!</p>
+                    <% end %>
+                    <div class="column">
+                        <%= f.file_field :avatar, class: " input is-danger" %>
+                    </div>
+                </div>
+            </div>
+            
             <div>
               <%= f.label :genero, class: 'label' %>
               <div class="control has-icons-left">
@@ -117,8 +132,8 @@
             </div>
 
             <div class="field">
-              <%= f.submit "Update" , class: "button is-warning"%>
-              <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "button is-danger" %>
+              <%= f.submit "Update" , class: "button is-warning" %>
+              <!--%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "button is-danger" %>-->
               <%= link_to "Back", :back , class: "button is-secondary"%>
             </div>
           <% end %>

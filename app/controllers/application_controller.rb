@@ -24,5 +24,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:descripcion])
     devise_parameter_sanitizer.permit(:account_update, keys: [:edad])
     devise_parameter_sanitizer.permit(:account_update, keys: [:genero])
+    # Devise Accepts Avatar when Updating Parameters
+    devise_parameter_sanitizer.permit(:account_update, keys: [:avatar])
   end
 end

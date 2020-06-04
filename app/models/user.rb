@@ -23,6 +23,9 @@ class User < ApplicationRecord
   validates :telefono, presence: true
   validates :genero, presence: true
 
+  # Avatar Porfile Picture
+  has_one_attached :avatar
+
   def nombre
     self[:nombre]
   end

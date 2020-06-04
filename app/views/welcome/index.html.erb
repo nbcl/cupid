@@ -19,6 +19,14 @@
         <div class="navbar-end">
         <div class="navbar-item has-dropdown is-hoverable" style="background-color: hsl(348, 100%, 61%)">
           <div class="navbar-link" style="background-color: hsl(348, 100%, 61%)">
+            <% if current_user.avatar.attached? %>
+              <figure class="image is-32x32" style="margin-right: 1vh;">
+                <%= image_tag current_user.avatar, class: 'is-rounded' %>
+              </figure>
+            <% else %>
+              <img class="is-rounded" src="https://via.placeholder.com/32" alt="" style="margin-right: 1vh;"/>
+            <% end %>
+
             <%= current_user.nombre %>
           </div>
           <div class="navbar-dropdown" style="background-color: hsl(348, 100%, 61%)">
