@@ -92,4 +92,6 @@ class VistasController < ApplicationController
     @user.gustos.delete(@gusto)
     render 'users/lista_gustos'
   end
+
+  
 end

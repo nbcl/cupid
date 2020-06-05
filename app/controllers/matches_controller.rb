@@ -1,9 +1,28 @@
 class MatchesController < ApplicationController
-  def create
-    match_params = params.permit(:user_id1, :user_id2)
-    @match = Interaction.create(match_params)
+#  def create
+#    match_params = params.permit(:user_id1, :user_id2)
+#    @match = Interaction.create(match_params)
+#  end
+
+  def new
+    @match = Match.new
   end
 
+  def create
+    match_params = params.require(match).params.permit(:user_id1, :user_id2)
+    @match = Match.create(match_params)
+  end
+
+  def index
+    @matches = Match.all
+  end
+
+  def show
+    @matches = Match.all
+    render 'matches/find'
+  end
+
+<<<<<<< Updated upstream
   def index
     @matches = Match.all
   end
@@ -11,4 +30,6 @@ class MatchesController < ApplicationController
   def show
     render '/matches'
   end
+=======
+>>>>>>> Stashed changes
 end

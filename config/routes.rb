@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :invitations
   get 'matches/create'
   devise_for :admins, controllers: { sessions: 'admins/sessions' }
   devise_for :users, controllers: { sessions: 'users/sessions', registration: 'users/registrations' }
@@ -89,12 +90,23 @@ Rails.application.routes.draw do
   post 'interactions/new/:id', to: 'interactions#create'
   get 'interactions/find',  to: 'vistas#show_user_users'
   
+<<<<<<< Updated upstream
    # Matches
+=======
+  # Matches
+  # rutas anidadas, solo se entra a la cita desde los match
+>>>>>>> Stashed changes
   resources :matches do
     resources :invitations do
       resources :cita
     end
   end
+<<<<<<< Updated upstream
+=======
+
+  #invitaciones 
+  resources :invitations
+>>>>>>> Stashed changes
 
   # Ruta para ver el menu de un local
   get 'locals/menu', to: 'platos#index'
