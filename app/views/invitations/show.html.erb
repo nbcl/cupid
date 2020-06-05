@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User invita:</strong>
+  <%= @invitation.user_invita %>
+</p>
+
+<p>
+  <strong>User invitado:</strong>
+  <%= @invitation.user_invitado %>
+</p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @invitation.fecha %>
+</p>
+
+<p>
+  <strong>Local:</strong>
+  <%= @invitation.local_id %>
+</p>
+
+<p>
+  <strong>Confirma:</strong>
+  <%= @invitation.confirma %>
+</p>
+
+<%= link_to 'Edit', edit_invitation_path(@invitation) %> |
+<%= link_to 'Back', invitations_path %>

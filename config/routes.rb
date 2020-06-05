@@ -90,7 +90,11 @@ Rails.application.routes.draw do
   get 'interactions/find',  to: 'vistas#show_user_users'
   
    # Matches
-   # No get/post methods made for matches yet
+  resources :matches do
+    resources :invitations do
+      resources :cita
+    end
+  end
 
   # Ruta para ver el menu de un local
   get 'locals/menu', to: 'platos#index'

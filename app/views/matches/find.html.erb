@@ -1,0 +1,138 @@
+<section class="hero is-fullheight is-danger">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title"> Lista de matches </h1>
+      <% @matches.each do |user_match| %>
+        <% if user_match.user_id1 == current_user.id  %> 
+          <div class="columns is-centered">
+            <div class="column is-4-desktop is-4-widescreen">
+              <div class="box">
+                <article class="media">
+                  <div class="media-left">
+                    <figure class="image is-150x150">
+                      <img class="rounded-circle" src="https://via.placeholder.com/150" alt=""/>
+                    </figure>
+                  </div>
+                  <div class="media-content">
+                    <div class="content">
+                      <h3 class="title" style="color: hsl(0, 0%, 21%)"> <%= User.find_by(id: user_match.user_id2).nombre %></h3>
+                      <p>
+                        Mi edad es <%= User.find_by(id: user_match.user_id2).edad_numeros %> años.
+                        
+                        Vivo en la comuna 1<%= User.find_by(id: user_match.user_id2).comuna_id %>.
+                      </p>
+                    </div>
+                  </div>
+                </article>
+              </div>
+              <div class="columns is-centered">
+                <div class="column is-centered">
+                  <div class="box">
+                    <%= link_to 'Invitar a una cita ❤️' , new_invitation_path(user_match) %>
+                  </div>
+                </div>
+                <div class="column"></div>
+
+              </div>
+
+            </div>
+<!--            <div class="column is-5-tablet is-4-desktop is-4-widescreen">-->
+<!--              <div class="box is-centered">-->
+<!--                <img class="rounded-circle" src="https://via.placeholder.com/150" alt=""/>-->
+<!--                <h3 class="title" style="color: hsl(0, 0%, 21%)"> <%#= user.nombre %></h3>-->
+<!--                <div class="content">-->
+<!--                  <p>-->
+<!--                    Mi edad es <%#= user.edad_numeros %> años.-->
+<!--                    Vivo en la comuna 1<%#= user.comuna_id %>.-->
+<!--                  </p>-->
+<!--                </div>-->
+
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="column is-1-desktop is-1-widescreen">-->
+<!--              <div class="box">-->
+                <%#= link_to '❌' , interactions_new_path(user.id) %>
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="columns">-->
+
+
+          </div>
+        <% end %>
+
+    <% if user_match.user_id2 == current_user.id %> 
+          <div class="columns is-centered">
+            <div class="column is-4-desktop is-4-widescreen">
+              <div class="box">
+                <article class="media">
+                  <div class="media-left">
+                    <figure class="image is-150x150">
+                      <img class="rounded-circle" src="https://via.placeholder.com/150" alt=""/>
+                    </figure>
+                  </div>
+                  <div class="media-content">
+                    <div class="content">
+                      <h3 class="title" style="color: hsl(0, 0%, 21%)"> <%= User.find_by(id: user_match.user_id1).nombre %></h3>
+                      <p>
+                        Mi edad es <%= User.find_by(id: user_match.user_id1).edad_numeros %> años.
+                        
+                        Vivo en la comuna 1<%= User.find_by(id: user_match.user_id1).comuna_id %>.
+                      </p>
+                    </div>
+                  </div>
+                </article>
+              </div>
+              <div class="columns is-centered">
+                <div class="column is-centered">
+                  <div class="box">
+                    <%= link_to 'Invitar a una cita ❤️' , new_invitation_path(user_match) %>
+                  </div>
+                </div>
+                <div class="column"></div>
+
+              </div>
+
+            </div>
+<!--            <div class="column is-5-tablet is-4-desktop is-4-widescreen">-->
+<!--              <div class="box is-centered">-->
+<!--                <img class="rounded-circle" src="https://via.placeholder.com/150" alt=""/>-->
+<!--                <h3 class="title" style="color: hsl(0, 0%, 21%)"> <%#= user.nombre %></h3>-->
+<!--                <div class="content">-->
+<!--                  <p>-->
+<!--                    Mi edad es <%#= user.edad_numeros %> años.-->
+<!--                    Vivo en la comuna 1<%#= user.comuna_id %>.-->
+<!--                  </p>-->
+<!--                </div>-->
+
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="column is-1-desktop is-1-widescreen">-->
+<!--              <div class="box">-->
+                <%#= link_to '❌' , interactions_new_path(user.id) %>
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="columns">-->
+
+
+          </div>
+        <% end %>
+      <% end %>
+      <a href="<%= users_locales_path %>" class="button is-warning">Buscar local para cita</a>
+      <a href="/" class="button is-warning">Volver al Inicio</a>
+
+    </div>
+
+<!--- Esto servira cuando implementemos las comunas
+
+<% @connection = ActiveRecord::Base.connection %>
+<% result = @connection.exec_query('SELECT * FROM Interactions; ') %>
+<% result.each do |row| %>
+    <p><%= row['id'] %> </p>
+<%end%>
+-->
+
+
+  </div>
+</section>

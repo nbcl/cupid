@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_invita: 
+  user_invitado: 
+  fecha: 2020-06-05
+  local_id: 
+  confirma: false
+
+two:
+  user_invita: 
+  user_invitado: 
+  fecha: 2020-06-05
+  local_id: 
+  confirma: false

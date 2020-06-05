@@ -1,0 +1,48 @@
+<%= form_with(model: invitation, local: true) do |form| %>
+  <% if invitation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(invitation.errors.count, "error") %> prohibited this invitation from being saved:</h2>
+
+      <ul>
+      <% invitation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :user_invita %>
+    <%= form.number_field :user_invita, autofocus: true, autocomplete: "invita", value: current_user.id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_invitado %>
+    <%= form.number_field :user_invitado, autofocus: true, autocomplete: "invitado", value: "2" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fecha %>
+    <%= form.date_select :fecha %>
+  </div>
+
+  <div class="field">
+    <%= form.label :local_id, class: 'label' %>
+    <div class="control has-icons-left">
+      <div class="select is-danger">
+        <%= form.select :local, %w{1 2 3}, :prompt => 'Select', required: true,
+                    placeholder: 'Local', class: 'form-control' %>
+      </div>
+      
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :confirma %>
+    <%= form.check_box :confirma %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
