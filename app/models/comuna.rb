@@ -2,5 +2,5 @@
 
 class Comuna < ApplicationRecord
   has_many :users
-  # has_many :locals
+  has_many :locals
 end

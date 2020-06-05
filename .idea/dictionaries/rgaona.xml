@@ -35,7 +35,9 @@
       <w>dccitas</w>
       <w>dejar</w>
       <w>descripcion</w>
+      <w>destino</w>
       <w>disponibles</w>
+      <w>donde</w>
       <w>edad</w>
       <w>editado</w>
       <w>editar</w>
@@ -54,10 +56,12 @@
       <w>genero</w>
       <w>gustos</w>
       <w>hola</w>
+      <w>hoverable</w>
       <w>informacion</w>
       <w>inicio</w>
       <w>lascondes</w>
       <w>lista</w>
+      <w>marginless</w>
       <w>mejor</w>
       <w>metodos</w>
       <w>mujer</w>
@@ -106,6 +110,7 @@
       <w>valoracion</w>
       <w>visita</w>
       <w>vitacura</w>
+      <w>vive</w>
       <w>vivo</w>
       <w>volver</w>
       <w>widescreen</w>

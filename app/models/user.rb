@@ -11,9 +11,7 @@ class User < ApplicationRecord
 
   has_many :comentarios
   has_many :interactions
-  # has_one :comuna
-  # belongs_to :comuna
-  # accepts_nested_attributes_for :comuna
+  belongs_to :comuna
   has_many :primary_cita, class_name: 'Citum', foreign_key: 'user_1_id'
   has_many :secondary_cita, class_name: 'Citum', foreign_key: 'user_2_id'
   has_and_belongs_to_many :gustos

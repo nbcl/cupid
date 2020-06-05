@@ -4,6 +4,7 @@
 class VistasController < ApplicationController
   def show_user
     @user = User.find(params[:id])
+    @comuna = Comuna.find(@user.comuna_id)
     render 'users/perfil'
   end
 

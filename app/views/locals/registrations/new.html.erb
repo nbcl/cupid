@@ -21,20 +21,27 @@
               <%= f.label :email, class: 'label' %>
               <div class="control has-icons-left">
                 <%= f.email_field :email, autofocus: true, autocomplete: "email", class: " input is-danger",
-                                  type: "email", placeholder: "e.g. user@gmail.com"%>
+                                  type: "email", placeholder: "e.g. user@gmail.com" %>
                 <span class="icon is-small is-left">
                     <i class="fa fa-envelope"></i>
                   </span>
               </div>
             </div>
 
-          <!--  <div class='field'>-->
-          <!--    <%#= f.label :comuna%><br />-->
-              <%#= f.text_field :comuna, autofocus: true, autocomplete: "comuna"%>
-          <!--  </div>-->
+            <div class="field">
+              <label for="comuna_id" class="label">Seleccione una comuna:</label>
+              <div class="control has-icons-left">
+                <div class="select is-danger">
+                  <%= f.select(:comuna_id, Comuna.all.collect { |p| [p.nombre, p.id] }, {include_blank: false}) %>
+                </div>
+                <div class="icon is-left">
+                  <i class="fa fa-map-marker"></i>
+                </div>
+              </div>
+            </div>
 
             <div class='field'>
-              <%= f.label :descripcion, class: 'label'%>
+              <%= f.label :descripcion, class: 'label' %>
               <div class="control">
                 <%= f.text_area :descripcion, autofocus: true, autocomplete: "descripcion", :cols => 30, :rows => 10,
                                 class: "textarea is-small is-danger" %>

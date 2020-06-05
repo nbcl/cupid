@@ -62,18 +62,19 @@
               </div>
             </div>
 
+
+<!--            <div class="field">-->
+<!--              <%#= f.label :comuna %> <br />-->
+              <%#= f.number_field :comuna_id, autofocus: true, autocomplete: "comuna_id", value: @comuna.id %>
+<!--            </div>-->
+
             <div class="field">
               <label for="comuna_id" class="label">Seleccione una comuna:</label>
               <div class="control has-icons-left">
                 <div class="select is-danger">
+                  <%#= f.number_field  %>
                   <%= f.select(:comuna_id, Comuna.all.collect { |p| [p.nombre, p.id] }, {include_blank: true}) %>
                   <%#= f.collection_select :comuna_id, Comuna.all, :id, :nombre, prompt: true, class: "form-control" %>
-                  <!--                <div class="control has-icons-left">-->
-                  <!--                  <div class="select is-danger">-->
-                  <%#= f.select :comuna_id, Comuna.all.collect { |c|  [c.nombre, c.id] }, include_blank: true,-->
-                                  class: "form-control" %>
-                  <!--                  </div>-->
-                  <!--                </div>-->
                 </div>
                 <div class="icon is-left">
                   <i class="fa fa-map-marker"></i>

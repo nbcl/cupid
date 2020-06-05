@@ -3,33 +3,46 @@
     <div class="container">
       <div class="columns is-centered">
         <div class="column is-5-tablet is-4-desktop is-4-widescreen">
-          <div class="box">
-            <div class="control has-icons-left">
-              <% if current_user.avatar.attached? %>
-                <figure class="image is-64x64" style="margin-right: 1vh;">
-                  <%= image_tag current_user.avatar, class: '' %>
-                </figure>
-                <p class="title" style="color: hsl(0, 0%, 21%); margin-top: 4vh;"><%= current_user.nombre %></p>
-              <% else %>              
+          <div class="card">
+            <div class="card-image">
 
-                <img class="is-rounded" src="https://via.placeholder.com/64" alt="" style=""/>
-                <p class="title" style="color: hsl(0, 0%, 21%); margin-top: 4vh;"><%= current_user.nombre %></p>
-              <% end %>
+
+            <% if current_user.avatar.attached? %>
+              <figure class="image is-4by3">
+                <%= image_tag current_user.avatar, class: '' %>
+              </figure>
+              <p class="title" style="color: hsl(0, 0%, 21%); margin-top: 4vh;"><%= current_user.nombre %></p>
+            <% else %>
+              <figure class="image is-4by3">
+                <img class="" src="https://bulma.io/images/placeholders/1280x960.png" alt="" style=""/>
+              </figure>
+            <% end %>
             </div>
-            <ul >
-              <li></li>
-              <li> Email: <%= current_user.email %> </li>
-              <li> Fecha de Nacimiento: <%= current_user.edad %> </li>
-              <li> Genero: <%= current_user.genero %> </li>
-              <li> Comuna: <%#= current_user.comuna %> </li>
-              <li> Telefono: <%= current_user.telefono %> </li>
-              <li> Descripcion: <%= current_user.descripcion %> </li>
-            </ul>
-            <br>
-            <a href="/users/edit" class="button is-info">Editar</a>
-            <a href="/users/gustos" class="button is-warning">Ver mis gustos</a>
-            <a href="/" class="button is-secondary">Home</a>
-            <%= button_to "Cancel my account", registration_path(current_user), data: { confirm: "Are you sure?" }, method: :delete, class: "button is-danger" %>
+            <div class="card-content">
+              <div class="media">
+                <div class="media-content">
+                  <p class="title is-marginless" style="color: hsl(0, 0%, 21%); margin-top: 4vh;"><%= current_user.nombre %></p>
+                </div>
+              </div>
+              <ul>
+                <li></li>
+                <li> <strong>Email:</strong> <%= current_user.email %> </li>
+                <li> <strong>Fecha de Nacimiento: </strong> <%= current_user.edad %> </li>
+                <li> <strong>Genero:</strong> <%= current_user.genero %> </li>
+                <li> <strong>Comuna:</strong> <%= @comuna.nombre %> </li>
+                <li> <strong>Telefono:</strong> <%= current_user.telefono %> </li>
+                <li> <strong>Descripcion:</strong> <%= current_user.descripcion %> </li>
+              </ul>
+              <br>
+              <div class="buttons">
+
+                <a href="/users/edit" class="button is-info">Editar</a>
+                <a href="/users/gustos" class="button is-warning">Ver mis gustos</a>
+                <a href="/" class="button is-secondary">Home</a>
+                <%= button_to "Cancel my account", registration_path(current_user), data: {confirm: "Are you sure?"}, method: :delete, class: "button is-danger" %>
+
+              </div>
+            </div>
           </div>
         </div>
       </div>

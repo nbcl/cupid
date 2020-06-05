@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   devise_for :locals, controllers: { sessions: 'locals/sessions', registration: 'locals/registrations' }
   root 'welcome#index'
   get 'welcome', to: 'welcome#index'
+  get 'users/comuna', to: 'welcome#comuna'
   get 'welcome/hello', to: 'welcome#hello'
   get 'users/perfil/:id', to: 'vistas#show_user', as: :user_perfil
   get 'locals/perfil', to: 'vistas#show_local'
@@ -24,6 +25,7 @@ Rails.application.routes.draw do
     get '/admins/sign_out' => 'devise/sessions#destroy'
   end
 
+  get 'users/sign_up/:id', to: 'users/registrations#new', as: :new_user
   # Rutas del CRUD Gusto
   # Create
   get 'gustos/new', to: 'gustos#new', as: :gustos_new

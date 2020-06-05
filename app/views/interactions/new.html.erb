@@ -1,71 +1,89 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-5 card" style='border:1px solid rgba(0,0,0,.125); margin-top: 5vh; padding-bottom: 3vh; padding-top: 3vh;'>
-            <div class="card mb-4 shadow-sm text-center">
-                <div class="card-header">
-                    <h4 class="my-0 font-weight-normal"></h4>
-                </div>
-                    <% if @destino.avatar.attached? %>
-                        <figure class="image is-128x128">
-                            <%= image_tag @destino.avatar, class: 'image is-128x128 is-rounded' %>
-                        </figure>
-                    <% else %>
-                        <figure class="image is-128x128">
-                            <img class="rounded-circle" src="https://via.placeholder.com/128" alt=""/>
-                        </figure>
-                    <% end %>
-                <div class="card-body">
-                    <h3 class="card-title pricing-card-title"> <%= @destino.nombre %></h3>
-                    <ul class="list-unstyled mt-3 mb-4;" >
-                        <li>Mi edad es <%= @destino.edad_numeros %> años.</li>
-                        <li>Vivo en la comuna <%= @destino.comuna_id %>.</li>
-                        <li><%= @destino.descripcion %> Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer 
-                        took a galley of type and scrambled it to make a type specimen book. </li>
-                    </ul>
-                    
-                    <%= form_with(model: @Interaction, method: :post) do |form| %>
-                        <div class="field">
-                            <%= check_box_tag(:like) %>
-                            <%= label_tag(:like, "❤️") %>
-                        </div>
+<section class="hero is-fullheight is-danger">
+  <div class="hero-body">
+    <div class="columns is-centered">
+      <div class="column is-4-widescreen is-5-desktop">
 
-                        <div class="actions">
-                            <%= form.submit 'Confirmar' %>
-                        </div>
+        <div class="card">
+          <div class="card-content">
 
-                        <div class="">
-                            <%= link_to 'Back', interactions_find_path %>
-                        </div>
-                        
-                        <div class="invisible">
-                            <%= form.label :user %> <br />
-                            <%= form.number_field :user_id, autofocus: true, autocomplete: "user_id", value: current_user.id %>
-                        </div>
 
-                        <div class="invisible">
-                            <%= form.number_field :user_id_destiny, autofocus: true, autocomplete: "user_id_destiny", value: @destino.id %>
-                        </div>
-                    <% end %>
-                </div>
+            <div class="media">
+              <div class="media-left">
+
+
+                <% if @destino.avatar.attached? %>
+                  <figure class="image is-128x128">
+                    <%= image_tag @destino.avatar, class: '' %>
+                  </figure>
+                <% else %>
+                  <figure class="image">
+                    <img class="" src="https://bulma.io/images/placeholders/256x256.png" alt=""/>
+                  </figure>
+                <% end %>
+              </div>
+              <div class="media-content">
+
+                <h3 class="title" style="color: hsl(0, 0%, 21%); margin-top: 4vh;"> <%= @destino.nombre %></h3>
+                <p class="heading">
+                  <strong>Edad</strong>
+                </p>
+                <p class="content">Mi edad es <%= @destino.edad_numeros %> años.</p>
+                <p class="heading">
+                  <strong>Comuna</strong>
+                </p>
+                <p class="content">Vivo en la comuna <%= @destino.comuna_id %>.</p>
+              </div>
             </div>
-        </div>
-    </div>
-</div>
+            <div class="content">
 
-<!-- El siguiente codigo realiza la llamada a las interaciones y crea un Match si existe Like de ambos lados -->
-<% @likesme = ActiveRecord::Base.connection %>
-<% result = @likesme.exec_query('SELECT * FROM Interactions WHERE user_id ='+ @destino.id.to_s+';') %>
-<% result.each do |row| %>
-    <% 
-    if row['user_id_destiny'] == current_user.id and row['like'] 
+              <p class="heading"><strong>Descripcion</strong></p>
+              <p><%= @destino.descripcion %> Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer
+                took a galley of type and scrambled it to make a type specimen book.</p>
+
+              <br>
+              <%= form_with(model: @Interaction, method: :post, html: {class: "has-text-centered"}) do |form| %>
+                <div class="field">
+                  <%= check_box_tag(:like) %>
+                  <%= label_tag(:like, "❤️") %>
+                </div>
+
+                <div class="actions">
+                  <%= form.submit 'Confirmar', class: "button is-warning" %>
+                  <%= link_to 'Back', interactions_find_path, class: "button is-secondary" %>
+                </div>
+
+
+                <div class="invisible">
+                  <%= form.label :user %> <br/>
+                  <%= form.number_field :user_id, autofocus: true, autocomplete: "user_id", value: current_user.id %>
+                </div>
+
+                <div class="invisible">
+                  <%= form.number_field :user_id_destiny, autofocus: true, autocomplete: "user_id_destiny", value: @destino.id %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- El siguiente codigo realiza la llamada a las interaciones y crea un Match si existe Like de ambos lados -->
+  <% @likesme = ActiveRecord::Base.connection %>
+  <% result = @likesme.exec_query('SELECT * FROM Interactions WHERE user_id =' + @destino.id.to_s + ';') %>
+  <% result.each do |row| %>
+    <%
+      if row['user_id_destiny'] == current_user.id and row['like']
         @likesmeback = ActiveRecord::Base.connection
-        resultback = @likesmeback.exec_query('SELECT * FROM Interactions WHERE user_id ='+ current_user.id.to_s+';')
+        resultback = @likesmeback.exec_query('SELECT * FROM Interactions WHERE user_id =' + current_user.id.to_s + ';')
         resultback.each do |row2|
-            if row2['user_id_destiny'] == @destino.id and row2['like']
-                Match.where(user_id1: @destino.id, user_id2: current_user.id).first_or_initialize.save
-            end
+          if row2['user_id_destiny'] == @destino.id and row2['like']
+            Match.where(user_id1: @destino.id, user_id2: current_user.id).first_or_initialize.save
+          end
         end
-    end
+      end
     %>
-<%end%>
+  <% end %>
+</section>
