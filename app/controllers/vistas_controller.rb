@@ -4,6 +4,7 @@
 class VistasController < ApplicationController
   def show_user
     @user = User.find(params[:id])
+    @comuna = Comuna.find(@user.comuna_id)
     render 'users/perfil'
   end
 
@@ -62,4 +63,35 @@ class VistasController < ApplicationController
     @locals = Local.all
     render 'users/lista_locales'
   end
+
+  def show_user_users
+    @users = User.all
+    render 'interactions/find'
+    @test = ActiveRecord::Base.connection.execute("SELECT * FROM Interactions;").to_a
+  end
+
+  def show_user_gustos
+    render 'users/lista_gustos'
+  end
+
+  def add_user_gusto
+    @gusto = Gusto.find(params[:gusto_id])
+    @user = User.find(params[:user_id])
+    @user.gustos << @gusto
+    render 'users/lista_gustos'
+  end
+
+  def show_local_comentarios
+    @comentarios = Comentario.all
+    render 'locals/lista_comentarios'
+  end
+
+  def delete_user_gusto
+    @gusto = Gusto.find(params[:gusto_id])
+    @user = User.find(params[:user_id])
+    @user.gustos.delete(@gusto)
+    render 'users/lista_gustos'
+  end
+
+  
 end

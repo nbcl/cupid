@@ -1,19 +1,31 @@
-<h1>Nuevo Gusto</h1>
+<section class="hero is-danger is-fullheight">
+  <div class="hero-body">
+    <div class="container">
+      <div class="box">
+
+
+<h1 class="title" style="color:  hsl(0, 0%, 21%)">Nuevo Gusto</h1>
 
 <%= form_with(model: @gusto, method: :post) do |form| %>
   <div class="field">
-    <%= form.label :nombre %>
-    <%= form.text_field :nombre %>
+    <%= form.label :nombre, class: "label" %>
+    <%= form.text_field :nombre, class: "input" %>
   </div>
 
   <div class="field">
-    <%= form.label :descripcion %>
-    <%= form.text_field :descripcion %>
+    <%= form.label :descripcion, class: "label" %>
+    <%= form.text_area :descripcion, class: "textarea is-small" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="field">
+    <%= form.submit "Crear Gusto", class: "button is-warning" %>
+    <%= link_to 'Volver', gustos_path, class: "button is-secondary" %>
   </div>
 <% end %>
 
-<%= link_to 'Back', gustos_path %>
+
+
+      </div>
+    </div>
+  </div>
+</section>

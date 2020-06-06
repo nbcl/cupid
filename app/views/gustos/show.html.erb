@@ -1,15 +1,21 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Nombre:</strong>
-  <%= @gusto.nombre %>
-</p>
-
-<p>
-  <strong>Descripcion:</strong>
-  <%= @gusto.descripcion %>
-</p>
-
-<%= link_to 'Editar Gusto', gustos_edit_path(@gusto.id) %>
-<%= link_to 'Eliminar Gusto', gusto_path(@gusto.id), method: :delete, alert: 'Estás seguro?' %>
-<%= link_to 'Lista Gustos', gustos_path %>
+<section class="hero is-fullheight is-danger">
+  <div class="hero-body">
+    <div class="container">
+      <div class="box">
+        <p id="notice"><%= notice %></p>
+        <p class="title" style="color:  hsl(0, 0%, 29%)">
+          <strong>Nombre:</strong>
+          <%= @gusto.nombre %>
+        </p>
+        <p class="title" style="color:  hsl(0, 0%, 29%)">
+          <strong>Descripcion:</strong>
+          <%= @gusto.descripcion %>
+        </p>
+        <%= link_to 'Editar Gusto', gustos_edit_path(@gusto.id), class: "button is-warning" %>
+        <%= link_to 'Eliminar Gusto', gusto_path(@gusto.id), method: :delete, alert: 'Estás seguro?',
+                    class: "button is-danger" %>
+        <%= link_to 'Lista Gustos', gustos_path, class: "button is-secondary" %>
+      </div>
+    </div>
+  </div>
+</section>

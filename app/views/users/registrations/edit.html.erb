@@ -1,74 +1,151 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<section class="hero is-danger is-fullheight">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-5-tablet is-4-desktop is-5-widescreen">
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "box", method: :put}) do |f| %>
+            <%= render "devise/shared/error_messages", resource: resource %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+            <div class="field">
+              <%= f.label :nombre, class: 'label' %>
+              <div class="control has-icons-left">
+                <%= f.text_field :nombre, autofocus: true, autocomplete: "nombre", class: " input is-danger" %>
+                <span class="icon is-small is-left">
+                    <i class="fa fa-user"></i>
+                  </span>
+              </div>
+            </div>
 
-  <div class="field">
-    <%= f.label :nombre %><br />
-    <%= f.text_field :nombre, autofocus: true, autocomplete: "nombre" %>
+            <div class="field">
+              <%= f.label :email, class: 'label' %>
+              <div class="control has-icons-left">
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: " input is-danger",
+                                  type: "email", placeholder: "e.g. user@gmail.com" %>
+                <span class="icon is-small is-left">
+                    <i class="fa fa-envelope"></i>
+                  </span>
+              </div>
+            </div>
+
+            <div class="field">
+              <%= f.label :fecha_de_nacimiento, class: 'label' %>
+              <div class="control has-icons-left">
+                <%= f.date_field :edad, autofocus: true, autocomplete: "edad", class: " input is-danger" %>
+                <span class="icon is-small is-left">
+                    <i class="fa fa-calendar"></i>
+                  </span>
+              </div>
+            </div>
+
+            <div class='field'>
+              <%= f.label :telefono, class: 'label' %>
+              <div class="control has-icons-left">
+                <%= f.telephone_field :telefono, autofocus: true, autocomplete: "telefono",
+                                      class: " input is-danger" %>
+                <span class="icon is-small is-left">
+                    <i class="fa fa-phone"></i>
+                  </span>
+              </div>
+            </div>
+
+            <div class="field">
+
+              <% if resource.avatar.attached? %>
+                <figure>
+                  <%= image_tag resource.avatar, class: 'image is-128x128 is-rounded' %>
+                </figure>
+              <% else %>
+                <p class="label">No tienes una imagen aun!</p>
+              <% end %>
+              <%= f.file_field :avatar, class: " input is-danger" %>
+
+            </div>
+
+            <div>
+              <%= f.label :genero, class: 'label' %>
+              <div class="control has-icons-left">
+                <div class="select is-danger">
+                  <%= f.select :genero, %w{Hombre Mujer Otro}, :prompt => 'Select', required: true,
+                               placeholder: 'Genero', class: 'form-control' %>
+                </div>
+                <span class="icon is-left">
+                    <i class="fa fa-venus-mars"></i>
+                  </span>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="comuna_id" class="label">Seleccione una comuna:</label>
+              <div class="control has-icons-left">
+                <div class="select is-danger">
+                  <%= f.select(:comuna_id, Comuna.all.collect { |p| [p.nombre, p.id] }, {include_blank: false}) %>
+                </div>
+                <div class="icon is-left">
+                  <i class="fa fa-map-marker"></i>
+                </div>
+              </div>
+            </div>
+
+
+            <div class='field'>
+              <%= f.label :descripcion, class: 'label' %>
+              <div class="control">
+                <%= f.text_area :descripcion, autofocus: true, autocomplete: "descripcion",
+                                class: "textarea is-small is-danger" %>
+              </div>
+            </div>
+
+
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+              <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+            <% end %>
+
+            <div class="field">
+              <%= f.label :password, class: 'label' %>
+              (Dejar en blanco para no cambiar)
+              <% if @minimum_password_length %>
+                <em>(<%= @minimum_password_length %> characters minimum)</em>
+              <% end %>
+              <div class="control has-icons-left">
+                <%= f.password_field :password, autocomplete: "new-password",
+                                     class: " input is-danger" %>
+                <span class="icon is-small is-left">
+                    <i class="fa fa-lock"></i>
+                  </span>
+              </div>
+            </div>
+
+            <div class="field">
+              <%= f.label :password_confirmation, class: 'label' %>
+              <div class="control has-icons-left">
+                <%= f.password_field :password_confirmation, autocomplete: "new-password",
+                                     class: " input is-danger" %>
+                <span class="icon is-small is-left">
+                  <i class="fa fa-lock"></i>
+                </span>
+              </div>
+            </div>
+
+            <div class="field">
+              <%= f.label :current_password, class: "label" %>
+              <i>(we need your current password to confirm your changes)</i><br/>
+              <div class="control has-icons-left">
+                <%= f.password_field :current_password, autocomplete: "current-password", class: "input is-danger" %>
+                <span class="icon is-small is-left">
+                  <i class="fa fa-lock"></i>
+                </span>
+              </div>
+            </div>
+
+            <div class="field">
+              <%= f.submit "Update", class: "button is-warning" %>
+              <!--%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "button is-danger" %>-->
+              <%= link_to "Back", :back, class: "button is-secondary" %>
+            </div>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="field"> 
-    <%= f.label :edad %><br />
-    <%= f.date_field :edad, autofocus: true, autocomplete: "edad" %>
-  </div>
-
-  <div class='field'>
-    <%= f.label :telefono%><br />
-    <%= f.telephone_field :telefono, autofocus: true, autocomplete: "telefono"%>
-  </div>
-
-  <div>
-    <%= f.label :genero %><br />
-    <%= f.select :genero, %w{Hombre Mujer Otro}, :prompt => 'Select', required: true, placeholder: 'Genero', class: 'form-control' %>
-  </div>
-
-  <div class='field'>
-    <%= f.label :comuna%><br />
-    <%= f.text_field :comuna, autofocus: true, autocomplete: "comuna"%>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class='field'>
-    <%= f.label :descripcion%><br />
-    <%= f.text_area :descripcion, autofocus: true, autocomplete: "descripcion", :cols => 30, :rows => 10 %>
-  </div>
-  
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+</section>

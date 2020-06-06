@@ -1,0 +1,31 @@
+<!--<p id="notice"><%#= notice %></p>-->
+
+<h1>Comentarios sobre <%= current_local.nombre %></h1>
+
+<table class="lista-gustos">
+  <thead>
+  <tr>
+    <th style="padding:10px">Nombre</th>
+    <th style="padding:10px">Local</th>
+    <th style="padding:10px">Fecha</th>
+    <th style="padding:10px">Contenido</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @comentarios.each do |comentario| %>
+    <% if comentario.local_id == current_local.id %>
+    <tr>
+      <td style="padding:10px"><%= comentario.user_id %></td>
+      <td style="padding:10px"><%= comentario.local_id %></td>
+      <td style="padding:10px"><%= comentario.fecha %></td>
+      <td style="padding:10px"><%= comentario.contenido %></td>
+    </tr>
+    <% end %>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+<br>
+<a href="/">Volver al Inicio</a>

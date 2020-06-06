@@ -1,0 +1,35 @@
+<!--<p id="notice"><%#= notice %></p>-->
+
+<h1>Menu de <%= current_local.nombre %></h1>
+
+<table class="lista-gustos">
+  <thead>
+  <tr>
+    <th style="padding:10px">Nombre</th>
+    <th style="padding:10px">Descripcion</th>
+    <th style="padding:10px">Precio </th>
+    <th style="padding:10px">Acciones</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @platos.each do |plato| %>
+    <% if plato.local_id == current_local.id %>
+      <tr>
+        <td style="padding:10px"><%=  plato.nombre  %></td>
+        <td style="padding:10px"><%=  plato.descripcion  %></td>
+        <td style="padding:10px"><%=  plato.precio  %></td>
+        <td style="padding:10px"><%=  link_to 'Ver', plato_path(plato.id)  %> </td>
+      </tr>
+    <% end %>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<a href="/platos/new">Agregar Plato al Menu</a>
+<br>
+<%#= link_to 'Back', :back %>
+<br>
+<a href="/locals/perfil?id=<%= current_local.id %>">Volver al Local</a>

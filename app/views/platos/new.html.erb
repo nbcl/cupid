@@ -1,0 +1,30 @@
+<h1>Nuevo Plato para el menu de <%= current_local.nombre %></h1>
+
+<%= form_with(model: @plato, method: :post) do |form| %>
+
+  <div class="field">
+    <%= form.label :nombre %><br />
+    <%= form.text_field :nombre, autofocus: true, autocomplete: "nombre" %>
+  </div>
+
+  <div class='field'>
+    <%= form.label :descripcion %><br />
+    <%= form.text_area :descripcion, autofocus: true, autocomplete: "descripcion", :cols => 30, :rows => 10 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :precio %><br />
+    <%= form.number_field :precio, autofocus: true, autocomplete: "precio" %>
+  </div>
+
+  <div class="invisible">
+    <%= form.label :local %> <br />
+    <%= form.number_field :local_id, autofocus: true, autocomplete: "local_id", value: current_local.id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', :back %>

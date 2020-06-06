@@ -4,8 +4,6 @@
 class GustosController < ApplicationController
   def new
     @gusto = Gusto.new
-    # @user = User.find(params[:id])
-    # @gusto.users << @user
   end
 
   def index
@@ -24,10 +22,6 @@ class GustosController < ApplicationController
   def create
     gusto_params = params.require(:gusto).permit(:nombre, :descripcion)
     @gusto = Gusto.create(gusto_params)
-    # current_user = User.find(params[:id])
-    # current_user.gustos << @gusto
-    # @gusto.users << current_user
-
     if @gusto.save
       redirect_to gusto_path(@gusto.id), notice: 'Gusto creado con éxito'
     else

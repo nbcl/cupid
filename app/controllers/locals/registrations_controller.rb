@@ -47,7 +47,8 @@ class Locals::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
-  #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
+  #   devise_parameter_sanitizer.permit(:account_update, keys: [:nombre, :descripcion, :valoracion,
+  #                                                             :comuna_id])
   # end
 
   # The path used after sign up.
@@ -58,5 +59,11 @@ class Locals::RegistrationsController < Devise::RegistrationsController
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
+  # end
+
+  # private
+
+  # def sign_up_params
+  #   params.require(:local).permit(:nombre, :descripcion, :valoracion, :comuna_id)
   # end
 end

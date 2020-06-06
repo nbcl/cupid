@@ -18,10 +18,26 @@
     <%= f.text_area :descripcion, autofocus: true, autocomplete: "descripcion", :cols => 30, :rows => 10 %>
   </div>
 
-  <div class='field'>
-    <%= f.label :comuna%><br />
-    <%= f.text_field :comuna, autofocus: true, autocomplete: "comuna"%>
-  </div>
+  
+    <div class="field" style="margin-top: 5vh; padding-left: 2vh;">
+        <div class="columns">
+            <% if resource.avatar.attached? %>
+            <figure>
+                <%= image_tag resource.avatar, class: 'image is-128x128 is-rounded' %>
+            </figure>
+            <% else %>
+                <p>No tienes una imagen aun!</p>
+            <% end %>
+            <div class="column">
+                <%= f.file_field :avatar, class: " input is-danger" %>
+            </div>
+        </div>
+    </div>
+
+<!--  <div class='field'>-->
+<!--    <%#= f.label :comuna%><br />-->
+    <%#= f.text_field :comuna, autofocus: true, autocomplete: "comuna"%>
+<!--  </div>-->
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>

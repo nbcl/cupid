@@ -1,0 +1,20 @@
+<section class="hero is-fullheight is-danger">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">Seleccione la comuna donde vive</h1>
+      <div class="columns is-centered has-text-centered is-multiline">
+        <% @comunas.each do |c| %>
+          <div class="column is-6-desktop is-4-widescreen is-12-tablet">
+            <article class="box">
+              <div class="media">
+                <div class="media-content has-text-centered">
+                  <p class="title is-4 is-marginless" style="color: hsl(0, 0%, 21%); margin-top: 4vh;"><a href="<%= new_user_path(c.id) %>"><%= c.nombre %></a></p>
+                </div>
+              </div>
+            </article>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

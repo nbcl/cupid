@@ -1,0 +1,61 @@
+<section class="hero is-fullheight is-danger">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title"> Busqueda </h1>
+        <% @users.each do |user| %>
+          <% if current_user.comuna_id == user.comuna_id  %>
+            <% result = false %>
+            <% if user.id != current_user.id%>
+              <% @connection = ActiveRecord::Base.connection %>
+              <% result = @connection.exec_query('SELECT * FROM Interactions WHERE user_id = '+current_user.id.to_s+' AND user_id_destiny = '+user.id.to_s+';') %>
+              <% if result.empty?() %>
+                <div class="columns is-centered">
+                  <div class="column is-4-desktop is-4-widescreen">
+                    <div class="box">
+                      <article class="media">
+                        <div class="media-left">
+                          <% if user.avatar.attached? %>
+                            <figure class="image is-128x128">
+                              <%= image_tag user.avatar, class: 'image is-128x128 is-rounded' %>
+                            </figure>
+                          <% else %>
+                            <figure class="image is-128x128">
+                              <img class="rounded-circle" src="https://via.placeholder.com/128" alt=""/>
+                            </figure>
+                          <% end %>
+                        </div>
+                        <div class="media-content">
+                          <div class="content">
+                            <h3 class="title" style="color: hsl(0, 0%, 21%)"> <%= user.nombre %></h3>
+                            <p>
+                              Mi edad es <%= user.edad_numeros %> años.
+                              Vivo en la comuna 1<%= user.comuna_id %>.
+                            </p>
+                          </div>
+                        </div>
+                      </article>
+                    </div>
+                    <div class="columns is-centered">
+                      <div class="column is-centered">
+                        <div class="box">
+                          <%= link_to '❤️' , interactions_new_path(user.id) %>
+                        </div>
+                      </div>
+                      <div class="column"></div>
+                      <div class="column">
+                        <div class="box">
+                          <%= link_to '❌' , interactions_new_path(user.id) %>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <a href="/" class="button is-warning">Volver al Inicio</a>
+    </div>
+  </div>
+</section>
