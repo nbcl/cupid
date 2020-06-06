@@ -19,17 +19,9 @@ class MatchesController < ApplicationController
 
   def show
     @matches = Match.all
+    @invitations = Invitation.all
     render 'matches/find'
+    
+  #  render '/matches'
   end
-
-<<<<<<< Updated upstream
-  def index
-    @matches = Match.all
-  end
-  
-  def show
-    render '/matches'
-  end
-=======
->>>>>>> Stashed changes
 end

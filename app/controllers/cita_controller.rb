@@ -1,4 +1,5 @@
 class CitaController < ApplicationController
+
     def new
         @citum = Citum.new 
     end

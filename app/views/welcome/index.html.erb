@@ -17,7 +17,6 @@
       </div>
       <div class="navbar-menu is-danger">
         <div class="navbar-end">
-<<<<<<< Updated upstream
           <div class="navbar-item has-dropdown is-hoverable" style="background-color: hsl(348, 100%, 61%)">
             <div class="navbar-link" style="background-color: hsl(348, 100%, 61%)">
               <% if current_user.avatar.attached? %>
@@ -34,24 +33,6 @@
             <div class="navbar-dropdown" style="background-color: hsl(348, 100%, 61%)">
               <a class="navbar-item" href="<%= user_perfil_path(current_user.id) %>">
                 <div>
-=======
-        <div class="navbar-item has-dropdown is-hoverable" style="background-color: hsl(348, 100%, 61%)">
-          <div class="navbar-link" style="background-color: hsl(348, 100%, 61%)">
-            <% if current_user.avatar.attached? %>
-              <figure class="image is-32x32" style="margin-right: 1vh;">
-                <%= image_tag current_user.avatar, class: 'is-rounded' %>
-              </figure>
-            <% else %>
-              <img class="is-rounded" src="https://via.placeholder.com/32" alt="" style="margin-right: 1vh;"/>
-            <% end %>
-
-            <%= current_user.nombre %>
-          </div>
-
-          <div class="navbar-dropdown" style="background-color: hsl(348, 100%, 61%)">
-            <a class="navbar-item" href="<%= user_perfil_path(current_user.id) %>">
-              <div>
->>>>>>> Stashed changes
                 <span class="icon is-small">
                   <i class="fa fa-user-circle-o"></i>
                 </span>
@@ -89,7 +70,6 @@
         <br>
         <div class="columns">
           <div class="column">
-<<<<<<< Updated upstream
             <div class="card has-text-centered">
               <div class="card-content">
                 <div class="media" style="align-items: center; margin:
@@ -112,36 +92,8 @@
             </div>
           </div>
 
-          <div class="columns">
-          <div class="column">
-            <div class="card has-text-centered">
-              <div class="card-content">
-                <div class="media" style="align-items: center; margin:
-                    0px 0px 12px 225px">
-                  <div class="media-left">
-                    <figure class="image is-48x48 is-centered">
-                      <img src="<%= image_path("champagne.svg") %>" alt="champagne">
-                    </figure>
-                  </div>
-                  <div class="media-content">
-                    <p class="title is-4 is-left" style="color: hsl(0, 0%, 21%)">Matches</p>
-                  </div>
-=======
-            <div class="box">
-              <div class="columns is-mobile is-centered is-vcentered">
-                <div class="column is-three-fifths"></div>
-                <div class="column">
-                  <img src="<%= image_path("champagne.svg") %>" alt="champagne">
->>>>>>> Stashed changes
-                </div>
-                <div class="content">
-                  <p>Invita a salir a uno de tus Match.</p>
-                  <a href="<%= matches_path %>" class="button is-warning">Buscar</a>
-                </div>
-              </div>
-
-            </div>
-          </div>
+          
+      
           
           <div class="column">
             <div class="card has-text-centered">
