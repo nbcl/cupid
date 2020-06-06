@@ -26,10 +26,11 @@
   <component name="ChangeListManager">
     <list default="true" id="d6084fd8-bdfb-43da-ad8f-02fa1df0932c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/locals/perfil.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/locals/perfil.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/matches/find.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/matches/find.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/users/lista_locales.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/lista_locales.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/welcome/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/welcome/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/database.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -206,7 +207,7 @@
       <workItem from="1591126677033" duration="652000" />
       <workItem from="1591303718746" duration="8737000" />
       <workItem from="1591369668723" duration="10083000" />
-      <workItem from="1591398310758" duration="1191000" />
+      <workItem from="1591398310758" duration="4408000" />
     </task>
     <servers />
   </component>

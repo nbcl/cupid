@@ -73,7 +73,7 @@
             <div class="card has-text-centered">
               <div class="card-content">
                 <div class="media" style="align-items: center; margin:
-                    0px 0px 12px 225px">
+                    0px 0px 0px 119px">
                   <div class="media-left">
                     <figure class="image is-48x48 is-centered">
                       <img src="<%= image_path("champagne.svg") %>" alt="champagne">
@@ -92,14 +92,12 @@
             </div>
           </div>
 
-          
-      
-          
+
           <div class="column">
             <div class="card has-text-centered">
               <div class="card-content">
                 <div class="media" style="align-items: center; margin:
-                    0px 0px 12px 225px">
+                    0px 0px 0px 109px">
                   <div class="media-left">
                     <figure class="image is-48x48 is-centered">
                       <img src="<%= image_path("restaurant.svg") %>" alt="restaurant">
@@ -193,58 +191,40 @@
     </nav>
 
 
-    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-      <h1 class="display-4"> DCCitas </h1>
-      <p class="lead">Bienvenido a DCCitas, <%= current_local.nombre %>.</p>
-    </div>
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <h1 class="title"> DCCitas </h1>
+        <p class="subtitle">Bienvenido a DCCitas, <%= current_local.nombre %>.</p>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm text-center">
-            <div class="card-header">
-              <h4 class="my-0 font-weight-normal">Citas</h4>
-            </div>
-            <div class="card-body">
-              <h1 class="card-title pricing-card-title"> 🌎 Ver Comentarios</h1>
-              <ul class="list-unstyled mt-3 mb-4">
-                <li>Revisa comentarios de los usuarios sobre el local.</li>
-              </ul>
-              <a href="/locals/comentarios">
-                <button type="button" class="btn btn-lg btn-block btn-primary">Informacion</button>
-              </a>
+        <div class="columns">
+          <div class="column">
+            <div class="card has-text-centered">
+              <div class="card-content">
+                <h4 class="">Comentarios</h4>
+                <div class="content">
+
+                  <p>Revisa comentarios de los usuarios sobre el local.</p>
+                  <a href="/locals/comentarios" class="button is-warning">
+                    Informacion
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm text-center">
-            <div class="card-header">
-              <h4 class="my-0 font-weight-normal">Locales</h4>
-            </div>
-            <div class="card-body">
-              <h1 class="card-title pricing-card-title"> 🏙️ Locales</h1>
-              <ul class="list-unstyled mt-3 mb-4">
-                <li>Busca los locales que estan afiliados con DCCitas.</li>
-              </ul>
-              <a href="#">
-                <button type="button" class="btn btn-lg btn-block btn-outline-primary">Buscar</button>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm text-center">
-            <div class="card-header">
-              <h4 class="my-0 font-weight-normal">Formulario</h4>
-            </div>
-            <div class="card-body">
-              <h1 class="card-title pricing-card-title"> 👥 Local</h1>
-              <ul class="list-unstyled mt-3 mb-4">
-                <li> Edita tu informacion de tu Local</li>
-              </ul>
-              <a href="/locals/perfil?id=<%= current_local.id %>">
-                <button type="button" class="btn btn-lg btn-block btn-outline-primary">Editar</button>
-              </a>
+
+
+          <div class="column">
+            <div class="card has-text-centered">
+                <h4 class="">Formulario</h4>
+              <div class="card-body">
+                <h1 class="card-title pricing-card-title"> 👥 Local</h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li> Edita tu informacion de tu Local</li>
+                </ul>
+                <a href="/locals/perfil?id=<%= current_local.id %>">
+                  <button type="button" class="btn btn-lg btn-block btn-outline-primary">Editar</button>
+                </a>
+              </div>
             </div>
           </div>
         </div>
