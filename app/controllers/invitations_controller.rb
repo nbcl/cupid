@@ -15,6 +15,8 @@ class InvitationsController < ApplicationController
   # GET /invitations/new
   def new
     @invitation = Invitation.new
+    @user_match = User.find(params[:id])
+    @locales = Local.all
   end
 
   # GET /invitations/1/edit
@@ -25,6 +27,7 @@ class InvitationsController < ApplicationController
   # POST /invitations.json
   def create
     @invitation = Invitation.new(invitation_params)
+
 
     respond_to do |format|
       if @invitation.save

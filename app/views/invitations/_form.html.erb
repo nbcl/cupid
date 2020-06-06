@@ -11,14 +11,14 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="invisible">
     <%= form.label :user_invita %>
     <%= form.number_field :user_invita, autofocus: true, autocomplete: "invita", value: current_user.id %>
   </div>
 
-  <div class="field">
+  <div class="invisible">
     <%= form.label :user_invitado %>
-    <%= form.number_field :user_invitado, autofocus: true, autocomplete: "invitado", value: "2" %>
+    <%= form.number_field :user_invitado, autofocus: true, autocomplete: "invitado", value: @user_match.id %>
   </div>
 
   <div class="field">
@@ -30,14 +30,13 @@
     <%= form.label :local_id, class: 'label' %>
     <div class="control has-icons-left">
       <div class="select is-danger">
-        <%= form.select :local_id, %w{1 2 3}, :prompt => 'Select', required: true,
-                    placeholder: 'Local', class: 'form-control' %>
+        <%= form.select(:local_id, Local.all.collect { |p| [p.nombre, p.id] }, {include_blank: true}) %>
       </div>
       
     </div>
   </div>
 
-  <div class="field">
+  <div class="invisible">
     <%= form.label :confirma %>
     <%= form.check_box :confirma %>
   </div>

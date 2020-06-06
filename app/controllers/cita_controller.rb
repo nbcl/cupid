@@ -20,6 +20,7 @@ class CitaController < ApplicationController
 
     def show
         @citum = Citum.find(param[:id])
+        render 'citum/show'
     end
 
 end

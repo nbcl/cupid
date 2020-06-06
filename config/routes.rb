@@ -98,6 +98,11 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'invitations/new/:id', to: 'invitations#new', as: :new_invitation_a
+  get "invitations/show/:id", to: 'invitations#show', as: :invitation_editar
+
+  get 'citum/show/id:', to: 'cita#show', as: :show_citum
+
   #invitaciones 
   resources :invitations
 
