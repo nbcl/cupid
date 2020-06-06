@@ -57,9 +57,9 @@
     <!-- Hero content: will be in the middle -->
     <div class="hero-body">
       <div class="container has-text-centered">
-<!--        <figure class="image is-5by3 ">-->
-<!--          <img src="<%#= image_path("logologo.png") %>" alt="Logo">-->
-<!--        </figure>-->
+        <!--        <figure class="image is-5by3 ">-->
+        <!--          <img src="<%#= image_path("logologo.png") %>" alt="Logo">-->
+        <!--        </figure>-->
         <h1 class="title">
           DCCitas
         </h1>
@@ -141,6 +141,57 @@
       </div>
     </div>
   <% elsif local_signed_in? %>
+    <nav class="navbar has-shadow">
+      <div class="navbar-brand">
+        <a class="navbar-item">
+          <img src="<%= image_path("logo.png") %>" alt="Logo">
+        </a>
+      </div>
+      <div class="navbar-menu">
+        <div class="navbar-start">
+          <div class="navbar-item">
+            <small>El mejor sitio para encontrar a tu pareja ideal</small>
+          </div>
+        </div>
+      </div>
+      <div class="navbar-menu is-danger">
+        <div class="navbar-end">
+          <div class="navbar-item has-dropdown is-hoverable" style="background-color: hsl(348, 100%, 61%)">
+            <div class="navbar-link" style="background-color: hsl(348, 100%, 61%)">
+              <%# if current_user.avatar.attached? %>
+              <!--                <figure class="image is-24x24 is-rounded">-->
+              <%#= image_tag current_user.avatar %>
+              <!--                </figure>-->
+              <%# else %>
+              <figure class="image is-24x24 is-rounded">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" class="is-rounded" alt="">
+              </figure>
+              <%# end %>
+              <p style="margin: 0px 4px 0px 9px"><%= current_local.nombre %></p>
+            </div>
+            <div class="navbar-dropdown" style="background-color: hsl(348, 100%, 61%)">
+              <a class="navbar-item" href="/locals/perfil?id=<%= current_local.id %>">
+                <div>
+                <span class="icon is-small">
+                  <i class="fa fa-user-circle-o"></i>
+                </span>
+                  Profile
+                </div>
+              </a>
+              <a class="navbar-item" href="<%= destroy_local_session_path %>">
+                <div>
+                <span class="icon is-small">
+                  <i class="fa fa-sign-out"></i>
+                </span>
+                  Sign Out
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
 
     <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
       <h1 class="display-4"> DCCitas </h1>

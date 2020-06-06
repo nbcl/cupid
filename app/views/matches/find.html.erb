@@ -3,9 +3,9 @@
     <div class="container">
       <h1 class="title"> Lista de matches </h1>
       <div class="columns is-centered is-multiline">
-      <% @matches.each do |user_match| %>
-        <% if user_match.user_id1 == current_user.id  %> 
-            <div class="column is-4-desktop is-4-widescreen">
+        <% @matches.each do |user_match| %>
+          <% if user_match.user_id1 == current_user.id %>
+            <div class="column is-6-desktop is-6-widescreen">
               <div class="box">
                 <article class="media">
                   <div class="media-left">
@@ -18,101 +18,97 @@
                       <h3 class="title" style="color: hsl(0, 0%, 21%)"> <%= User.find_by(id: user_match.user_id2).nombre %></h3>
                       <p>
                         Mi edad es <%= User.find_by(id: user_match.user_id2).edad_numeros %> años.
-                        
+
                         Vivo en la comuna 1<%= User.find_by(id: user_match.user_id2).comuna_id %>.
                       </p>
                     </div>
                   </div>
                 </article>
               </div>
-              <% @invitations.each do |i|%>
-                <% if current_user.id == i.user_invita or current_user.id == i.user_invitado%>
-                  <% if user_match.user_id1 == i.user_invita%>
+              <% @invitations.each do |i| %>
+                <% if current_user.id == i.user_invita or current_user.id == i.user_invitado %>
+                  <% if user_match.user_id1 == i.user_invita %>
                     ENTRO PQ SI TE INVITO 1
                     <div class="columns is-centered">
                       <div class="column is-centered">
                         <div class="box">
-                          <%= link_to 'Aceptar cita ❤️' , edit_match_invitation(i.id) %>
+                          <%= link_to 'Aceptar cita ❤️', edit_match_invitation(i.id) %>
                         </div>
                       </div>
-                      <div class="column"></div>
                     </div>
-                    
+
                   <% else %>
-                  ENTRO AL ELSE DE NO INVITADOS1
-                  <div class="columns is-centered">
-                    <div class="column is-centered">
-                      <div class="box">
-                        <%= link_to 'Invitar a una cita ❤️' , new_invitation_path(user_match) %>
-                      </div>
-                    </div>
-                  <% end %>
-                <% end %>
-              <% end %>
-
-            </div>
-          </div>
-        <% end %>
-
-    <% if user_match.user_id2 == current_user.id %> 
-          <div class="columns is-centered">
-            <div class="column is-4-desktop is-4-widescreen">
-              <div class="box">
-                <article class="media">
-                  <div class="media-left">
-                    <figure class="image is-150x150">
-                      <img class="rounded-circle" src="https://via.placeholder.com/150" alt=""/>
-                    </figure>
-                  </div>
-                  <div class="media-content">
-                    <div class="content">
-                      <h3 class="title" style="color: hsl(0, 0%, 21%)"> <%= User.find_by(id: user_match.user_id1).nombre %></h3>
-                      <p>
-                        Mi edad es <%= User.find_by(id: user_match.user_id1).edad_numeros %> años.
-                        
-                        Vivo en la comuna 1<%= User.find_by(id: user_match.user_id1).comuna_id %>.
-                      </p>
-                    </div>
-                  </div>
-                </article>
-              </div>
-
-              <% @invitations.each do |i|%>
-                <% if current_user.id == i.user_invita or current_user.id == i.user_invitado%>
-                  <% if user_match.user_id1 == i.user_invita%>
-                  ENTRO AL IF QUE SI INVITA2
+                    ENTRO AL ELSE DE NO INVITADOS1
                     <div class="columns is-centered">
-                    <div class="column is-centered">
-                      <div class="box">
-                        <%= link_to 'Aceptar cita ❤️' , edit_match_invitation(i.id) %>
+                      <div class="column is-centered">
+                        <div class="box">
+                          <%= link_to 'Invitar a una cita ❤️', new_invitation_path(user_match) %>
+                        </div>
                       </div>
-                    </div>
-                    <div class="column"></div>
-                  </div>
-                  
-                  <% else %>
-                  NO FUE INVITADO ELSE2
-                  <div class="columns is-centered">
-                    <div class="column is-centered">
-                      <div class="box">
-                        <%= link_to 'Invitar a una cita ❤️' , new_invitation_path(user_match) %>
-                      </div>
-                    </div>
                   <% end %>
                 <% end %>
               <% end %>
 
-              
-
-                <div class="column"></div>
               </div>
             </div>
-          
+          <% end %>
+
+          <% if user_match.user_id2 == current_user.id %>
+
+              <div class="column is-6-desktop is-6-widescreen">
+                <div class="box">
+                  <article class="media">
+                    <div class="media-left">
+                      <figure class="image is-150x150">
+                        <img class="rounded-circle" src="https://via.placeholder.com/150" alt=""/>
+                      </figure>
+                    </div>
+                    <div class="media-content">
+                      <div class="content">
+                        <h3 class="title" style="color: hsl(0, 0%, 21%)"> <%= User.find_by(id: user_match.user_id1).nombre %></h3>
+                        <p>
+                          Mi edad es <%= User.find_by(id: user_match.user_id1).edad_numeros %> años.
+
+                          Vivo en la comuna <%= User.find_by(id: user_match.user_id1).comuna.nombre %>.
+                        </p>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+
+                <% @invitations.each do |i| %>
+                  <% if current_user.id == i.user_invita or current_user.id == i.user_invitado %>
+                    <% if user_match.user_id1 == i.user_invita %>
+                      ENTRO AL IF QUE SI INVITA2
+                      <div class="columns is-centered">
+                        <div class="column is-centered">
+                          <div class="box">
+                            <%= link_to 'Aceptar cita ❤️', edit_match_invitation(i.id) %>
+                          </div>
+                        </div>
+                      </div>
+
+                    <% else %>
+                      NO FUE INVITADO ELSE2
+                      <div class="columns is-centered">
+                        <div class="column is-centered">
+                          <div class="box">
+                            <%= link_to 'Invitar a una cita ❤️', new_invitation_path(user_match) %>
+                          </div>
+                        </div>
+                      </div>
+                    <% end %>
+                  <% end %>
+                <% end %>
+
+                </div>
+
+
+          <% end %>
         <% end %>
-  <% end %>    
-      <a href="<%= users_locales_path %>" class="button is-warning">Buscar local para cita</a>
-      <a href="/" class="button is-warning">Volver al Inicio</a>
-    
+
+        <a href="<%= users_locales_path %>" class="button is-warning">Buscar local para cita</a>
+        <a href="/" class="button is-warning">Volver al Inicio</a>
       </div>
     </div>
   </div>
@@ -124,7 +120,7 @@
 <% result = @connection.exec_query('SELECT * FROM Interactions; ') %>
 <% result.each do |row| %>
     <p><%= row['id'] %> </p>
-<%end%>
+<% end %>
 -->
 
 
