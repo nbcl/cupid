@@ -3,38 +3,40 @@
         <div class="container">
             <div class="box">
 
+                <h1 class="title" style="color:  hsl(0, 0%, 21%)">Crear Cita</h1>
 
-<h1 class="title" style="color:  hsl(0, 0%, 21%)">Crear Cita</h1>
+                <%= form_with(model: @cita, method: :post) do |form| %>
+                    <div class="field">
+                        <%= form.label :user1_id, class: "label" %>
+                        <%= form.number_field :user1_id, autofocus: true, autocomplete: "user1_id", value: current_user.id %>
+                    </div>
+                
+                    <div class="field">
+                        <%= form.label :user2_id, class: "label" %>
+                        <%= form.number_field :user2_id, autofocus: true, autocomplete: "user2_id", value: @invitation.user_invitado.to_i %>
+                    </div>
 
-<%= form_with(model: @cita, method: :post) do |form| %>
-    <div class="is-invisible">
-        <%= form.label :user1_id, class: "label" %>
-        <%= form.number_field :user1_id, autofocus: true, autocomplete: "user1_id", value: Match.find_by(match.user_id1).to_s %>
+                    <div class="field">
+                        <%= form.label :local_id, class: "label" %>
+                        <%= form.number_field :local_id, autofocus: true, autocomplete: "user2_id", value: @invitation.local_id.to_i %>
+                    </div>
+                    
+                    <div class="field">
+                        <%= form.label :fecha, class: "label" %><br />
+                        <%= form.date_field :fecha, autofocus: true, autocomplete: "fecha", value: @invitation.fecha %> 
+                        <span class="icon is-small is-left">
+                            <i class="fa fa-calendar"></i>
+                        </span>
+                    </div>
+
+                    <div class="field">
+                        <%= form.submit "Crear Cita", class: "button is-warning", method: :post %>
+                        <%= link_to 'Volver', '/', class: "button is-secondary" %>
+                    </div>
+                <% end %>
+
+            </div>
+        </div>
     </div>
-  
-    <div class="is-invisible">
-        <%= form.label :user2_id, class: "label" %>
-        <%= form.number_field :user2_id, autofocus: true, autocomplete: "user2_id", value: "3" %>
-    </div>
-
-    <div class="field">
-        <%= form.label :local_id, class: "label" %>
-        <%= form.number_field :local_id, class: "textarea is-small" %>
-    </div>
-    
-    <div class="field">
-        <%= form.label :fecha %><br />
-        <%= form.date_field :fecha, autofocus: true, autocomplete: "fecha", class: " input is-danger" %> 
-        <span class="icon is-small is-left">
-            <i class="fa fa-calendar"></i>
-        </span>
-    </div>
-
-    <div class="field">
-        <%= form.submit "Crear Cita", class: "button is-warning" %>
-        <%= link_to 'Volver', '/', class: "button is-secondary" %>
-  </div>
-<% end %>
-
-
+</section>
 

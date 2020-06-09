@@ -92,20 +92,26 @@ Rails.application.routes.draw do
   
   # Matches
   # rutas anidadas, solo se entra a la cita desde los match
-  resources :matches do
-    resources :invitations do
-      resources :cita
-    end
+  get 'matches/find', to: 'matches#show', as: :matches_find
+
+  resources :invitations do
+    resources :cita
   end
 
-  get 'invitations/new/:id', to: 'invitations#new', as: :new_invitation_a
-  get "invitations/show/:id", to: 'invitations#show', as: :invitation_editar
-
-  get 'citum/show/id:', to: 'cita#show', as: :show_citum
-
+  resources :cita
+  #NEW_INVITATION_CITUM
+  get 'invtiations/:invitation_id/cita/new', to: 'cita#new' 
+  post 'invitations/:invitation_id/cita/new', to: 'cita#create'
+  get 'invtiations/:invitation_id/cita/new/:id', to: 'cita#show' 
+  
   #invitaciones 
-  resources :invitations
 
+  resources :invitations
+  get 'invitations/new/:id', to: 'invitations#new', as: :new_invitation_a
+  get 'invitations', to: 'invitations#index', as: :invitations_list
+  #get "invitations/list/:id", to: 'invitations#edit', as: :invitation_editar
+
+  
   # Ruta para ver el menu de un local
   get 'locals/menu', to: 'platos#index'
 

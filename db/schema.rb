@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_05_192543) do
+ActiveRecord::Schema.define(version: 2020_06_08_062600) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 2020_06_05_192543) do
     t.bigint "user1_id"
     t.bigint "user2_id"
     t.bigint "local_id"
+    t.integer "invitation_id"
     t.index ["local_id"], name: "index_cita_on_local_id"
     t.index ["user1_id"], name: "index_cita_on_user1_id"
     t.index ["user2_id"], name: "index_cita_on_user2_id"
@@ -163,7 +164,10 @@ ActiveRecord::Schema.define(version: 2020_06_05_192543) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "cita", "locals"
+  add_foreign_key "cita", "users", column: "user1_id"
+  add_foreign_key "cita", "users", column: "user2_id"
   add_foreign_key "comentarios", "locals"
+  add_foreign_key "comentarios", "users"
   add_foreign_key "interactions", "users"
   add_foreign_key "locals", "comunas"
   add_foreign_key "platos", "locals"

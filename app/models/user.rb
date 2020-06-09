@@ -17,6 +17,7 @@ class User < ApplicationRecord
   has_and_belongs_to_many :gustos
   has_many :matches 
   #has_many :matches, through: :interactions ##new
+  #has_many :invitations
   
 
   validates :nombre, presence: true

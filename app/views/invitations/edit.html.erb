@@ -13,22 +13,22 @@
     </div>
   <% end %>
 
-  <div class="invisible">
+  <div class="is-hidden">
     <%= form.label :user_invita %>
     <%= form.number_field :user_invita, autofocus: true, autocomplete: "invita", value: current_user.id %>
   </div>
 
-  <div class="invisible">
+  <div class="is-hidden">
     <%= form.label :user_invitado %>
-    <%= form.number_field :user_invitado, autofocus: true, autocomplete: "invitado", value: "2" %>
+    <%= form.number_field :user_invitado, autofocus: true, autocomplete: "invitado", value: @invitation.user_invita.to_i %>
   </div>
 
-  <div class="invisible">
+  <div class="is-hidden">
     <%= form.label :fecha %>
     <%= form.date_select :fecha %>
   </div>
 
-  <div class="invisible">
+  <div class="is-hidden">
     <%= form.label :local_id, class: 'label' %>
     <div class="control has-icons-left">
       <div class="select is-danger">
@@ -43,6 +43,7 @@
     <%= form.label :confirma %>
     <%= form.check_box :confirma %>
   </div>
+  <br>
 
   <div class="actions">
     <%= form.submit %>

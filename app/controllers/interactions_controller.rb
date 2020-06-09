@@ -5,7 +5,7 @@ class InteractionsController < ApplicationController
     end
 
     def create
-      interaction_params = params.permit(:like, :user_id, :user_id_destiny)
+      interaction_params = params.require(:citum).permit(:like, :user_id, :user_id_destiny)
       @interaction = Interaction.create(interaction_params)
       if @interaction.save
         redirect_to '/interactions/new/'+params[:id].to_s

@@ -24,6 +24,8 @@
   <strong>Confirma:</strong>
   <%= @invitation.confirma %>
 </p>
+<%= link_to 'Aceptar', edit_invitation_path(@invitation) %> 
 
-<%= link_to 'Edit', edit_invitation_path(@invitation) %> |
+<%= link_to 'Rechazar', @invitation, method: :delete, data: { confirm: 'Are you sure?' } %>
+
 <a href="/" class="button is-warning">Volver al atrás</a>
