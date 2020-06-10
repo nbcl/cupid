@@ -10,9 +10,9 @@ class CitaController < ApplicationController
         @citum = Citum.new(citum_params)
         if @citum.save
             #render 'invitations/'+@invitation.id.to_s+'/citum/new/'+citum_params.id.to_s, notice: 'Cita creada con éxito'
-            render plain: 'CITA CREADA'
+            redirect_to invitation_citum_path(@citum.invitation_id, @citum.id)
         else
-            redirect_to matches_find
+            redirect_to matches_find_path
         end
     
     end
@@ -23,7 +23,7 @@ class CitaController < ApplicationController
 
     def show
         @citum = Citum.find(params[:id])
-        render 'citum/show'
+        render 'show'
     end
 
 end
