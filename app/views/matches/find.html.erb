@@ -1,7 +1,19 @@
+<section class="hero is-primary">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Lista de matches
+      </h1>
+      <h2 class="subtipero tle">
+        Invita a tus match a una cita ¡anímate!
+      </h2>
+    </div>
+  </div>
+</section>
+
 <section class="hero is-fullheight is-danger">
   <div class="hero-body">
     <div class="container">
-      <h1 class="title"> Lista de matches </h1>
       <div class="columns is-centered is-multiline">
         <% @matches.each do |user_match| %>
           <% if user_match.user_id1 == current_user.id %>
@@ -27,7 +39,7 @@
               </div>
               <div class="columns is-centered">
                 <div class="column is-centered">
-                  <div class="box">
+                  <div class="button">
                     <%= link_to 'Invitar a una cita ❤️', new_invitation_a_path(user_match.user_id2) %>
                   </div>
                 </div>
@@ -67,12 +79,17 @@
           <% end %>
         <% end %>
 
-        <a href="<%= users_locales_path %>" class="button is-warning">Buscar local para cita</a>
-        <br>
-        <a href=<%= invitations_list_path  %> class="button is-warning">Lista invitaciones</a>
-        <br>
-        <a href="/" class="button is-warning">Volver al Inicio</a>
+        
       </div>
+      
     </div>
+   
+  </div>
+  <div class="column is-centered"> 
+    <a href="<%= users_locales_path %>" class="button is-warning">Buscar local para cita</a>
+    
+    <a href=<%= invitations_list_path  %> class="button is-warning">Lista invitaciones</a>
+    
+    <a href="/" class="button is-warning">Volver al Inicio</a>
   </div>
 </section>

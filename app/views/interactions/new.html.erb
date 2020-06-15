@@ -54,12 +54,12 @@
                 </div>
 
 
-                <div class="invisible">
+                <div class="is-invisible">
                   <%= form.label :user %> <br/>
                   <%= form.number_field :user_id, autofocus: true, autocomplete: "user_id", value: current_user.id %>
                 </div>
 
-                <div class="invisible">
+                <div class="is-invisible">
                   <%= form.number_field :user_id_destiny, autofocus: true, autocomplete: "user_id_destiny", value: @destino.id %>
                 </div>
               <% end %>

@@ -41,7 +41,7 @@ class InvitationsController < ApplicationController
 
   def check_date
     if @invitation_params.acepta == true 
-      format.html { redirect_to matches_find_path, notice: 'Se ha creado una cita' }
+      format.html { redirect_to matches_find_path, notice: 'Se ha creado una citaaa' }
       #redirect_to :action 'new', controller: 'cita'
     end
   end
