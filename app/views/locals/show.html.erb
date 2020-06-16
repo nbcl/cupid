@@ -20,13 +20,22 @@
   <%= @local.email %>
 </p>
 
-<!--<p>-->
-<!--  <strong>Comuna:</strong>-->
-  <%#= @local.comuna %>
-<!--</p>-->
-
-<%#= link_to 'Editar Local', locals_edit_path(@local.id) %>
 <% if admin_signed_in? %>
-  <%= link_to 'Eliminar Local', local_path(@local.id), method: :delete, alert: 'Estás seguro?' %>
+    <!-- El siguiente codigo realiza una llamada a los reportes y permite eliminarlo si tiene 3 reports-->
+    <% 
+    @reports = ActiveRecord::Base.connection
+    result = @reports.exec_query('SELECT * FROM lreports WHERE reported_id =' + @local.id.to_s + ';') 
+    counter = 0
+    result.each do |row| 
+        counter += 1
+    end
+    if counter >= 2
+    %>
+        <%= link_to 'Eliminar Local', local_path(@local.id), method: :delete, alert: 'Estás seguro?' %>   
+    <%
+    end
+    %>
+
 <% end %>
+
 <%= link_to 'Back', :back %>

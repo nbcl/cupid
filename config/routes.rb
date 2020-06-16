@@ -89,6 +89,16 @@ Rails.application.routes.draw do
   get 'interactions/new/:id', to: 'interactions#new', as: :interactions_new
   post 'interactions/new/:id', to: 'interactions#create'
   get 'interactions/find',  to: 'vistas#show_user_users'
+
+# Ureports
+  # Create
+  get 'ureports/new', to: 'ureports#new', as: :ureports_new
+  post 'ureports/new', to: 'ureports#create'
+
+# Lreports
+  # Create
+  get 'lreports/new', to: 'lreports#new', as: :lreports_new
+  post 'lreports/new', to: 'lreports#create'
   
   # Matches
   # rutas anidadas, solo se entra a la cita desde los match

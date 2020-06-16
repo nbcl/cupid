@@ -38,6 +38,12 @@ class VistasController < ApplicationController
   end
 
   def destroy_admin_local
+    # Destroys all instances of Platos, Comentarios, Invitations, Cita  before deleting local
+    Plato.where(:local_id => params[:id]).destroy_all
+    Comentario.where(:local_id => params[:id]).destroy_all
+    Invitation.where(:local_id => params[:id]).destroy_all
+    Citum.where(:local_id => params[:id]).destroy_all
+    
     @local = Local.find(params[:id])
     @local.destroy
     redirect_to admins_locales_path, notice: 'Local eliminado con éxito'
@@ -54,6 +60,20 @@ class VistasController < ApplicationController
   end
 
   def destroy_admin_user
+    # Destroys all instances of Citum, Comentario, Interaction, Invitation, Match & Gusto before deleting local
+    Citum.where(:user1_id => params[:id]).destroy_all
+    Citum.where(:user2_id => params[:id]).destroy_all
+    Comentario.where(:user_id => params[:id]).destroy_all
+    Interaction.where(:user_id => params[:id]).destroy_all
+    Interaction.where(:user_id_destiny => params[:id]).destroy_all
+    Invitation.where(:user_invita => params[:id]).destroy_all
+    Invitation.where(:user_invitado => params[:id]).destroy_all
+    Match.where(:user_id1 => params[:id]).destroy_all
+    Match.where(:user_id2 => params[:id]).destroy_all
+    # Gustos_User.where(:user_id => params[:id]).destroy_all 
+    # Note: Last line not needed. All instances of gustos_users user_id => id get deleted on request.
+    # Gustos already created by user id keep existing for other users.
+
     @user = User.find(params[:id])
     @user.destroy
     redirect_to admins_users_path, notice: 'Usuario eliminado con éxito'
