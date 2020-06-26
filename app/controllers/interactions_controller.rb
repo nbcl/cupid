@@ -2,6 +2,7 @@ class InteractionsController < ApplicationController
     def new
         @interaction = Interaction.new
         @destino = User.find(params[:id])
+        @spotify = Admin.find(1)
     end
 
     def create

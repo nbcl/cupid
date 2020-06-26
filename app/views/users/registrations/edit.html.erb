@@ -86,6 +86,17 @@
               </div>
             </div>
 
+            <div class='field'>
+              <%= f.label :song, class: 'label' %>
+              <div class="control has-icons-left">
+                <%= f.text_field :song, autofocus: true, autocomplete: "song",
+                                      class: " input is-danger" %>
+                <span class="icon is-small is-left">
+                    <i class="fa fa-music"></i>
+                  </span>
+              </div>
+            </div>
+
 
             <div class='field'>
               <%= f.label :descripcion, class: 'label' %>

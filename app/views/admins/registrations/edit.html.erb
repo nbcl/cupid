@@ -26,6 +26,17 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
+    <div class='field'>
+        <%= f.label :token, class: 'label' %>
+        <div class="control has-icons-left">
+            <%= f.text_field :token, autofocus: true, autocomplete: "token",
+                                    class: " input is-danger" %>
+            <span class="icon is-small is-left">
+                <i class="fa fa-music"></i>
+            </span>
+        </div>
+    </div>
+
   <div class="field">
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "current-password" %>

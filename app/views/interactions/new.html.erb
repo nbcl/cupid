@@ -1,3 +1,45 @@
+<%
+  # We require net/http to request and json to parse
+  require 'net/http'
+  require 'json'
+  # Checks for user selection of song
+  if @destino.song
+    q = @destino.song
+    url = "https://api.spotify.com/v1/search?q=" + q + "&type=artist"
+    # Checks for Admins designation of token
+    token = @spotify.token
+    uri = URI(url)
+    # Generates new Net:HTTP GET Request to desired URI
+    request = Net::HTTP::Get.new(uri.path)
+    # Accept & Conten-Type are Spotify requested headers
+    request["Accept"] = "application/json"
+    request["Content-Type"] = "application/json"
+    # Creates new request for correct port
+    http = Net::HTTP.new(uri.host, uri.port)
+    # Asks for SSL Encryption
+    http.use_ssl = true
+    # Requests again
+    request = Net::HTTP::Get.new(uri.request_uri)
+    # Adds header with specific token
+    request['Authorization'] = "Bearer " + token
+    # Executes request
+    response = http.request(request)
+    # Parses response to JSON
+    call = JSON[response.body.force_encoding('utf-8')]
+    # Gets artist's link for first result
+    artist = call['artists']['items'][0]['external_urls']['spotify']
+    # Parses to get embed link
+    parsed = artist.to_s.split('artist')
+    parsed[0] = parsed[0] + 'embed/'
+    # Final embed link
+    embed = parsed.join('artist') 
+
+  # If user has not selected an artist, shows award-winning, grammy-nominated
+  # superstar 'Bad-Bunny'
+  else
+    embed='https://open.spotify.com/embed/artist/4q3ewBCX7sLwd24euuV69X'
+  end
+%>
 <section class="hero is-fullheight is-danger">
   <div class="hero-body">
     <div class="columns is-centered">
@@ -42,6 +84,8 @@
                 took a galley of type and scrambled it to make a type specimen book.</p>
 
               <br>
+              <iframe src="<%= embed.to_s %>" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+
               <%= form_with(model: @Interaction, method: :post, html: {class: "has-text-centered"}) do |form| %>
                 <div class="field">
                   <%= check_box_tag(:like) %>
