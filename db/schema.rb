@@ -180,10 +180,7 @@ ActiveRecord::Schema.define(version: 2020_06_26_222347) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "cita", "locals"
-  add_foreign_key "cita", "users", column: "user1_id"
-  add_foreign_key "cita", "users", column: "user2_id"
   add_foreign_key "comentarios", "locals"
-  add_foreign_key "comentarios", "users"
   add_foreign_key "interactions", "users"
   add_foreign_key "locals", "comunas"
   add_foreign_key "platos", "locals"

@@ -13,7 +13,7 @@
 
             <div class="field">
               <%= form.label :fecha, class: "label" %>
-              <%= form.date_field :fecha, autofocus: true, autocomplete: "fecha", value: Date.today, class: "input is-danger" %>
+              <%= form.date_field :fecha, autofocus: true, autocomplete: "fecha", value: Date.today, class: "input is-danger", :readonly => true %>
             </div>
 
             <div class='field'>

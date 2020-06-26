@@ -5,7 +5,7 @@
     <nav class="navbar has-shadow">
       <div class="navbar-brand">
         <a class="navbar-item">
-          <img src="<%= image_path("logo.png") %>" alt="Logo">
+          <img src="<%= image_path("logo.jpeg") %>" alt="Logo">
         </a>
       </div>
       <div class="navbar-menu">
@@ -70,48 +70,39 @@
         <br>
         <div class="columns">
           <div class="column">
-            <div class="card has-text-centered">
-              <div class="card-content">
-                <div class="media" style="align-items: center; margin:
-                    0px 0px 0px 119px">
-                  <div class="media-left">
-                    <figure class="image is-48x48 is-centered">
-                      <img src="<%= image_path("champagne.svg") %>" alt="champagne">
-                    </figure>
-                  </div>
-                  <div class="media-content">
-                    <p class="title is-4 is-left" style="color: hsl(0, 0%, 21%)">Citas</p>
-                  </div>
-                </div>
-                <div class="content">
-                  <p>Busca entre todos los usuarios de DCCitas.</p>
-                  <a href="<%= interactions_find_path %>" class="button is-warning">Buscar</a>
-                </div>
+            <div class="box">
+              <!--                  <div class="media-left">-->
+              <!--                    <figure class="image is-48x48 is-centered">-->
+              <!--                      <img src="<%#= image_path("champagne.svg") %>" alt="champagne">-->
+              <!--                    </figure>-->
+              <!--                  </div>-->
+              <div class="is-grouped">
+                <p class="title is-4" style="color: hsl(0, 0%, 21%)">Citas</p>
+                <p>Busca entre usuarios de DCCitas.</p>
               </div>
-
+              <br>
+              <a href="<%= interactions_find_path %>" class="button is-warning">Buscar</a>
             </div>
+
+
           </div>
 
 
           <div class="column">
-            <div class="card has-text-centered">
-              <div class="card-content">
-                <div class="media" style="align-items: center; margin:
-                    0px 0px 0px 109px">
-                  <div class="media-left">
-                    <figure class="image is-48x48 is-centered">
-                      <img src="<%= image_path("restaurant.svg") %>" alt="restaurant">
-                    </figure>
-                  </div>
-                  <div class="media-content">
-                    <p class="title is-4 is-left" style="color: hsl(0, 0%, 21%)">Locales</p>
-                  </div>
-                </div>
-                <div class="content">
-                  <p>Busca los locales que estan afiliados con DCCitas.</p>
-                  <a href="<%= users_locales_path %>" class="button is-warning">Buscar</a>
-                </div>
+            <div class="box">
+              <!--                  <div class="media-left">-->
+              <!--                    <figure class="image is-48x48 is-centered">-->
+              <!--                      <img src="<%#= image_path("restaurant.svg") %>" alt="restaurant">-->
+              <!--                    </figure>-->
+              <!--                  </div>-->
+              <div class="is-grouped">
+                <p class="title is-4" style="color: hsl(0, 0%, 21%)">Locales</p>
+                <p>Busca los locales de DCCitas.</p>
               </div>
+
+              <br>
+              <a href="<%= users_locales_path %>" class="button is-warning">Buscar</a>
+
 
             </div>
           </div>
@@ -238,7 +229,7 @@
 
           <div class="column">
             <div class="card has-text-centered">
-                <h4 class="">Formulario</h4>
+              <h4 class="">Formulario</h4>
               <div class="card-body">
                 <h1 class="card-title pricing-card-title"> 👥 Local</h1>
                 <ul class="list-unstyled mt-3 mb-4">

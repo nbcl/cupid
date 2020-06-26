@@ -67,5 +67,4 @@ class Users::RegistrationsController < Devise::RegistrationsController
     params.require(:user).permit(:nombre, :edad, :genero, :descripcion, :telefono, :comuna_id,
                                  :email, :password, :password_confirmation)
   end
-
 end

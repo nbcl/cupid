@@ -58,6 +58,9 @@ Style/Documentation:
 # This Cops where added to Rubocop by the default installation but are not configured by default.
 # Enabled them as true. Suggested in Rubocop Autoconfig command.
 
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
 Lint/RaiseException:
   Enabled: true
 
