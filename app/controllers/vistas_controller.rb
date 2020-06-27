@@ -31,7 +31,7 @@ class VistasController < ApplicationController
     @locals = Local.all
     render 'admins/lista_locales'
   end
-  
+
   def show_admin_postulantes
     @locals = Local.all
     render 'admins/lista_locales_postulando'

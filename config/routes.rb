@@ -87,8 +87,6 @@ Rails.application.routes.draw do
   # Ruta para ver locales por usuario
   get 'users/locales', to: 'vistas#show_user_locals'
 
-  
-
   # Interactions
   # Create
   get 'interactions/new/:id', to: 'interactions#new', as: :interactions_new

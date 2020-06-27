@@ -1,7 +1,3 @@
-<<<<<<< Updated upstream
-=======
-inherit_from: .rubocop_todo.yml
->>>>>>> Stashed changes
 
 # Custom Cop Config
 AllCops:
