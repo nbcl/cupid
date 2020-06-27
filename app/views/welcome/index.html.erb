@@ -204,7 +204,6 @@
       </div>
     </nav>
 
-
     <div class="hero-body">
       <div class="container has-text-centered">
         <h1 class="title"> DCCitas </h1>
@@ -227,90 +226,116 @@
           </div>
 
 
-          <div class="column">
-            <div class="card has-text-centered">
-              <h4 class="">Formulario</h4>
-              <div class="card-body">
-                <h1 class="card-title pricing-card-title"> 👥 Local</h1>
+  <% elsif admin_signed_in? %>
+    <nav class="navbar has-shadow">
+      <div class="navbar-brand">
+        <a class="navbar-item">
+          <img src="<%= image_path("logo.png") %>" alt="Logo">
+        </a>
+      </div>
+      <div class="navbar-menu">
+        <div class="navbar-start">
+          <div class="navbar-item">
+            <small>El mejor sitio para encontrar a tu pareja ideal</small>
+          </div>
+        </div>
+      </div>
+      <div class="navbar-menu is-danger">
+        <div class="navbar-end">
+          <div class="navbar-item has-dropdown is-hoverable" style="background-color: hsl(348, 100%, 61%)">
+            <div class="navbar-link" style="background-color: hsl(348, 100%, 61%)">
+              <figure class="image is-24x24 is-rounded">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" class="is-rounded" alt="">
+              </figure>
+              <p style="margin: 0px 4px 0px 9px">Admin</p>
+            </div>
+            <div class="navbar-dropdown" style="background-color: hsl(348, 100%, 61%)">
+              <a class="navbar-item" href="<%= destroy_admin_session_path %>">
+                <div>
+                <span class="icon is-small">
+                  <i class="fa fa-sign-out"></i>
+                </span>
+                  Sign Out
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <h1 class="title"> DCCitas </h1>
+        <h2 class="subtitle">Bienvenido a DCCitas, Admin.</h2>
+      </div>
+    </div>
+    <body>
+      <div class="section is-large">
+        <div class="columns is-centered">
+            <div class="column">
+              <div class="box text is-center">
+                <h1 class="box-title pricing-card-title"> 🏙️ Locales</h1>
                 <ul class="list-unstyled mt-3 mb-4">
-                  <li> Edita tu informacion de tu Local</li>
+                  <li>Ver todos los Locales</li>
                 </ul>
-                <a href="/locals/perfil?id=<%= current_local.id %>">
-                  <button type="button" class="btn btn-lg btn-block btn-outline-primary">Editar</button>
+                <a href="<%= admins_locales_path %>">
+                  <button class="button">Administrar</button>
                 </a>
               </div>
             </div>
-          </div>
+            <div class="column">
+              <div class="box text is-center">
+                <div class="box-body">
+                  <h1 class="box-title pricing-card-title"> 👥 Usuarios</h1>
+                  <ul class="list-unstyled mt-3 mb-4">
+                    <li> Ver todos los usuarios</li>
+                  </ul>
+                  <a href="<%= admins_users_path %>">
+                    <button class="button">Administrar</button>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="column">
+              <div class="box text is-center">
+                <div class="box-body">
+                  <h1 class="card-title pricing-card-title"> 👥 Comentarios</h1>
+                  <ul class="list-unstyled mt-3 mb-4">
+                    <li> Ver todos los comentarios</li>
+                  </ul>
+                  <a href="/comentarios">
+                    <button class="button">Administrar</button>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="column">
+              <div class="box text is-center">
+                <div class="box-body">
+                  <h1 class="card-title pricing-card-title"><strong> Gustos</strong></h1>
+                  <ul class="list-unstyled mt-3 mb-4">
+                    <li> Ver todos los gustos</li>
+                  </ul>
+                  <a href="/">
+                    <button class="button">Administrar</button>
+                  </a>
+                </div>
+              </div>
+            </div>
+        
         </div>
       </div>
-    </div>
-
-  <% elsif admin_signed_in? %>
-
-    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-      <h1 class="display-4"> DCCitas </h1>
-      <p class="lead">Bienvenido a DCCitas, Admin.</p>
-    </div>
-
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm text-center">
-            <div class="card-body">
-              <h1 class="card-title pricing-card-title"> 🏙️ Locales</h1>
-              <ul class="list-unstyled mt-3 mb-4">
-                <li>Ver todos los Locales</li>
-              </ul>
-              <a href="<%= admins_locales_path %>">
-                <button type="button" class="btn btn-lg btn-block btn-outline-primary">Administrar</button>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm text-center">
-            <div class="card-body">
-              <h1 class="card-title pricing-card-title"> 👥 Usuarios</h1>
-              <ul class="list-unstyled mt-3 mb-4">
-                <li> Ver todos los usuarios</li>
-              </ul>
-              <a href="<%= admins_users_path %>">
-                <button type="button" class="btn btn-lg btn-block btn-outline-primary">Administrar</button>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm text-center">
-            <div class="card-body">
-              <h1 class="card-title pricing-card-title"> 👥 Comentarios</h1>
-              <ul class="list-unstyled mt-3 mb-4">
-                <li> Ver todos los comentarios</li>
-              </ul>
-              <a href="/comentarios">
-                <button type="button" class="btn btn-lg btn-block btn-outline-primary">Administrar</button>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm text-center">
-            <div class="card-body">
-              <a href="<%= destroy_admin_session_path %>">
-                <button type="button" class="btn btn-lg btn-block btn-outline-primary">Log Out</button>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
+    </body>
   <% else %>
     <div class="hero-body">
       <div class="container">
         <h1 class="title"> DCCitas </h1>
         <h2 class="subtitle">Bienvenido a DCCitas, Visita.</h2>
         <div class="columns is-centered">
+          <div class="column">
+            <a href="<%= users_locales_path %>" class="button is-warning">Ver Locales</a>
+          </div>
           <div class="column">
             <a href="<%= new_user_session_path %>" class="button is-warning">Login as User</a>
           </div>
@@ -320,7 +345,8 @@
           <div class="column">
             <a href="<%= new_admin_session_path %>" class="button is-warning">Login as Admin</a>
           </div>
-          <div class="column is-two-thirds">
+          
+          <div class="column is-two-quarter">
 
           </div>
         </div>

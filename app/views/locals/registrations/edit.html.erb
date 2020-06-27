@@ -38,7 +38,14 @@
 <!--    <%#= f.label :comuna%><br />-->
     <%#= f.text_field :comuna, autofocus: true, autocomplete: "comuna"%>
 <!--  </div>-->
-
+  <%if admin_signed_in?%>
+    <%if :confirmation == false?%>
+      <div class="field">
+        <%= f.label :confirmation %><br />
+        <%= f.checkbox :confirmation %>
+      </div>
+    <%end%>
+  <%end%>
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
@@ -67,8 +74,11 @@
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<%if local_signed_in?%>
+  <h3>Cancel my account</h3>
+
+  <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<%end%>
 
 <%= link_to "Back", :back %>

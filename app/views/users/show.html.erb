@@ -41,7 +41,7 @@
 </p>
 
 <!-- El siguiente codigo realiza una llamada a los reportes y permite eliminarlo si tiene 3 reports-->
-<% 
+<% if admin_signed_in?
   @reports = ActiveRecord::Base.connection
   result = @reports.exec_query('SELECT * FROM ureports WHERE reported_id =' + @user.id.to_s + ';') 
   counter = 0
@@ -49,10 +49,12 @@
     counter += 1
   end
   if counter >= 2
+    
 %>
-    <%= link_to 'Eliminar Usuario', user_path(@user.id), method: :delete, alert: 'Estás seguro?' %>   
-<%
-  end
-%>
+    <%= link_to 'Eliminar Usuario Reportado', user_path(@user.id), method: :delete, alert: 'Estás seguro?' %>   
+  <%end%> 
+
+  <%= link_to 'Eliminar Usuario', user_path(@user.id), method: :delete, alert: 'Estás seguro?' %>
+<%end%>
 
 <%= link_to 'Back', :back %>

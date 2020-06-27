@@ -4,44 +4,46 @@
       <h1 class="title">Locales de DCCitas</h1>
 
       <% @locals.each do |local| %>
-        <div class="box">
-          <article class="media">
-            <div class="media-left">
-                <% if local.avatar.attached? %>
-                    <figure class="image is-64x64">
-                        <%= image_tag local.avatar, class: 'image is-64x64 is-rounded' %>
-                    </figure>
-                <% else %>
-                    <figure class="image is-64x64">
-                        <img class="rounded-circle" src="https://via.placeholder.com/64" alt=""/>
-                    </figure>
-                <% end %>
-            </div>
-            <div class="media-content">
-              <div class="content">
-                <p>
-                  <strong><%= local.nombre %></strong> <small><%= local.email %></small> <small><%= local.valoracion %></small>
-                  <br>
-                  <%= local.descripcion %>
-                </p>
+        <%if local.confirmation == true%>
+          <div class="box">
+            <article class="media">
+              <div class="media-left">
+                  <% if local.avatar.attached? %>
+                      <figure class="image is-64x64">
+                          <%= image_tag local.avatar, class: 'image is-64x64 is-rounded' %>
+                      </figure>
+                  <% else %>
+                      <figure class="image is-64x64">
+                          <img class="rounded-circle" src="https://via.placeholder.com/64" alt=""/>
+                      </figure>
+                  <% end %>
               </div>
-              <nav class="level is-mobile">
-                <div class="level-left">
-                  <a class="level-item" aria-label="comment" href="<%= comentarios_new_path(local.id) %>">
-                    <span class="icon is-small">
-                      <i class="fa fa-comments"></i>
-                    </span>
-                  </a>
-                  <a class="level-item" aria-label="info" href="<%= local_path(local.id) %>">
-                    <span class="icon is-small">
-                      <i class="fa fa-info-circle"></i>
-                    </span>
-                  </a>
+              <div class="media-content">
+                <div class="content">
+                  <p>
+                    <strong><%= local.nombre %></strong> <small><%= local.email %></small> <small><%= local.valoracion %></small>
+                    <br>
+                    <%= local.descripcion %>
+                  </p>
                 </div>
-              </nav>
-            </div>
-          </article>
-        </div>
+                <nav class="level is-mobile">
+                  <div class="level-left">
+                    <a class="level-item" aria-label="comment" href="<%= comentarios_new_path(local.id) %>">
+                      <span class="icon is-small">
+                        <i class="fa fa-comments"></i>
+                      </span>
+                    </a>
+                    <a class="level-item" aria-label="info" href="<%= local_path(local.id) %>">
+                      <span class="icon is-small">
+                        <i class="fa fa-info-circle"></i>
+                      </span>
+                    </a>
+                  </div>
+                </nav>
+              </div>
+            </article>
+          </div>
+        <%end%>
     <% end %>
 
       <a href="/" class="button is-secondary">Volver al Inicio</a>

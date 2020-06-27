@@ -122,6 +122,7 @@ ActiveRecord::Schema.define(version: 2020_06_26_222347) do
     t.float "valoracion"
     t.text "descripcion"
     t.bigint "comuna_id"
+    t.boolean "confirmation", default: false
     t.index ["comuna_id"], name: "index_locals_on_comuna_id"
     t.index ["email"], name: "index_locals_on_email", unique: true
     t.index ["reset_password_token"], name: "index_locals_on_reset_password_token", unique: true

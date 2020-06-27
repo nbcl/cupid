@@ -31,10 +31,20 @@ class VistasController < ApplicationController
     @locals = Local.all
     render 'admins/lista_locales'
   end
+  
+  def show_admin_postulantes
+    @locals = Local.all
+    render 'admins/lista_locales_postulando'
+  end
 
   def show_admin_local
     @local = Local.find(params[:id])
     render 'locals/show'
+  end
+
+  def edit_admin_local
+    @local = Local.find(params[:id])
+    render 'locals/edit'
   end
 
   def destroy_admin_local

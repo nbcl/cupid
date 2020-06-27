@@ -23,5 +23,7 @@
 <% if user_signed_in? and @comentario.user_id == current_user.id %>
   <%= link_to 'Editar Comentario', comentarios_edit_path(@comentario.id) %>
 <% end %>
-<%= link_to 'Eliminar Comentario', comentario_path(@comentario.id), method: :delete, alert: 'Estás seguro?' %>
-<%= link_to 'Lista Comentarios', comentarios_path %>
+<% if admin_signed_in?%>
+  <%= link_to 'Eliminar Comentario', comentario_path(@comentario.id), method: :delete, alert: 'Estás seguro?' %>
+<%end%>
+  <%= link_to 'Lista Comentarios', comentarios_path %>

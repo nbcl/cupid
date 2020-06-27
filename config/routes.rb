@@ -81,8 +81,13 @@ Rails.application.routes.draw do
   get 'admins/users/:id', to: 'vistas#show_admin_usuario', as: :user
   delete 'admins/users/:id', to: 'vistas#destroy_admin_user'
 
+  get 'admins/postulantes', to: 'vistas#show_admin_postulantes'
+  get 'admins/postulantes/edit', to:'vistas#edit_admin_local', as: :edit_admin_local
+
   # Ruta para ver locales por usuario
   get 'users/locales', to: 'vistas#show_user_locals'
+
+  
 
   # Interactions
   # Create
