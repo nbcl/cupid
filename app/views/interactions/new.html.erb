@@ -26,16 +26,22 @@
     response = http.request(request)
     # Parses response to JSON
     call = JSON[response.body.force_encoding('utf-8')]
-    # Gets artist's link for first result
-    artist = call['artists']['items'][0]['external_urls']['spotify']
-    # Parses to get embed link
-    parsed = artist.to_s.split('artist')
-    parsed[0] = parsed[0] + 'embed/'
-    # Final embed link
-    embed = parsed.join('artist') 
+    # Checks if there is a correct answer
+    if call['artists']
+        # Gets artist's link for first result
+        artist = call['artists']['items'][0]['external_urls']['spotify']
+        # Parses to get embed link
+        parsed = artist.to_s.split('artist')
+        parsed[0] = parsed[0] + 'embed/'
+        # Final embed link
+        embed = parsed.join('artist') 
+    # Else should execute if @Spotify.token is expired
+    else
+        embed='https://open.spotify.com/embed/artist/4q3ewBCX7sLwd24euuV69X'
+    end
 
-  # If user has not selected an artist, shows award-winning, grammy-nominated
-  # superstar 'Bad-Bunny'
+  # If user has not selected an artist, shows award-winning, 
+  # grammy-nominated superstar 'Bad-Bunny'
   else
     embed='https://open.spotify.com/embed/artist/4q3ewBCX7sLwd24euuV69X'
   end
