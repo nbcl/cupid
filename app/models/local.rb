@@ -10,4 +10,6 @@ class Local < ApplicationRecord
   has_many :cita
   has_many :platos
   has_one_attached :avatar
+  has_many :valoracions
+
 end

@@ -1,0 +1,14 @@
+<h1>Editar Valoracion</h1>
+
+<%= form_with(model: @valoracion, url: valoracion_path(@valoracion.id), method: :patch) do |form| %>
+  <div class='field'>
+    <%= form.label :valor %><br />
+    <%= form.number_field :valor, autofocus: true, autocomplete: "valor" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', valoracions_path %>

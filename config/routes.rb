@@ -71,6 +71,19 @@ Rails.application.routes.draw do
   # Delete
   delete 'platos/:id', to: 'platos#destroy'
 
+  # Rutas del CRUD Valoracion
+  # Create
+  get 'valoracions/new/:id', to: 'valoracions#new', as: :valoracions_new
+  post 'valoracions', to: 'valoracions#create'
+  # Read
+  get 'valoracions', to: 'valoracions#index'
+  get 'valoracions/:id', to: 'valoracions#show', as: :valoracion
+  # Update
+  get 'valoracions/:id/edit', to: 'valoracions#edit', as: :valoracions_edit
+  patch 'valoracions/:id/', to: 'valoracions#update'
+  put 'valoracions/:id/', to: 'valoracions#update'
+  #Delete
+  delete 'valoracions/:id', to: 'valoracions#destroy'
 
   # Rutas del CRUD Admin
   get 'admins/locales', to: 'vistas#show_admin_locales'
@@ -135,6 +148,8 @@ Rails.application.routes.draw do
 
   # Rutas para ver los comentarios de un local
   get 'locals/comentarios', to: 'vistas#show_local_comentarios'
+
+  get 'users/valorar/:id', to: 'vistas#valorar_local', as: :user_valorar
 
   # get '/ruta_nueva' => 'devise/template_nueva#new', :as => :new_user_registration_nombre
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

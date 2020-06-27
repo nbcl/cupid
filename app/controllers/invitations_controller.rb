@@ -50,6 +50,7 @@ class InvitationsController < ApplicationController
   # PATCH/PUT /invitations/1.json
   def update
     respond_to do |format|
+      puts 'hola1'
       if @invitation.update(invitation_params)
         if @invitation.confirma == true
           format.html do

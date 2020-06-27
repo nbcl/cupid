@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_26_222347) do
+ActiveRecord::Schema.define(version: 2020_06_27_210733) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -179,6 +179,16 @@ ActiveRecord::Schema.define(version: 2020_06_26_222347) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "valoracions", force: :cascade do |t|
+    t.float "valor"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "local_id"
+    t.bigint "user_id"
+    t.index ["local_id"], name: "index_valoracions_on_local_id"
+    t.index ["user_id"], name: "index_valoracions_on_user_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "cita", "locals"
   add_foreign_key "comentarios", "locals"
@@ -186,4 +196,6 @@ ActiveRecord::Schema.define(version: 2020_06_26_222347) do
   add_foreign_key "locals", "comunas"
   add_foreign_key "platos", "locals"
   add_foreign_key "users", "comunas"
+  add_foreign_key "valoracions", "locals"
+  add_foreign_key "valoracions", "users"
 end

@@ -90,8 +90,6 @@
                 took a galley of type and scrambled it to make a type specimen book.</p>
 
               <br>
-              <iframe src="<%= embed.to_s %>" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-
               <%= form_with(model: @Interaction, method: :post, html: {class: "has-text-centered"}) do |form| %>
                 <div class="field">
                   <%= check_box_tag(:like) %>
@@ -115,6 +113,11 @@
               <% end %>
             </div>
           </div>
+        </div>
+      </div>
+      <div class="column is-4-widescreen is-5-desktop">
+        <div class="">
+          <iframe src="<%= embed.to_s %>" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
         </div>
       </div>
     </div>

@@ -4,7 +4,7 @@
       <h1 class="title">Locales de DCCitas</h1>
 
       <% @locals.each do |local| %>
-        <%if local.confirmation == true%>
+        <%if local.confirmation == false%>
           <div class="box">
             <article class="media">
               <div class="media-left">
@@ -28,11 +28,11 @@
                 </div>
                 <nav class="level is-mobile">
                   <div class="level-left">
-                    <a class="level-item" aria-label="comment" href="<%= comentarios_new_path(local.id) %>">
-                      <span class="icon is-small">
-                        <i class="fa fa-comments"></i>
-                      </span>
-                    </a>
+<!--                    <a class="level-item" aria-label="comment" href="<%#= comentarios_new_path(local.id) %>">-->
+<!--                      <span class="icon is-small">-->
+<!--                        <i class="fa fa-comments"></i>-->
+<!--                      </span>-->
+<!--                    </a>-->
                     <a class="level-item" aria-label="info" href="<%= local_path(local.id) %>">
                       <span class="icon is-small">
                         <i class="fa fa-info-circle"></i>

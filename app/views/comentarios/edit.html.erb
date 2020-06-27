@@ -1,6 +1,6 @@
 <h1>Editar Comentario</h1>
 
-<%= form_with(model: @gusto, url: gusto_path(@gusto.id), method: :patch) do |form| %>
+<%= form_with(model: @comentario, url: comentario_path(@comentario.id), method: :patch) do |form| %>
   <div class='field'>
     <%= form.label :contenido %><br />
     <%= form.text_area :contenido, autofocus: true, autocomplete: "contenido", :cols => 30, :rows => 10 %>
@@ -11,4 +11,4 @@
   </div>
 <% end %>
 
-<%= link_to 'Back', gustos_path %>
+<%= link_to 'Back', comentarios_path %>

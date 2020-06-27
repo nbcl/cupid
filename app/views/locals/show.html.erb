@@ -8,10 +8,16 @@
         <div class="columns is-mobile">
           <div class="column">
 
+            <% if @local.avatar.attached? %>
+              <figure class="image is-4by3">
+                <%= image_tag @local.avatar, class: 'image is-4by3' %>
+              </figure>
+            <% else %>
+              <figure class="image is-4by3">
+                <img class="" src="https://bulma.io/images/placeholders/1280x960.png" alt="" style=""/>
+              </figure>
+            <% end %>
 
-            <figure class="image is-4by3">
-              <img class="" src="https://bulma.io/images/placeholders/1280x960.png" alt="" style=""/>
-            </figure>
             <br>
             <p class="title is-4" style="color: hsl(0, 0%, 21%)">
               <%= @local.descripcion %>
@@ -25,10 +31,13 @@
           <div class="column">
 
             <p class="title is-4" style="color: hsl(0, 0%, 21%)">
-              Valoracion de este local
-            </p>
-            <p class="content">
-              <%= @local.valoracion %>
+              Valoracion de este local:
+              <% if @promedio == 0 %>
+                <%= @valor %>
+              <% else %>
+                <%= @promedio %> Estrellas
+              <% end %>
+
             </p>
 
             <p class="title is-4" style="color: hsl(0, 0%, 21%)">
@@ -98,8 +107,19 @@
           %>
 
         <% end %>
-
         <%= link_to 'Back', :back, class: "button is-warning" %>
+        <% @citas = current_user.primary_cita
+           @citas << current_user.secondary_cita
+           @fue = false
+           @citas.each do |c|
+             if c.local_id == @local.id
+               @fue = true
+             end
+           end
+           if @fue %>
+          <%= link_to 'Dejar un comentario', comentarios_new_path(@local.id), class: "button is-link" %>
+          <%= link_to 'Valorar este local', valoracions_new_path(@local.id), class: "button is-primary" %>
+        <% end %>
       </div>
     </div>
   </div>

@@ -1,0 +1,2 @@
+module ValoracionesHelper
+end

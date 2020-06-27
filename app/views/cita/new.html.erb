@@ -10,7 +10,7 @@
                         <%= form.label :user1_id, class: "label" %>
                         <%= form.number_field :user1_id, autofocus: true, autocomplete: "user1_id", value: current_user.id %>
                     </div>
-                
+
                     <div class="field">
                         <%= form.label :user2_id, class: "label" %>
                         <%= form.number_field :user2_id, autofocus: true, autocomplete: "user2_id", value: @invitation.user_invitado.to_i %>
@@ -20,10 +20,10 @@
                         <%= form.label :local_id, class: "label" %>
                         <%= form.number_field :local_id, autofocus: true, autocomplete: "user2_id", value: @invitation.local_id.to_i %>
                     </div>
-                    
+
                     <div class="field">
                         <%= form.label :fecha, class: "label" %><br />
-                        <%= form.date_field :fecha, autofocus: true, autocomplete: "fecha", value: @invitation.fecha %> 
+                        <%= form.date_field :fecha, autofocus: true, autocomplete: "fecha", value: @invitation.fecha %>
                         <span class="icon is-small is-left">
                             <i class="fa fa-calendar"></i>
                         </span>

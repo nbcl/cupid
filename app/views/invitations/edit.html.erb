@@ -6,9 +6,9 @@
       <h2><%= pluralize(@invitation.errors.count, "error") %> prohibited this @invitation from being saved:</h2>
 
       <ul>
-      <% @invitation.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% @invitation.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
@@ -30,13 +30,7 @@
 
   <div class="is-hidden">
     <%= form.label :local_id, class: 'label' %>
-    <div class="control has-icons-left">
-      <div class="select is-danger">
-        <%= form.select :local_id, %w{1 2 3}, :prompt => 'Select', required: true,
-                    placeholder: 'Local', class: 'form-control' %>
-      </div>
-      
-    </div>
+    <%= form.number_field :local_id, required: true, placeholder: 'Local', value: @invitation.local_id %>
   </div>
 
   <div class="field">
