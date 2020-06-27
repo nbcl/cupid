@@ -1,3 +1,5 @@
+inherit_from: .rubocop_todo.yml
+
 # Custom Cop Config
 AllCops:
   Exclude:
@@ -16,6 +18,13 @@ Layout/LineLength:
 Style/SymbolArray:
   EnforcedStyle: brackets
 
+# Configuration parameters: IgnoredMethods.
+Metrics/AbcSize:
+  Max: 43
+
+# Configuration parameters: CountComments, ExcludedMethods.
+Metrics/MethodLength:
+  Max: 13
 
 # Custom Exclude Config
 
