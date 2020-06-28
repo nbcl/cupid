@@ -39,12 +39,6 @@ class VistasController < ApplicationController
 
   def show_admin_local
     @local = Local.find(params[:id])
-    @promedio = 0
-    @valor = 'Este local aun no ha recibido valoraciones' if @local.valoracions.empty?
-    @local.valoracions.each do |v|
-      @promedio += v.valor
-    end
-    @promedio /= @local.valoracions.length
     render 'locals/show'
   end
 
@@ -121,5 +115,4 @@ class VistasController < ApplicationController
     @user.gustos.delete(@gusto)
     render 'users/lista_gustos'
   end
-
 end

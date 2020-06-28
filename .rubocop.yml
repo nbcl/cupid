@@ -8,6 +8,7 @@ AllCops:
     - 'app/helpers/*'
     - 'app/channels/**/*'
     - !ruby/regexp /old_and_unused\.rb$/
+    - 'test/**/*'
 # Extended LineLength to 130
 Layout/LineLength:
   Max: 100

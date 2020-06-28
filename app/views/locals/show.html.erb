@@ -1,3 +1,9 @@
+<% @promedio = 0
+   @valor = 'Este local aun no ha recibido valoraciones' if @local.valoracions.empty?
+   @local.valoracions.each do |v|
+     @promedio += v.valor
+   end
+   @promedio /= @local.valoracions.length %>
 <section class="hero is-fullheight is-danger">
   <div class="hero-body">
     <div class="container">
