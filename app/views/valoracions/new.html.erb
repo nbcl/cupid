@@ -8,7 +8,7 @@
 
             <div class="field">
               <%= form.label :valor, class: "label" %>
-              <%= form.number_field :valor, autofocus: true, autocomplete: "valor", step: :any %>
+              <%= form.number_field :valor, autofocus: true, autocomplete: "valor", step: :any, in: 1..5 %>
             </div>
 
             <div class="field">
