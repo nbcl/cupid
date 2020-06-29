@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<div class="hero-body">
+  <h1 class="title"> Locales Postulando a DCCitas</h1>
+  <h3 class="subtitle"> A continuación se muestran los postulantes</h3>
+</div>
+<div class="content">
+  <table class="table">
+    <thead>
+      <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Email</th>
+      <th>Valoracion</th>
+  <!--    <th style="padding:10px">Comuna</th>-->
+      <th>Descripcion</th>
+      <th>¿Confirmado?</th>
+      <th> Acciones </th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @locales.each do |local| %>
+      <%if local.confirmation == false%>
+          <tr>
+          <td><%= local.id %></td>
+          <td><%= local.nombre %></td>
+          <td><%= local.email %></td>
+          <td><%= local.valoracion %></td>
+      <!--      <td style="padding:10px"><%#= local.comuna %></td>-->
+          <td><%= local.descripcion %></td>
+          <td><%= local.confirmation %></td>
+          <td>
+            <button class="button is-warning">
+              <a href="<%= edit_admin_local_path(local.id)%>"> Editar</a>
+            </button>
+          </td>
+          </tr>
+      <%end%>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<button class="button">
+  <a href="/">Volver</a>
+</button>
+
+<button class="button">
+  <a href="<%= welcome_path %>">Home</a>
+</button>

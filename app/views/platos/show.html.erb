@@ -1,27 +1,39 @@
 <p id="notice"><%= notice %></p>
+<section class="hero is-primary is-fullheight">
+  <div class="hero-body"> 
+    <div class="container">
+      <h1 class="title">
+        Detalle Plato 
+      </h1>
+    </div>
+    <div class="container">
+      <div class="box">
+        <article class="media">
+          <div class="media-content">
+            <div class="content">
+              <p>
+                Nombre: <strong> <%= @plato.nombre%> </strong> <br>
+                Precio: $ <%= @plato.precio %><br>
+                Descripción: <%= @plato.descripcion %>
+              </p>
+            </div>
+          </div>
+        </article>
+      </div> 
+    </div>  
+  </div>
+  <div class="buttons">
+    <% if local_signed_in? and @plato.local_id == current_local.id %>
+      <%= link_to 'Editar Plato', platos_edit_path(@plato.id), class: "button" %>
+    <% end %>
+    <%= link_to 'Eliminar Plato', plato_path(@plato.id), method: :delete, alert: 'Estás seguro?', class: "button" %>
+    <%= link_to 'Volver al menu', locals_menu_path, class: "button" %>
+  </div>
+  <br>
+</section>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @plato.nombre%>
-</p>
 
-<p>
-  <strong>Descripcion:</strong>
-  <%= @plato.descripcion %>
-</p>
 
-<p>
-  <strong>Precio:</strong>
-  <%= @plato.precio %>
-</p>
 
-<p>
-  <strong>Local:</strong>
-  <%= @local.nombre %>
-</p>
 
-<% if local_signed_in? and @plato.local_id == current_local.id %>
-  <%= link_to 'Editar Plato', platos_edit_path(@plato.id) %>
-<% end %>
-<%= link_to 'Eliminar Plato', plato_path(@plato.id), method: :delete, alert: 'Estás seguro?' %>
-<%= link_to 'Volver al menu', locals_menu_path %>
+

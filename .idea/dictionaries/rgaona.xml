@@ -3,6 +3,7 @@
     <words>
       <w>acceder</w>
       <w>acciones</w>
+      <w>acepta</w>
       <w>administrar</w>
       <w>afiliados</w>
       <w>agregar</w>
@@ -25,11 +26,13 @@
       <w>comuna</w>
       <w>comunas</w>
       <w>condes</w>
+      <w>confirma</w>
       <w>confirmable</w>
       <w>contenido</w>
       <w>contiene</w>
       <w>controlador</w>
       <w>creacion</w>
+      <w>creada</w>
       <w>creado</w>
       <w>crear</w>
       <w>dccitas</w>
@@ -50,6 +53,7 @@
       <w>este</w>
       <w>estilo</w>
       <w>estás</w>
+      <w>exito</w>
       <w>fecha</w>
       <w>formulario</w>
       <w>fullheight</w>
@@ -59,8 +63,12 @@
       <w>hoverable</w>
       <w>informacion</w>
       <w>inicio</w>
+      <w>invita</w>
+      <w>invitado</w>
       <w>lascondes</w>
       <w>lista</w>
+      <w>lreport</w>
+      <w>lreports</w>
       <w>marginless</w>
       <w>mejor</w>
       <w>metodos</w>
@@ -87,6 +95,7 @@
       <w>plpgsql</w>
       <w>precio</w>
       <w>providencia</w>
+      <w>realizadas</w>
       <w>registerable</w>
       <w>rememberable</w>
       <w>revisa</w>
@@ -105,6 +114,8 @@
       <w>trackable</w>
       <w>turbolinks</w>
       <w>unstyled</w>
+      <w>ureport</w>
+      <w>ureports</w>
       <w>usuario</w>
       <w>usuarios</w>
       <w>valoracion</w>

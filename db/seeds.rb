@@ -17,6 +17,7 @@ admin.save
 # comentario = Comentario.new(fecha: '12/12/2020', contenido: 'Hola', user: User.find(14), local: Local.find(5))
 #
 Comuna.destroy_all
+indefinido = Comuna.create!(nombre: 'Por definir')
 vitacura = Comuna.create!(nombre:'Vitacura')
 lascondes = Comuna.create!(nombre:'Las Condes')
 san = Comuna.create!(nombre:'San Joaquin')

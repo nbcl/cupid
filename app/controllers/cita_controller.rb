@@ -1,17 +1,21 @@
-class CitaController < ApplicationController
+# frozen_string_literal: true
 
+# Class in charge of CRUD of Citum
+class CitaController < ApplicationController
   def new
     @citum = Citum.new
+    @invitation = Invitation.find(params[:invitation_id])
   end
 
   def create
-    match_params = params.require(:match).permit(:user_id1, :user_id2)
-    local_parms = params.require(:local).permit(:local_id)
-    @citun = Citum.create(match_params, local_parms)
+    citum_params = params.permit(:id, :fecha, :user1_id, :user2_id, :local_id, :invitation_id)
+    @citum = Citum.new(citum_params)
     if @citum.save
-      redirect_to matches_find_pa, notice: 'Cita creada con éxito'
+      # render 'invitations/'+@invitation.id.to_s+'/citum/new/'+citum_params.id.to_s,
+      # notice: 'Cita creada con exito'
+      redirect_to invitation_citum_path(@citum.invitation_id, @citum.id)
     else
-      redirect_to gustos_new_path, notice: 'Ocurrió un error al crear la cita.'
+      redirect_to matches_find_path
     end
   end
 
@@ -20,8 +24,7 @@ class CitaController < ApplicationController
   end
 
   def show
-    @citum = Citum.find(param[:id])
-    render 'citum/show'
+    @citum = Citum.find(params[:id])
+    render 'show'
   end
-
 end

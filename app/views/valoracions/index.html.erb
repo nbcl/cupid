@@ -1,0 +1,29 @@
+<!--<p id="notice"><%#= notice %></p>-->
+
+<h1>Valoraciones</h1>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th style="padding:10px">Usuario</th>
+    <th style="padding:10px">Local</th>
+    <th style="padding:10px">Valor</th>
+    <th style="padding:10px"> Acciones </th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @valoracions.each do |v| %>
+    <tr>
+      <td style="padding:10px"><%= v.user_id %></td>
+      <td style="padding:10px"><%= v.local_id %></td>
+      <td style="padding:10px"><%= v.valor %></td>
+      <td style="padding:10px"><%= link_to 'Ver', valoracion_path(v.id) %>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+<br>
+<a href="/">Volver al Inicio</a>

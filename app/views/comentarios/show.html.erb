@@ -1,27 +1,52 @@
 <p id="notice"><%= notice %></p>
+<section class="hero is-fullheight is-danger">
+  <div class="hero-body">
+    <div class="container">
+      <div class="box">
+        <p id="notice"><%= notice %></p>
+        <p class="title" style="color:  hsl(0, 0%, 29%)">
+        Detalle comentario
+        </p>
+        <div class="content">
+          <p>
+          <strong>Usuario:</strong>
+          <%= @comentario.user_id %>
+          </p>
 
-<p>
-  <strong>Usuario:</strong>
-  <%= @comentario.user_id %>
-</p>
+          <p>
+            <strong>Local:</strong>
+            <%= @comentario.local_id %>
+          </p>
 
-<p>
-  <strong>Local:</strong>
-  <%= @comentario.local_id %>
-</p>
+          <p>
+            <strong>Fecha de Creacion:</strong>
+            <%= @comentario.fecha %>
+          </p>
 
-<p>
-  <strong>Fecha de Creacion:</strong>
-  <%= @comentario.fecha %>
-</p>
+          <p>
+            <strong>Contenido:</strong>
+            <%= @comentario.contenido %>
+          </p>
+        </div>
+      </div>
+            
+      <% if user_signed_in? and @comentario.user_id == current_user.id %>
+        <button class="button is-warning">
+          <%= link_to 'Editar', comentarios_edit_path(@comentario.id) %>
+        </button>
+      <% end %>
+      <% if admin_signed_in?%>
+        <button class="button is-danger is-inverted">
+          <%= link_to 'Eliminar', comentario_path(@comentario.id), method: :delete, alert: 'Estás seguro?' %>
+        </button>
+      <%end%>
+      <button class="button is-secondary">
+        <%= link_to 'Lista Comentarios', comentarios_path %>
+      </button>
+    </div>
+  </div>
+</section>
 
-<p>
-  <strong>Contenido:</strong>
-  <%= @comentario.contenido %>
-</p>
 
-<% if user_signed_in? and @comentario.user_id == current_user.id %>
-  <%= link_to 'Editar Comentario', comentarios_edit_path(@comentario.id) %>
-<% end %>
-<%= link_to 'Eliminar Comentario', comentario_path(@comentario.id), method: :delete, alert: 'Estás seguro?' %>
-<%= link_to 'Lista Comentarios', comentarios_path %>
+
+

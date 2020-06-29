@@ -1,0 +1,2 @@
+module LreportsHelper
+end

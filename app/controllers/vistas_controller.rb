@@ -32,12 +32,34 @@ class VistasController < ApplicationController
     render 'admins/lista_locales'
   end
 
+  def show_admin_postulantes
+    @locals = Local.all
+    render 'admins/lista_locales_postulando'
+  end
+
+  def show_form_postulacion
+    render 'admins/form_postulacion'
+  end
+
+  def responder_form_postulacion
+    render 'admins/edit_postulacion'
+  end
+
   def show_admin_local
     @local = Local.find(params[:id])
     render 'locals/show'
   end
 
+  def edit_admin_local
+    @local = Local.find(params[:id])
+    render 'locals/registrations/edit'
+  end
+
   def destroy_admin_local
+    Plato.where(local_id: params[:id]).destroy_all
+    Comentario.where(local_id: params[:id]).destroy_all
+    Invitation.where(local_id: params[:id]).destroy_all
+    Citum.where(local_id: params[:id]).destroy_all
     @local = Local.find(params[:id])
     @local.destroy
     redirect_to admins_locales_path, notice: 'Local eliminado con éxito'
@@ -54,6 +76,15 @@ class VistasController < ApplicationController
   end
 
   def destroy_admin_user
+    Citum.where(user1_id: params[:id]).destroy_all
+    Citum.where(user2_id: params[:id]).destroy_all
+    Comentario.where(user_id: params[:id]).destroy_all
+    Interaction.where(user_id: params[:id]).destroy_all
+    Interaction.where(user_id_destiny: params[:id]).destroy_all
+    Invitation.where(user_invita: params[:id]).destroy_all
+    Invitation.where(user_invitado: params[:id]).destroy_all
+    Match.where(user_id1: params[:id]).destroy_all
+    Match.where(user_id2: params[:id]).destroy_all
     @user = User.find(params[:id])
     @user.destroy
     redirect_to admins_users_path, notice: 'Usuario eliminado con éxito'
@@ -67,7 +98,7 @@ class VistasController < ApplicationController
   def show_user_users
     @users = User.all
     render 'interactions/find'
-    @test = ActiveRecord::Base.connection.execute("SELECT * FROM Interactions;").to_a
+    @test = ActiveRecord::Base.connection.execute('SELECT * FROM Interactions;').to_a
   end
 
   def show_user_gustos
@@ -92,6 +123,4 @@ class VistasController < ApplicationController
     @user.gustos.delete(@gusto)
     render 'users/lista_gustos'
   end
-
-  
 end

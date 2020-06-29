@@ -7,13 +7,13 @@
             <div class="card-content">
               <div class="media">
                 <div class="media-content">
-                  <h1 class="title" style="color: hsl(0, 0%, 21%); margin-top: 4vh;"><%= current_local.nombre %></h1>
+                  <h1 class="title" style="color: hsl(0, 0%, 21%)"><%= current_local.nombre %></h1>
                 </div>
               </div>
               <ul>
-                <li> <strong>Email:</strong> <%= current_local.email %> </li>
-<!--                <li> Comuna: <%#= current_local.comuna.nombre %> </li>-->
-                <li> <strong>Descripcion:</strong> <%= current_local.descripcion %> </li>
+                <li><strong>Email:</strong> <%= current_local.email %> </li>
+                <!--                <li> Comuna: <%#= current_local.comuna.nombre %> </li>-->
+                <li><strong>Descripcion:</strong> <%= current_local.descripcion %> </li>
               </ul>
               <br>
               <div class="buttons">
@@ -22,6 +22,30 @@
                 <a href="/" class="button is-secondary" style="background-color: #ffffff">Home</a>
               </div>
             </div>
+          </div>
+        </div>
+        <div class="column"></div>
+        <div class="column is-5-tablet is-4-desktop is-4-widescreen">
+          <div class="box">
+            <p class="title" style="color: hsl(0, 0%, 21%)">Citas realizadas</p>
+            <table class="table">
+              <thead>
+              <tr>
+                <th>Usuario 1</th>
+                <th>Usuario 2</th>
+                <th>Fecha</th>
+              </tr>
+              </thead>
+              <tbody>
+              <% current_local.cita.each do |c| %>
+                <tr>
+                  <td><%= c.user1_id %></td>
+                  <td><%= c.user2_id %></td>
+                  <td><%= c.fecha %></td>
+                </tr>
+              <% end %>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>

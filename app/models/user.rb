@@ -8,22 +8,23 @@ class User < ApplicationRecord
 
   enum genero: [:Hombre, :Mujer, :Otro]
 
-
   has_many :comentarios
   has_many :interactions
   belongs_to :comuna
-  has_many :primary_cita, class_name: 'Citum', foreign_key: 'user_1_id'
-  has_many :secondary_cita, class_name: 'Citum', foreign_key: 'user_2_id'
+  has_many :primary_cita, class_name: 'Citum', foreign_key: 'user1_id'
+  has_many :secondary_cita, class_name: 'Citum', foreign_key: 'user2_id'
   has_and_belongs_to_many :gustos
   has_many :matches
-  
+  has_many :valoracions
+  # has_many :matches, through: :interactions ##new
+  # has_many :invitations
 
   validates :nombre, presence: true
   validates :edad, presence: true
   validates :telefono, presence: true
   validates :genero, presence: true
 
-  # Avatar Porfile Picture
+  # Avatar Profile Picture
   has_one_attached :avatar
 
   def nombre

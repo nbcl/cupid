@@ -1,0 +1,2 @@
+class Lreport < ApplicationRecord
+end

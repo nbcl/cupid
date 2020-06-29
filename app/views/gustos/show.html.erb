@@ -4,18 +4,21 @@
       <div class="box">
         <p id="notice"><%= notice %></p>
         <p class="title" style="color:  hsl(0, 0%, 29%)">
-          <strong>Nombre:</strong>
+          <br>
           <%= @gusto.nombre %>
+          <br>
         </p>
-        <p class="title" style="color:  hsl(0, 0%, 29%)">
-          <strong>Descripcion:</strong>
+        <p class="subtitle" style="color:  hsl(0, 0%, 29%)">
+          <br>
           <%= @gusto.descripcion %>
         </p>
-        <%= link_to 'Editar Gusto', gustos_edit_path(@gusto.id), class: "button is-warning" %>
-        <%= link_to 'Eliminar Gusto', gusto_path(@gusto.id), method: :delete, alert: 'Estás seguro?',
-                    class: "button is-danger" %>
-        <%= link_to 'Lista Gustos', gustos_path, class: "button is-secondary" %>
       </div>
+      <%= link_to 'Editar Gusto', gustos_edit_path(@gusto.id), class: "button is-warning" %>
+      <%= link_to 'Eliminar Gusto', gusto_path(@gusto.id), method: :delete, alert: 'Estás seguro?',
+                  class: "button is-warning" %>
+      <%= link_to 'Lista Gustos', gustos_path, class: "button is-secondary" %>
+      <a href=<%= welcome_path %> class="button">Home</a>
+      
     </div>
   </div>
 </section>

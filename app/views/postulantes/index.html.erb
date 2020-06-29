@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Postulantes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Content</th>
+      <th>Email</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @postulantes.each do |postulante| %>
+      <tr>
+        <td><%= postulante.name %></td>
+        <td><%= postulante.content %></td>
+        <% if admin_signed_in?%>
+          <td><%= postulante.email %></td>
+          <td><%= link_to 'Registrarlo', new_local_registration_path %></td>
+          <td><%= link_to 'Editar', edit_postulante_path(postulante.id) %></td>
+          <td><%= link_to 'Destroy', postulante, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Postulante', new_postulante_path %>
+<%= link_to 'Vover al inicio', welcome_path %>

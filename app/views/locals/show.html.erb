@@ -1,32 +1,132 @@
-<p id="notice"><%= notice %></p>
+<% @promedio = 0
+   @valor = 'Este local aun no ha recibido valoraciones' if @local.valoracions.empty?
+   @local.valoracions.each do |v|
+     @promedio += v.valor
+   end
+   @promedio /= @local.valoracions.length %>
+<section class="hero is-fullheight is-danger">
+  <div class="hero-body">
+    <div class="container">
+      <div class="box">
+        <p class="title" style="color: hsl(0, 0%, 21%)">
+          <%= @local.nombre %>
+        </p>
+        <div class="columns is-mobile">
+          <div class="column">
 
-<p>
-  <strong>Id:</strong>
-  <%= @local.id %>
-</p>
+            <% if @local.avatar.attached? %>
+              <figure class="image is-4by3">
+                <%= image_tag @local.avatar, class: 'image is-4by3' %>
+              </figure>
+            <% else %>
+              <figure class="image is-4by3">
+                <img class="" src="https://bulma.io/images/placeholders/1280x960.png" alt="" style=""/>
+              </figure>
+            <% end %>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @local.nombre %>
-</p>
+            <br>
+            <p class="title is-4" style="color: hsl(0, 0%, 21%)">
+              <%= @local.descripcion %>
+            </p>
 
-<p>
-  <strong>Descripcion:</strong>
-  <%= @local.descripcion %>
-</p>
+            <p class="title is-4" style="color: hsl(0, 0%, 21%)">
+              <%= @local.email %>
+            </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @local.email %>
-</p>
+          </div>
+          <div class="column">
 
-<!--<p>-->
-<!--  <strong>Comuna:</strong>-->
-  <%#= @local.comuna %>
-<!--</p>-->
+            <p class="title is-4" style="color: hsl(0, 0%, 21%)">
+              Valoracion de este local:
+              <% if @promedio == 0 %>
+                <%= @valor %>
+              <% else %>
+                <%= @promedio %> Estrellas
+              <% end %>
 
-<%#= link_to 'Editar Local', locals_edit_path(@local.id) %>
-<% if admin_signed_in? %>
-  <%= link_to 'Eliminar Local', local_path(@local.id), method: :delete, alert: 'Estás seguro?' %>
-<% end %>
-<%= link_to 'Back', :back %>
+            </p>
+
+            <p class="title is-4" style="color: hsl(0, 0%, 21%)">
+              Menu
+            </p>
+            <table class="table">
+              <thead>
+              <tr>
+                <th>Plato</th>
+                <th>Descripcion</th>
+                <th>Precio</th>
+              </tr>
+              </thead>
+              <tbody>
+              <% @local.platos.each do |c| %>
+                <tr>
+                  <td><%= c.nombre %></td>
+                  <td><%= c.descripcion %></td>
+                  <td><%= c.precio %></td>
+                </tr>
+              <% end %>
+              </tbody>
+            </table>
+
+            <p class="title is-4" style="color: hsl(0, 0%, 21%)">
+              Comentarios de este local
+            </p>
+
+            <table class="table">
+              <thead>
+              <tr>
+                <th>Usuario</th>
+                <th>Comentario</th>
+                <th>Fecha</th>
+              </tr>
+              </thead>
+              <tbody>
+              <% @local.comentarios.each do |c| %>
+                <tr>
+                  <td><%= c.user_id %></td>
+                  <td><%= c.contenido %></td>
+                  <td><%= c.fecha %></td>
+                </tr>
+              <% end %>
+              </tbody>
+            </table>
+
+          </div>
+
+
+        </div>
+        <% if admin_signed_in? %>
+          <!-- El siguiente codigo realiza una llamada a los reportes y permite eliminarlo si tiene 3 reports-->
+          <%
+
+            @reports = ActiveRecord::Base.connection
+            result = @reports.exec_query('SELECT * FROM lreports WHERE reported_id =' + @local.id.to_s + ';')
+            counter = 0
+            result.each do |row|
+              counter += 1
+            end
+            if counter >= 2
+          %>
+            <%= link_to 'Eliminar Local', local_path(@local.id), method: :delete, alert: 'Estás seguro?' %>
+          <%
+            end
+          %>
+
+        <% end %>
+        <%= link_to 'Back', :back, class: "button is-warning" %>
+        <% @citas = current_user.primary_cita
+           @citas << current_user.secondary_cita
+           @fue = false
+           @citas.each do |c|
+             if c.local_id == @local.id
+               @fue = true
+             end
+           end
+           if @fue %>
+          <%= link_to 'Dejar un comentario', comentarios_new_path(@local.id), class: "button is-link" %>
+          <%= link_to 'Valorar este local', valoracions_new_path(@local.id), class: "button is-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

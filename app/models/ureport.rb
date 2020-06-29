@@ -1,0 +1,2 @@
+class Ureport < ApplicationRecord
+end

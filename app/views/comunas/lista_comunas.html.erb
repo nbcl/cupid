@@ -1,0 +1,34 @@
+
+<div class="hero-body">
+  <h1 class="title"> Lista de comunas </h1>
+
+  <div class="section">
+    <table class="table">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Acciones</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <% @comunas.each do |comuna| %>
+        <tr>
+          <td><%= comuna.id %></td>
+          <td><%= comuna.nombre %></td>
+          <td>
+            <button class="button is-secondary">
+              <a href="<%= edit_comuna_path(comuna.id) %>"> Editar </a>
+            </button>
+            <button class="button is-secondary">
+              <a href="<%= delete_comuna_path(comuna.id) %>"> Delete </a>
+            </button>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<a href=<%= welcome_path %> class="button is-warning">Volver al Inicio</a>

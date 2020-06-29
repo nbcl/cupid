@@ -43,6 +43,6 @@ class GustosController < ApplicationController
   def destroy
     @gusto = Gusto.find(params[:id])
     @gusto.destroy
-    redirect_to gustos_path, notice: 'Gusto eliminado con éxito'
+    redirect_to delete_comuna_path, notice: 'Gusto eliminado con éxito'
   end
 end

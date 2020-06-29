@@ -1,0 +1,37 @@
+<section class="hero is-fullheight is-danger">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-12-tablet is-6-desktop is-8-widescreen">
+          <h1 class="title">Nueva Valoracion de <%= current_user.nombre %> para <%= @local.nombre %></h1>
+          <%= form_with(model: @valoracion, method: :post, html: {class: "box has-text-centered"}) do |form| %>
+
+            <div class="field">
+              <%= form.label :valor, class: "label" %>
+              <%= form.number_field :valor, autofocus: true, autocomplete: "valor", step: :any, in: 1..5 %>
+            </div>
+
+            <div class="field">
+              <%= form.label :local, class: "label" %>
+              <%= form.number_field :local_id, autofocus: true, autocomplete: "local_id", value: @local.id,
+                                    readonly: true %>
+            </div>
+
+            <div class="is-invisible">
+              <%= form.label :user, class: "label" %>
+              <%= form.number_field :user_id, autofocus: true, autocomplete: "user_id", value: current_user.id,
+                                    readonly: true %>
+            </div>
+
+            <div class="actions">
+              <%= form.submit 'Crear Valoracion', class: "button is-warning" %>
+            </div>
+          <% end %>
+
+          <%= link_to 'Back', :back, class: "button is-secondary" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>

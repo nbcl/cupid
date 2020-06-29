@@ -1,29 +1,50 @@
-<p id="notice"><%= notice %></p>
+<section class="hero is-primary">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Invitación
+      </h1>
+    </div>
+  </div>
+</section>
 
-<p>
-  <strong>User invita:</strong>
-  <%= @invitation.user_invita %>
-</p>
 
-<p>
-  <strong>User invitado:</strong>
-  <%= @invitation.user_invitado %>
-</p>
+<div class="columns">
+  <div class="column"></div>
+  <div class="column is-two-thrid">
+    <br>
+    <div class="box">
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Fecha:</strong>
-  <%= @invitation.fecha %>
-</p>
-
-<p>
-  <strong>Local:</strong>
-  <%= @invitation.local_id %>
-</p>
-
-<p>
-  <strong>Confirma:</strong>
-  <%= @invitation.confirma %>
-</p>
-
-<%= link_to 'Edit', edit_invitation_path(@invitation) %> |
-<a href="/" class="button is-warning">Volver al atrás</a>
+    <p>
+      <strong>User invita:</strong>
+      <%= @invitation.user_invita %>
+    </p>
+    <br>
+    <p>
+      <strong>User invitado:</strong>
+      <%= @invitation.user_invitado %>
+    </p>
+    <br>
+    <p>
+      <strong>Fecha:</strong>
+      <%= @invitation.fecha %>
+    </p>
+    <br>
+    <p>
+      <strong>Local:</strong>
+      <%= @invitation.local_id %>
+    </p>
+    <br>
+    <p>
+      <strong>Confirma:</strong>
+      <%= @invitation.confirma %>
+    </p>
+    </div>
+    <br>
+    <p class="button is-success"> <%= link_to 'Aceptar', edit_invitation_path(@invitation) %> </p>
+    <p class="button is-danger"> <%= link_to 'Rechazar', @invitation, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+    <a href="/" class="button">Volver al atrás</a>
+  </div>
+  <div class="column"></div>
+</div>

@@ -25,7 +25,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6084fd8-bdfb-43da-ad8f-02fa1df0932c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/controllers/cita_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/cita_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/valoracions/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/valoracions/new.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,7 +203,9 @@
       <workItem from="1591126677033" duration="652000" />
       <workItem from="1591303718746" duration="8737000" />
       <workItem from="1591369668723" duration="10083000" />
-      <workItem from="1591398310758" duration="5357000" />
+      <workItem from="1591398310758" duration="4408000" />
+      <workItem from="1593121216598" duration="6462000" />
+      <workItem from="1593193820914" duration="6360000" />
     </task>
     <servers />
   </component>

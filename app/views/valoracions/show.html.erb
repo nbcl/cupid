@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Usuario:</strong>
+  <%= @valoracion.user_id %>
+</p>
+
+<p>
+  <strong>Local:</strong>
+  <%= @valoracion.local_id %>
+</p>
+
+<p>
+  <strong>Valoracion:</strong>
+  <%= @valoracion.valor %>
+</p>
+
+<% if user_signed_in? and @valoracion.user_id == current_user.id %>
+  <%= link_to 'Editar Valoracion', valoracions_edit_path(@valoracion.id) %>
+<% end %>
+<% if admin_signed_in? %>
+  <%= link_to 'Eliminar Valoracion', valoracion_path(@valoracion.id), method: :delete, alert: 'Estás seguro?' %>
+<% end %>
+<%= link_to 'Lista Valoraciones', valoracions_path %>

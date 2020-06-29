@@ -1,0 +1,2 @@
+module PostulantesHelper
+end

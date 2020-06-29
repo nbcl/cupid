@@ -67,3 +67,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Added to avoid polling for changes constantly
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
+
+# gema para permisos
+gem 'cancan'

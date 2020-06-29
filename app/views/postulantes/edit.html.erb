@@ -1,0 +1,7 @@
+<h1>Editing Postulante</h1>
+
+
+<%= render 'form', postulante: @postulante if admin_signed_in? %>
+
+<%= link_to 'Show', @postulante %> |
+<%= link_to 'Back', postulantes_path %>

@@ -1,47 +1,60 @@
-<%= form_with(model: invitation, local: true) do |form| %>
-  <% if invitation.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(invitation.errors.count, "error") %> prohibited this invitation from being saved:</h2>
+<section class="hero is-danger is-fullheight">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-5-tablet is-4-desktop is-4-widescreen">
+          
+          <%= form_with(model: invitation, local: true) do |form| %>
+            <% if invitation.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(invitation.errors.count, "error") %> prohibited this invitation from being saved:</h2>
 
-      <ul>
-      <% invitation.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+                <ul>
+                <% invitation.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+                </ul>
+              </div>
+            <% end %>
 
-  <div class="invisible">
-    <%= form.label :user_invita %>
-    <%= form.number_field :user_invita, autofocus: true, autocomplete: "invita", value: current_user.id %>
-  </div>
+            <div class="is-hidden">
+              <%= form.label :user_invita %>
+              <%= form.number_field :user_invita, autofocus: true, autocomplete: "invita", value: current_user.id.to_i %>
+            </div>
 
-  <div class="invisible">
-    <%= form.label :user_invitado %>
-    <%= form.number_field :user_invitado, autofocus: true, autocomplete: "invitado", value: @user_match.id %>
-  </div>
+            <div class="is-hidden">
+              <%= form.label :user_invitado %>
+              <%= form.number_field :user_invitado, autofocus: true, autocomplete: "invitado", value: @user_match.id.to_i %>
+            </div>
 
-  <div class="field">
-    <%= form.label :fecha %>
-    <%= form.date_select :fecha %>
-  </div>
+            <div class="field">
+              <%= form.label :fecha, class: 'label' %>
+              <%= form.date_select :fecha %>
+            </div>
 
-  <div class="field">
-    <%= form.label :local_id, class: 'label' %>
-    <div class="control has-icons-left">
-      <div class="select is-danger">
-        <%= form.select(:local_id, Local.all.collect { |p| [p.nombre, p.id] }, {include_blank: true}) %>
+            <div class="field">
+              <%= form.label :local_id, class: 'label' %>
+              <div class="control has-icons-left">
+                <div class="select is-danger">
+                  <%= form.select(:local_id, Local.all.collect { |p| [p.nombre, p.id] }, {include_blank: true}) %>
+                </div>
+                
+              </div>
+            </div>
+
+            <div class="is-hidden">
+              <%= form.label :confirma %>
+              <%= form.check_box :confirma %>
+            </div>
+            
+            <div class="actions">
+            
+              <%= form.submit %>
+            
+            </div>
+          <% end %>
+        </div>
       </div>
-      
     </div>
   </div>
-
-  <div class="invisible">
-    <%= form.label :confirma %>
-    <%= form.check_box :confirma %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</section>

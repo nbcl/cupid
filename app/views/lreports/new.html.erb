@@ -1,0 +1,30 @@
+<section class="hero is-fullheight is-danger">
+  <div class="hero-body">
+    <div class="columns is-centered">
+      <div class="column is-4-widescreen is-5-desktop">
+        <div class="card">
+          <div class="card-content">
+            <div class="content" style="width: 1000px;">
+              <br>
+              <%= form_with(model: @Lreport, method: :post, html: {class: "has-text-centered"}) do |form| %>
+                <div class="actions">
+                  <%= form.label :local %> <br/>
+                  <%= form.number_field :reported_id, autofocus: true, autocomplete: "user_id", value: 1 %>
+                </div>
+
+                <div class="actions">
+                    <p>Razon:</p>
+                    <%= form.text_field :reason, class: "input" %>
+                </div>
+                <div class="actions">
+                  <%= form.submit 'Confirmar', class: "button is-warning" %>
+                  <%= link_to 'Back', interactions_find_path, class: "button is-secondary" %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

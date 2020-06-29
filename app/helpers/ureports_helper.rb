@@ -1,0 +1,2 @@
+module UreportsHelper
+end

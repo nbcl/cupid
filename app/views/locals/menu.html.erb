@@ -1,35 +1,53 @@
 <!--<p id="notice"><%#= notice %></p>-->
 
-<h1>Menu de <%= current_local.nombre %></h1>
+<section class="hero is-danger is-fullheight">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-grouped-centered">
+        <div class="column">
+        </div>
+        <div class="column">
+          <h1 class="title" style="color: hsl(0, 0%, 21%)">Menú de <%= current_local.nombre %></h1>
+          <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Precio </th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
 
-<table class="lista-gustos">
-  <thead>
-  <tr>
-    <th style="padding:10px">Nombre</th>
-    <th style="padding:10px">Descripcion</th>
-    <th style="padding:10px">Precio </th>
-    <th style="padding:10px">Acciones</th>
-  </tr>
-  </thead>
+            <tbody>
+              <% @platos.each do |plato| %>
+                <% if plato.local_id == current_local.id %>
+                  <tr>
+                    <td><%=  plato.nombre  %></td>
+                    <td><%=  plato.descripcion  %></td>
+                    <td><%=  plato.precio  %></td>
+                    <td><%=  link_to 'Ver', plato_path(plato.id)  %> </td>
+                  </tr>
+                <% end %>
+              <% end %>
+            </tbody>
+          </table>
 
-  <tbody>
-  <% @platos.each do |plato| %>
-    <% if plato.local_id == current_local.id %>
-      <tr>
-        <td style="padding:10px"><%=  plato.nombre  %></td>
-        <td style="padding:10px"><%=  plato.descripcion  %></td>
-        <td style="padding:10px"><%=  plato.precio  %></td>
-        <td style="padding:10px"><%=  link_to 'Ver', plato_path(plato.id)  %> </td>
-      </tr>
-    <% end %>
-  <% end %>
-  </tbody>
-</table>
-
+          <button class="button is-primary">
+            <a href="/platos/new"> Agregar Plato al Menu </a>
+          </button>
+          
+          <button class="button">
+            <a href="/locals/perfil?id=<%= current_local.id %>"> Volver al Local </a>
+          </button>
+          
+          <button class="button">
+            <%= link_to 'Back', :back %>
+          </button>
+        </div>
+        <div class="column">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 <br>
-
-<a href="/platos/new">Agregar Plato al Menu</a>
-<br>
-<%#= link_to 'Back', :back %>
-<br>
-<a href="/locals/perfil?id=<%= current_local.id %>">Volver al Local</a>

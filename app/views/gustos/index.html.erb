@@ -13,21 +13,41 @@
           </tr>
           </thead>
           <tbody>
-          <% @gustos.each do |gusto| %>
-            <% unless gusto.in?(current_user.gustos) %>
+          <% if user_signed_in?%>
+            <% @gustos.each do |gusto| %>
+              <% unless gusto.in?(current_user.gustos) %>
+                <tr>
+                  <td><%=  gusto.nombre  %></td>
+                  <td><%=  gusto.descripcion  %></td>
+                  <td><%=  link_to 'Ver', gusto_path(gusto.id), class: "button is-info" %>
+                    <%= link_to 'Agregar a mis gustos', user_gusto_path(gusto_id: gusto.id, user_id: current_user.id),
+                                class: "button is-primary" %> </td>
+                </tr>
+              <% end %>
+            <% end %>
+            </tbody>
+          </table>
+          <a href="/gustos/new" class="button is-warning">Crear Gusto</a>
+          <a href="<%= user_perfil_path(current_user.id)%>" class="button is-secondary">Volver al Perfil</a>
+            
+          <% end %>
+
+          <tbody>
+          <% if admin_signed_in?%>
+            <% @gustos.each do |gusto| %>
               <tr>
                 <td><%=  gusto.nombre  %></td>
                 <td><%=  gusto.descripcion  %></td>
                 <td><%=  link_to 'Ver', gusto_path(gusto.id), class: "button is-info" %>
-                  <%= link_to 'Agregar a mis gustos', user_gusto_path(gusto_id: gusto.id, user_id: current_user.id),
-                              class: "button is-primary" %> </td>
               </tr>
             <% end %>
+            </table>
+            <a href="/gustos/new" class="button is-warning">Crear Gusto</a>
+            <a href=<%= welcome_path %> class="button is-secondary">Home</a>
+            </tbody>
           <% end %>
-          </tbody>
-        </table>
-        <a href="/gustos/new" class="button is-warning">Crear Gusto</a>
-        <a href="<%= user_perfil_path(current_user.id)%>" class="button is-secondary">Volver al Perfil</a>
+          
+          
       </div>
     </div>
   </div>

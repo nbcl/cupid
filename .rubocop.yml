@@ -1,13 +1,18 @@
+inherit_from: .rubocop_todo.yml
+
+
 # Custom Cop Config
 AllCops:
   Exclude:
     - 'db/**/*'
     - 'config/**/*'
     - 'script/**/*'
+    - 'test/**/*'
     - 'bin/{rails,rake}'
     - 'app/helpers/*'
     - 'app/channels/**/*'
     - !ruby/regexp /old_and_unused\.rb$/
+    - 'test/**/*'
 # Extended LineLength to 130
 Layout/LineLength:
   Max: 100
@@ -16,6 +21,13 @@ Layout/LineLength:
 Style/SymbolArray:
   EnforcedStyle: brackets
 
+# Configuration parameters: IgnoredMethods.
+Metrics/AbcSize:
+  Max: 43
+
+# Configuration parameters: CountComments, ExcludedMethods.
+Metrics/MethodLength:
+  Max: 13
 
 # Custom Exclude Config
 
@@ -57,6 +69,9 @@ Style/Documentation:
 # Default Cop Adds
 # This Cops where added to Rubocop by the default installation but are not configured by default.
 # Enabled them as true. Suggested in Rubocop Autoconfig command.
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
 
 Lint/RaiseException:
   Enabled: true
