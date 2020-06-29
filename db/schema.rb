@@ -119,9 +119,9 @@ ActiveRecord::Schema.define(version: 2020_06_29_025402) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "nombre"
-    t.float "valoracion", default: "5"
+    t.float "valoracion"
     t.text "descripcion"
-    t.bigint "comuna_id", default: "1"
+    t.bigint "comuna_id"
     t.boolean "confirmation", default: false
     t.index ["comuna_id"], name: "index_locals_on_comuna_id"
     t.index ["email"], name: "index_locals_on_email", unique: true
@@ -200,10 +200,7 @@ ActiveRecord::Schema.define(version: 2020_06_29_025402) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "cita", "locals"
-  add_foreign_key "cita", "users", column: "user1_id"
-  add_foreign_key "cita", "users", column: "user2_id"
   add_foreign_key "comentarios", "locals"
-  add_foreign_key "comentarios", "users"
   add_foreign_key "interactions", "users"
   add_foreign_key "locals", "comunas"
   add_foreign_key "platos", "locals"
