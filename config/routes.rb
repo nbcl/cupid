@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :postulantes
   resources :invitations
   get 'matches/create'
   devise_for :admins, controllers: { sessions: 'admins/sessions' }
@@ -27,12 +28,13 @@ Rails.application.routes.draw do
   end
 
   get 'users/sign_up/:id', to: 'users/registrations#new', as: :new_user
+  
   # Rutas del CRUD Gusto
   # Create
   get 'gustos/new', to: 'gustos#new', as: :gustos_new
   post 'gustos', to: 'gustos#create'
   # Read
-  get 'gustos', to: 'gustos#index'
+  get 'gustos', to: 'gustos#index', as: :lista_gustos
   get 'gustos/:id', to: 'gustos#show', as: :gusto
   # Update
   get 'gustos/:id/edit', to: 'gustos#edit', as: :gustos_edit
@@ -45,7 +47,6 @@ Rails.application.routes.draw do
   # Create
   get 'comentarios/new/:id', to: 'comentarios#new', as: :comentarios_new
   post 'comentarios', to: 'comentarios#create'
-
   # Read
   get 'comentarios', to: 'comentarios#index'
   get 'comentarios/:id', to: 'comentarios#show', as: :comentario
@@ -60,7 +61,6 @@ Rails.application.routes.draw do
   # Create
   get 'platos/new', to: 'platos#new'
   post 'platos', to: 'platos#create'
-
   # Read
   get 'platos', to: 'platos#index'
   get 'platos/:id', to: 'platos#show', as: :plato
@@ -84,22 +84,34 @@ Rails.application.routes.draw do
   put 'valoracions/:id/', to: 'valoracions#update'
   #Delete
   delete 'valoracions/:id', to: 'valoracions#destroy'
+  #postulacion de locales
+  get 'admins/postulacion', to: 'postulantes#index'
 
-  # Rutas del CRUD Admin
+  # Rutas del CRUD Admin para locals
+  # Create no aplica para locals
+  # Read
   get 'admins/locales', to: 'vistas#show_admin_locales'
   get 'admins/locals/:id', to: 'vistas#show_admin_local', as: :local
+  #Update
+  get 'admins/locals/edit/:id', to: 'vistas#edit_local', as: :edit_admin_local
+  # Delete
   delete 'admins/locals/:id', to: 'vistas#destroy_admin_local'
+  
+  # Confirmation
+  get 'admins/postulantes', to: 'vistas#show_admin_postulantes'
+  get 'admins/postulantes/edit/:id', to:'vistas#edit_admin_local'
+  post 'admins/postulantes/edit/:id', to:'vistas#edit_admin_local'
 
+  # Rutas admin CRUD user
+  # Create no aplica
   get 'admins/users', to: 'vistas#show_admin_usuarios'
   get 'admins/users/:id', to: 'vistas#show_admin_usuario', as: :user
+  #Update
+
+  #Delete
   delete 'admins/users/:id', to: 'vistas#destroy_admin_user'
 
-  get 'admins/postulantes', to: 'vistas#show_admin_postulantes'
-  get 'admins/postulantes/edit', to:'vistas#edit_admin_local', as: :edit_admin_local
-
-  # Ruta para ver locales por usuario
-  get 'users/locales', to: 'vistas#show_user_locals'
-
+  
   # Interactions
   # Create
   get 'interactions/new/:id', to: 'interactions#new', as: :interactions_new
@@ -117,7 +129,6 @@ Rails.application.routes.draw do
   post 'lreports/new', to: 'lreports#create'
   
   # Matches
-  # rutas anidadas, solo se entra a la cita desde los match
   get 'matches/find', to: 'matches#show', as: :matches_find
 
   resources :invitations do
@@ -125,18 +136,25 @@ Rails.application.routes.draw do
   end
 
   resources :cita
-  #NEW_INVITATION_CITUM
+
+  # INVITATION_CITUM
+  resources :invitations
+  # Create
   get 'invtiations/:invitation_id/cita/new', to: 'cita#new' 
   post 'invitations/:invitation_id/cita/new', to: 'cita#create'
+  # Read
   get 'invtiations/:invitation_id/cita/new/:id', to: 'cita#show' 
-  
-  #invitaciones 
+  # Update
+  # Delete
 
-  resources :invitations
+  # CRUD Invitation
+  # Create
   get 'invitations/new/:id', to: 'invitations#new', as: :new_invitation_a
+  # Read
   get 'invitations', to: 'invitations#index', as: :invitations_list
-  #get "invitations/list/:id", to: 'invitations#edit', as: :invitation_editar
-
+  # Update
+  # get "invitations/list/:id", to: 'invitations#edit', as: :invitation_editar
+  # Delete
   
   # Ruta para ver el menu de un local
   get 'locals/menu', to: 'platos#index'
@@ -146,6 +164,9 @@ Rails.application.routes.draw do
   get 'user/gustos', to: 'vistas#add_user_gusto', as: :user_gusto
   get 'user/gusto', to: 'vistas#delete_user_gusto', as: :eliminar_gusto
 
+  # Ruta para ver locales por usuario
+  get 'users/locales', to: 'vistas#show_user_locals'
+
   # Rutas para ver los comentarios de un local
   get 'locals/comentarios', to: 'vistas#show_local_comentarios'
 
@@ -153,4 +174,12 @@ Rails.application.routes.draw do
 
   # get '/ruta_nueva' => 'devise/template_nueva#new', :as => :new_user_registration_nombre
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  # Comunas
+  resources :comunas
+  # Read
+  get '/comunas', to: 'comunas#index'
+  
+  #Delete
+  delete 'comunas/:id', to: 'comunas#destroy', as: :delete_comuna
 end

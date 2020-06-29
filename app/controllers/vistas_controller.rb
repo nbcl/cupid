@@ -37,6 +37,14 @@ class VistasController < ApplicationController
     render 'admins/lista_locales_postulando'
   end
 
+  def show_form_postulacion
+    render 'admins/form_postulacion'
+  end
+
+  def responder_form_postulacion
+    render 'admins/edit_postulacion'
+  end
+
   def show_admin_local
     @local = Local.find(params[:id])
     render 'locals/show'
@@ -44,7 +52,7 @@ class VistasController < ApplicationController
 
   def edit_admin_local
     @local = Local.find(params[:id])
-    render 'locals/edit'
+    render 'locals/registrations/edit'
   end
 
   def destroy_admin_local

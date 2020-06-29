@@ -1,44 +1,51 @@
 <p id="notice"><%= notice %></p>
-<h1>Locales Postulando a DCCitas</h1>
 
-<table class="lista-locales">
-  <thead>
-  <tr>
-    <th style="padding:10px">ID</th>
-    <th style="padding:10px">Nombre</th>
-    <th style="padding:10px">Email</th>
-    <th style="padding:10px">Valoracion</th>
-<!--    <th style="padding:10px">Comuna</th>-->
-    <th style="padding:10px">Descripcion</th>
-    <th style="padding:10px">¿Confirmado?</th>
-    <th style="padding:10px"> Acciones </th>
-  </tr>
-  </thead>
+<div class="hero-body">
+  <h1 class="title"> Locales Postulando a DCCitas</h1>
+  <h3 class="subtitle"> A continuación se muestran los postulantes</h3>
+</div>
+<div class="content">
+  <table class="table">
+    <thead>
+      <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Email</th>
+      <th>Valoracion</th>
+  <!--    <th style="padding:10px">Comuna</th>-->
+      <th>Descripcion</th>
+      <th>¿Confirmado?</th>
+      <th> Acciones </th>
+    </tr>
+    </thead>
 
-  <tbody>
-  <% @locals.each do |local| %>
-    <%if local.confirmation == false%>
-        <tr>
-        <td style="padding:10px"><%= local.id %></td>
-        <td style="padding:10px"><%= local.nombre %></td>
-        <td style="padding:10px"><%= local.email %></td>
-        <td style="padding:10px"><%= local.valoracion %></td>
-    <!--      <td style="padding:10px"><%#= local.comuna %></td>-->
-        <td style="padding:10px"><%= local.descripcion %></td>
-        <td style="padding:10px"><%= local.confirmation %></td>
-        <td style="padding:10px">
+    <tbody>
+    <% @locales.each do |local| %>
+      <%if local.confirmation == false%>
+          <tr>
+          <td><%= local.id %></td>
+          <td><%= local.nombre %></td>
+          <td><%= local.email %></td>
+          <td><%= local.valoracion %></td>
+      <!--      <td style="padding:10px"><%#= local.comuna %></td>-->
+          <td><%= local.descripcion %></td>
+          <td><%= local.confirmation %></td>
+          <td>
+            <button class="button is-warning">
+              <a href="<%= edit_admin_local_path(local.id)%>"> Editar</a>
+            </button>
+          </td>
+          </tr>
+      <%end%>
+    <% end %>
+    </tbody>
+  </table>
+</div>
 
-            <%= button_to "Editar", edit_admin_local_path(local.id) %>
-        </td>
-        </tr>
-    <%end%>
-  <% end %>
-  </tbody>
-</table>
+<button class="button">
+  <a href="/">Volver</a>
+</button>
 
-
-
-<br>
-<%= link_to 'Back', :back%>
-<br>
-<a href="/">Volver al Inicio</a>
+<button class="button">
+  <a href="<%= welcome_path %>">Home</a>
+</button>

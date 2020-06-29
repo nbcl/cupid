@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_27_210733) do
+ActiveRecord::Schema.define(version: 2020_06_29_025402) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -119,9 +119,9 @@ ActiveRecord::Schema.define(version: 2020_06_27_210733) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "nombre"
-    t.float "valoracion"
+    t.float "valoracion", default: "5"
     t.text "descripcion"
-    t.bigint "comuna_id"
+    t.bigint "comuna_id", default: "1"
     t.boolean "confirmation", default: false
     t.index ["comuna_id"], name: "index_locals_on_comuna_id"
     t.index ["email"], name: "index_locals_on_email", unique: true
@@ -150,6 +150,15 @@ ActiveRecord::Schema.define(version: 2020_06_27_210733) do
     t.datetime "updated_at", null: false
     t.bigint "local_id"
     t.index ["local_id"], name: "index_platos_on_local_id"
+  end
+
+  create_table "postulantes", force: :cascade do |t|
+    t.string "name"
+    t.text "content"
+    t.boolean "autorization"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "email"
   end
 
   create_table "ureports", force: :cascade do |t|
@@ -191,7 +200,10 @@ ActiveRecord::Schema.define(version: 2020_06_27_210733) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "cita", "locals"
+  add_foreign_key "cita", "users", column: "user1_id"
+  add_foreign_key "cita", "users", column: "user2_id"
   add_foreign_key "comentarios", "locals"
+  add_foreign_key "comentarios", "users"
   add_foreign_key "interactions", "users"
   add_foreign_key "locals", "comunas"
   add_foreign_key "platos", "locals"

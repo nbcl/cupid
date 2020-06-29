@@ -1,0 +1,40 @@
+<!--<p id="notice"><%#= notice %></p>-->
+<div class="hero is-danger is-fullheight">
+  <div class="hero-body">
+    <h1 class="title is-small"> Comentarios sobre <%= current_local.nombre %></h1>
+  </div>
+  <div class="hero-body">
+    <div class="columns">
+      <div class="column">
+      </div>
+      <div class="column">
+        <% contador = 0%>
+        <% @comentarios.each do |comentario| %>
+          <% if comentario.local_id == current_local.id %>      
+            <% contador += 1 %>
+            <article class="media">
+              <div class="media-content">
+                <div class="content">
+                  <p>
+                    <strong><% comentario.user_id %></strong> 
+                    <small><% comentario.fecha %></small>
+                    <br>
+                    <%= comentario.contenido %>
+                  </p>
+                </div>
+              </div>
+            </article>
+          <% end %>
+        <% end %>
+        <%if contador == 0%>
+        <p> No hay comentarios por ahora </p>
+        <% end %>
+        <br>
+        <%= link_to 'Home', welcome_path, class: "button is-secondary" %>
+        <br>
+      </div>
+      <div class="column">
+      </div>
+    </div>
+  </div>
+</div>

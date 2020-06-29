@@ -1,25 +1,38 @@
-<h1>Editar Comentario</h1>
 
-<%= form_with(model: @plato, url: plato_path(@plato.id), method: :patch) do |form| %>
-
-  <div class="field">
-    <%= form.label :nombre %> <br />
-    <%= form.text_field :nombre, autofocus: true, autocomplete: "nombre" %>
+<div class="hero-body">
+  <h1 class="title"> Editar Plato </h1>
+</div>
+<div class="columns">
+  <div class="column">
   </div>
+  <div class="column is-grouped-centered">
+    <div class="box">
+      <%= form_with(model: @plato, url: plato_path(@plato.id), method: :patch) do |form| %>
 
-  <div class='field'>
-    <%= form.label :descripcion %><br />
-    <%= form.text_area :descripcion, autofocus: true, autocomplete: "descripcion", :cols => 30, :rows => 10 %>
+        <div class="field">
+          <%= form.label :nombre, class: "label" %> <br />
+          <%= form.text_field :nombre, autofocus: true, autocomplete: "nombre", class: "input" %>
+        </div>
+
+        <div class='field'>
+          <%= form.label :descripcion, class: "label" %><br />
+          <%= form.text_area :descripcion, autofocus: true, autocomplete: "descripcion", :cols => 30, :rows => 10, class: "input" %>
+        </div>
+
+        <div class="field">
+          <%= form.label :precio, class: "label" %><br />
+          <%= form.number_field :precio, autofocus: true, autocomplete: "precio", class: "input" %>
+        </div>
+
+        <div class="actions"> 
+          <%= form.submit "Guardar", class: "button is-primary"%>
+        </div>
+      
+      <% end %>
+    </div>
+    <%= link_to 'volver a menú', locals_menu_path, class: "button" %>
   </div>
-
-  <div class="field">
-    <%= form.label :precio %><br />
-    <%= form.number_field :precio, autofocus: true, autocomplete: "precio" %>
+  <div class="column">
   </div>
+</div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
-
-<%= link_to 'Back', gustos_path %>

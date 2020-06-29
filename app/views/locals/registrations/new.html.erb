@@ -1,4 +1,5 @@
 <section class="hero is-danger is-fullheight">
+  <h1 class="title is-1">Registrate aquí como local*</h1>
   <div class="hero-body">
     <div class="container">
       <div class="columns is-centered">
@@ -6,7 +7,7 @@
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name),
                        html: {class: "box"}) do |f| %>
             <%= render "devise/shared/error_messages", resource: resource %>
-
+            
             <div class="field">
               <%= f.label :nombre, class: 'label' %>
               <div class="control has-icons-left">
@@ -32,7 +33,7 @@
               <label for="comuna_id" class="label">Seleccione una comuna:</label>
               <div class="control has-icons-left">
                 <div class="select is-danger">
-                  <%= f.select(:comuna_id, Comuna.all.collect { |p| [p.nombre, p.id] }, {include_blank: false}) %>
+                    <%= f.select(:comuna_id, Comuna.all.collect { |p| [p.nombre, p.id] }, {include_blank: false}) %>
                 </div>
                 <div class="icon is-left">
                   <i class="fa fa-map-marker"></i>
@@ -40,7 +41,7 @@
               </div>
             </div>
 
-            <div class='field'>
+            <div class="field">
               <%= f.label :descripcion, class: 'label' %>
               <div class="control">
                 <%= f.text_area :descripcion, autofocus: true, autocomplete: "descripcion", :cols => 30, :rows => 10,
@@ -82,8 +83,11 @@
               </p>
             </div>
           <% end %>
+          <%= link_to 'Home', welcome_path, class: "button is-secondary" %>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+

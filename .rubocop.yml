@@ -1,9 +1,13 @@
+inherit_from: .rubocop_todo.yml
+
+
 # Custom Cop Config
 AllCops:
   Exclude:
     - 'db/**/*'
     - 'config/**/*'
     - 'script/**/*'
+    - 'test/**/*'
     - 'bin/{rails,rake}'
     - 'app/helpers/*'
     - 'app/channels/**/*'

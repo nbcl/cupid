@@ -1,37 +1,34 @@
-<h1> Lista de Usuarios DCCitas</h1>
+<div class="hero-body">
+  <h1 class="title"> Lista de Usuarios DCCitas</h1>
+</div>
+<div>
+  <table class="table is-bordered">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Fecha de nacimiento</th>
+      <th>Genero</th>
+      <th>Comuna</th>
+      <th>Telefono</th>
+      <th>Descripcion</th>
+      <th>Acciones</th>
+    </tr>
 
-<table>
-  <tr>
-    <th style="padding:10px">Name</th>
-    <th style="padding:10px">Email</th>
-    <th style="padding:10px">Fecha de nacimiento</th>
-    <th style="padding:10px">Genero</th>
-    <th style="padding:10px">Comuna</th>
-    <th style="padding:10px">Telefono</th>
-    <th style="padding:10px">Descripcion</th>
-    <th style="padding: 10px">Acciones</th>
-  </tr>
-
-  <% @users.each do |u| %>
-  <tr>
-    <td style="padding:10px"><%= u.nombre %></td>
-    <td style="padding:10px"><%= u.email %></td>
-    <td style="padding:10px"><%= u.edad %></td>
-    <td style="padding:10px"><%= u.genero %></td>
-    <td style="padding:10px"><%= u.comuna %></td>
-    <td style="padding:10px"><%= u.telefono %></td>
-    <td style="padding:10px"><%= u.descripcion %></td>
-    <td style="padding:10px"><%= link_to 'Ver', user_path(u.id) %></td>
-  </tr>
-  
-  <% end %>
-
-</table>
-
+    <% @users.each do |u| %>
+    <tr>
+      <td><%= u.nombre %></td>
+      <td><%= u.email %></td>
+      <td><%= u.edad %></td>
+      <td><%= u.genero %></td>
+      <td><%= u.comuna %></td>
+      <td><%= u.telefono %></td>
+      <td><%= u.descripcion %></td>
+      <td><%= link_to 'Ver', user_path(u.id) %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>
 <%# <%= link_to "Delete User",  controller: "users/registrations", action: 'destroy', id: @current_ %> 
-
-
 <br>
-<%= link_to 'Back', :back%>
-<br>
-<a href="/">Volver al Inicio</a>
+<a href="<%= welcome_path %>" class="button is-secondary">Home</a>

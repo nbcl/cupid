@@ -1,60 +1,65 @@
 <p id="notice"><%= notice %></p>
+<section class="hero is-fullheight is-danger">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-5-tablet is-4-desktop is-4-widescreen">
+          <div class="card">
+            <div class="card-image">
+            <% if @user.avatar.attached? %>
+              <figure class="image is-4by3">
+                <%= image_tag current_user.avatar, class: '' %>
+              </figure>
+              <p class="title" style="color: hsl(0, 0%, 21%); margin-top: 4vh;"><%= @user.nombre %></p>
+            <% else %>
+              <figure class="image is-4by3">
+                <img class="" src="https://bulma.io/images/placeholders/1280x960.png" alt="" style=""/>
+              </figure>
+            <% end %>
+            </div>
+            <div class="card-content">
+              <div class="media">
+                <div class="media-content">
+                  <p class="title is-marginless" style="color: hsl(0, 0%, 21%); margin-top: 4vh;"><%= @user.nombre %></p>
+                </div>
+              </div>
+              <ul>
+                <li></li>
+                <li> <strong>ID:</strong> <%= @user.id %> </li>
+                <li> <strong>Email:</strong> <%= @user.email %> </li>
+                <li> <strong>Fecha de Nacimiento: </strong> <%= @user.edad %> </li>
+                <li> <strong>Genero:</strong> <%= @user.genero %> </li>
+                <li> <strong>Comuna:</strong> <%= Comuna.find(@user.comuna_id).nombre %> </li>
+                <li> <strong>Telefono:</strong> <%= @user.telefono %> </li>
+                <li> <strong>Descripcion:</strong> <%= @user.descripcion %> </li>
+              </ul>
+              <br>
+            </div>
+          </div>
+          <!-- El siguiente codigo realiza una llamada a los reportes y permite eliminarlo si tiene 3 reports-->
+          <% if admin_signed_in?
+            @reports = ActiveRecord::Base.connection
+            result = @reports.exec_query('SELECT * FROM ureports WHERE reported_id =' + @user.id.to_s + ';') 
+            counter = 0
+            result.each do |row| 
+              counter += 1
+            end
+            if counter >= 2   
+          %>
+              <%= link_to 'Eliminar Usuario Reportado', user_path(@user.id), method: :delete, alert: 'Estás seguro?' %>   
+            <%end%> 
 
-<p>
-  <strong>Id:</strong>
-  <%= @user.id %>
-</p>
+            <button class="button is-warning">
+              <%= link_to 'Eliminar Usuario', user_path(@user.id), method: :delete, alert: 'Estás seguro?' %>
+            </button>
+          <%end%>
+          
+            <%= link_to 'Back', :back, class: "button is-secondary" %>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @user.nombre %>
-</p>
 
-<p>
-  <strong>Edad:</strong>
-  <%= @user.edad %>
-</p>
 
-<p>
-  <strong>Genero:</strong>
-  <%= @user.genero %>
-</p>
-
-<p>
-  <strong>Descripcion:</strong>
-  <%= @user.descripcion %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<p>
-  <strong>Comuna:</strong>
-  <%= @user.comuna %>
-</p>
-
-<p>
-  <strong>Telefono:</strong>
-  <%= @user.telefono %>
-</p>
-
-<!-- El siguiente codigo realiza una llamada a los reportes y permite eliminarlo si tiene 3 reports-->
-<% if admin_signed_in?
-  @reports = ActiveRecord::Base.connection
-  result = @reports.exec_query('SELECT * FROM ureports WHERE reported_id =' + @user.id.to_s + ';') 
-  counter = 0
-  result.each do |row| 
-    counter += 1
-  end
-  if counter >= 2
-    
-%>
-    <%= link_to 'Eliminar Usuario Reportado', user_path(@user.id), method: :delete, alert: 'Estás seguro?' %>   
-  <%end%> 
-
-  <%= link_to 'Eliminar Usuario', user_path(@user.id), method: :delete, alert: 'Estás seguro?' %>
-<%end%>
-
-<%= link_to 'Back', :back %>
+</section>

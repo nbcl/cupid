@@ -11,4 +11,5 @@ class Local < ApplicationRecord
   has_many :platos
   has_one_attached :avatar
   has_many :valoracions
+  has_one :postulante
 end

@@ -30,7 +30,13 @@
 
   <div class="is-hidden">
     <%= form.label :local_id, class: 'label' %>
-    <%= form.number_field :local_id, required: true, placeholder: 'Local', value: @invitation.local_id %>
+    <div class="control has-icons-left">
+      <div class="select is-danger">
+        <%= form.select :local_id,value: @invitation.local_id,
+                    placeholder: 'Local', class: 'form-control' %>
+      </div>
+      
+    </div>
   </div>
 
   <div class="field">

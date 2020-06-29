@@ -1,0 +1,22 @@
+
+<%= form_with(model: postulante, local: true) do |form| %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_area :content %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_area :email %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Confirmar", class:"button"%>
+  </div>
+<% end %>

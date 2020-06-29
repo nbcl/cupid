@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# This controller contains all the methods for hand-made CRUD's
 class Locals::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
@@ -15,9 +16,9 @@ class Locals::RegistrationsController < Devise::RegistrationsController
   # end
 
   # GET /resource/edit
-  # def edit
-  #   super
-  # end
+  def edit
+    super
+  end
 
   # PUT /resource
   # def update

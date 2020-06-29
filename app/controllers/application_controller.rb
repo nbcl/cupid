@@ -16,12 +16,14 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:genero])
     devise_parameter_sanitizer.permit(:sign_up, keys: [:comuna_id])
     devise_parameter_sanitizer.permit(:sign_up, keys: [:valoracion])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:confirmation])
     devise_parameter_sanitizer.permit(:sign_up, keys: [:song, :token])
   end
 
   def update_permitted_parameters
     devise_parameter_sanitizer.permit(:account_update, keys: [:edad, :genero, :comuna_id])
     devise_parameter_sanitizer.permit(:account_update, keys: [:nombre, :telefono, :descripcion])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:confirmation])
     devise_parameter_sanitizer.permit(:account_update, keys: [:song, :token])
     # Devise Accepts Avatar when Updating Parameters
     devise_parameter_sanitizer.permit(:account_update, keys: [:avatar])

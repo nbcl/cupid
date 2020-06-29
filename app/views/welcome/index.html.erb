@@ -320,13 +320,26 @@
                   <ul class="list-unstyled mt-3 mb-4">
                     <li> Ver todos los gustos</li>
                   </ul>
-                  <a href="/">
+                  <a href=<%= lista_gustos_path %>>
                     <button class="button">Administrar</button>
                   </a>
                 </div>
               </div>
             </div>
-        
+
+            <div class="column">
+              <div class="box text is-center">
+                <div class="box-body">
+                  <h1 class="card-title pricing-card-title"><strong> Comunas</strong></h1>
+                  <ul class="list-unstyled mt-3 mb-4">
+                    <li> Ver todos las comunas</li>
+                  </ul>
+                    <button class="button">
+                      <a href="<%= comunas_path %>"> Administrar</a>
+                    </button>
+                </div>
+              </div>
+            </div>
         </div>
       </div>
     </body>
@@ -338,6 +351,9 @@
         <div class="columns is-centered">
           <div class="column">
             <a href="<%= users_locales_path %>" class="button is-warning">Ver Locales</a>
+          </div>
+          <div class="column">
+            <a href="<%= new_postulante_path %>" class="button is-warning">Registra tu local</a>
           </div>
           <div class="column">
             <a href="<%= new_user_session_path %>" class="button is-warning">Login as User</a>
