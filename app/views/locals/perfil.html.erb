@@ -1,9 +1,53 @@
+<% @promedio = 0
+   @valor = 'Este local aun no ha recibido valoraciones' if @local.valoracions.empty?
+   @local.valoracions.each do |v|
+     @promedio += v.valor
+   end
+   if @local.valoracions.length > 0
+     @promedio /= @local.valoracions.length
+   end %>
 <section class="hero is-danger is-fullheight">
   <div class="hero-body">
     <div class="container">
       <div class="columns is-centered">
         <div class="column is-5-tablet is-4-desktop is-4-widescreen">
+          <p class="title">Su Valoracion</p>
+          <div class="box">
+            <% if @promedio == 0 %>
+              <%= @valor %>
+            <% else %>
+              <p class="title is-4" style="color: hsl(0, 0%, 21%)"><%= @promedio %> Estrellas</p>
+            <% end %>
+          </div>
+          <p class="title">Citas realizadas: <%= current_local.cita.length%></p>
+          <% if current_local.cita.length > 0 %>
+            <% current_local.cita.last(5).each do |c| %>
+              <div class="box">
+                <strong><%= c.user1.nombre %></strong> con <strong><%= c.user2.nombre %></strong>
+                <br>
+                El <strong><%= c.fecha %></strong>
+              </div>
+            <% end %>
+          <% else %>
+            Aun no se realizan citas en su local
+          <% end %>
+        </div>
+        <div class="column"></div>
+        <div class="column is-5-tablet is-4-desktop is-4-widescreen">
           <div class="card">
+            <div class="card-image">
+
+
+              <% if current_local.avatar.attached? %>
+                <figure class="image is-4by3">
+                  <%= image_tag current_local.avatar, class: '' %>
+                </figure>
+              <% else %>
+                <figure class="image is-4by3">
+                  <img class="" src="https://bulma.io/images/placeholders/1280x960.png" alt="" style=""/>
+                </figure>
+              <% end %>
+            </div>
             <div class="card-content">
               <div class="media">
                 <div class="media-content">
@@ -12,7 +56,7 @@
               </div>
               <ul>
                 <li><strong>Email:</strong> <%= current_local.email %> </li>
-                <!--                <li> Comuna: <%#= current_local.comuna.nombre %> </li>-->
+                <li><strong>Comuna:</strong> <%= current_local.comuna.nombre %> </li>
                 <li><strong>Descripcion:</strong> <%= current_local.descripcion %> </li>
               </ul>
               <br>
@@ -22,30 +66,6 @@
                 <a href="/" class="button is-secondary" style="background-color: #ffffff">Home</a>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="column"></div>
-        <div class="column is-5-tablet is-4-desktop is-4-widescreen">
-          <div class="box">
-            <p class="title" style="color: hsl(0, 0%, 21%)">Citas realizadas</p>
-            <table class="table">
-              <thead>
-              <tr>
-                <th>Usuario 1</th>
-                <th>Usuario 2</th>
-                <th>Fecha</th>
-              </tr>
-              </thead>
-              <tbody>
-              <% current_local.cita.each do |c| %>
-                <tr>
-                  <td><%= c.user1_id %></td>
-                  <td><%= c.user2_id %></td>
-                  <td><%= c.fecha %></td>
-                </tr>
-              <% end %>
-              </tbody>
-            </table>
           </div>
         </div>
       </div>

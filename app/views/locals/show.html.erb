@@ -3,7 +3,9 @@
    @local.valoracions.each do |v|
      @promedio += v.valor
    end
-   @promedio /= @local.valoracions.length %>
+   if @local.valoracions.length > 0
+    @promedio /= @local.valoracions.length
+    end %>
 <section class="hero is-fullheight is-danger">
   <div class="hero-body">
     <div class="container">

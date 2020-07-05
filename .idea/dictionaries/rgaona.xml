@@ -39,6 +39,7 @@
       <w>dejar</w>
       <w>descripcion</w>
       <w>destino</w>
+      <w>dijo</w>
       <w>disponibles</w>
       <w>donde</w>
       <w>edad</w>
@@ -52,6 +53,7 @@
       <w>estan</w>
       <w>este</w>
       <w>estilo</w>
+      <w>estrellas</w>
       <w>estás</w>
       <w>exito</w>
       <w>fecha</w>
@@ -94,8 +96,11 @@
       <w>platos</w>
       <w>plpgsql</w>
       <w>precio</w>
+      <w>promedio</w>
       <w>providencia</w>
       <w>realizadas</w>
+      <w>realizan</w>
+      <w>recibido</w>
       <w>registerable</w>
       <w>rememberable</w>
       <w>revisa</w>
@@ -119,6 +124,8 @@
       <w>usuario</w>
       <w>usuarios</w>
       <w>valoracion</w>
+      <w>valoraciones</w>
+      <w>valoracions</w>
       <w>visita</w>
       <w>vitacura</w>
       <w>vive</w>

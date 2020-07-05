@@ -25,8 +25,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6084fd8-bdfb-43da-ad8f-02fa1df0932c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/rgaona.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/rgaona.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/grupo33-proyecto.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/grupo33-proyecto.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/valoracions/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/valoracions/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/locals/lista_comentarios.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/locals/lista_comentarios.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/locals/menu.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/locals/menu.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/locals/perfil.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/locals/perfil.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/locals/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/locals/show.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -206,6 +212,7 @@
       <workItem from="1591398310758" duration="4408000" />
       <workItem from="1593121216598" duration="6462000" />
       <workItem from="1593193820914" duration="6360000" />
+      <workItem from="1593978510982" duration="1200000" />
     </task>
     <servers />
   </component>
@@ -314,6 +321,10 @@
       <screen x="577" y="0" width="1920" height="1080" />
     </state>
     <state x="2084" y="456" width="413" height="175" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.1080.1920.1080/577.0.1920.1080@577.0.1920.1080" timestamp="1588561621745" />
+    <state x="624" y="252" key="run.anything.popup" timestamp="1593834936674">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="624" y="252" key="run.anything.popup/0.27.1920.1053@0.27.1920.1053" timestamp="1593834936674" />
     <state x="623" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1590249536304">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
