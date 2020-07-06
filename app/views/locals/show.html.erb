@@ -18,7 +18,7 @@
 
             <% if @local.avatar.attached? %>
               <figure class="image is-4by3">
-                <%= image_tag @local.avatar, class: 'image is-4by3' %>
+                <%= image_tag @local.avatar, class: '' %>
               </figure>
             <% else %>
               <figure class="image is-4by3">
@@ -39,7 +39,7 @@
           <div class="column">
 
             <p class="title is-4" style="color: hsl(0, 0%, 21%)">
-              Valoracion de este local:
+              Valoracion de este local: <br>
               <% if @promedio == 0 %>
                 <%= @valor %>
               <% else %>
@@ -85,7 +85,7 @@
               <tbody>
               <% @local.comentarios.each do |c| %>
                 <tr>
-                  <td><%= c.user_id %></td>
+                  <td><%= c.user.nombre %></td>
                   <td><%= c.contenido %></td>
                   <td><%= c.fecha %></td>
                 </tr>
@@ -115,7 +115,7 @@
           %>
 
         <% end %>
-        <%= link_to 'Back', :back, class: "button is-warning" %>
+        <%= link_to 'Back', :back, class: "button is-secondary", style: "background-color: #ffffff" %>
         <% @citas = current_user.primary_cita
            @citas << current_user.secondary_cita
            @fue = false

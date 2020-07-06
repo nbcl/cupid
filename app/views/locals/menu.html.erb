@@ -19,7 +19,7 @@
                   </div>
                 </div>
                 <% if local_signed_in? and current_local.id == plato.local_id %>
-                <%= link_to 'Ver', plato_path(plato.id), class: "button is-link" %>
+                  <%= link_to 'Ver', plato_path(plato.id), class: "button is-link" %>
                 <% end %>
               </div>
             <% end %>

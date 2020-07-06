@@ -1,5 +1,61 @@
-<h1>New Invitation</h1>
+<section class="hero is-danger is-fullheight">
+  <div class="hero-body">
+    <div class="container">
 
-<%= render 'form', invitation: @invitation %>
+      <div class="columns is-centered">
+        <div class="column is-5-tablet is-4-desktop is-4-widescreen">
+          <h1 class="title is-2"> Nueva Invitacion </h1>
+          <%= form_with(model: @invitation, local: true, html: { class: "box" }) do |form| %>
+            <% if @invitation.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@invitation.errors.count, "error") %> prohibited this invitation from being saved:</h2>
+                <ul>
+                  <% @invitation.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
 
-<a href="/" class="button is-warning">Volver al atrás</a>
+            <div class="is-hidden">
+              <%= form.label :user_invita %>
+              <%= form.number_field :user_invita, autofocus: true, autocomplete: "invita", value: current_user.id.to_i %>
+            </div>
+
+            <div class="is-hidden">
+              <%= form.label :user_invitado %>
+              <%= form.number_field :user_invitado, autofocus: true, autocomplete: "invitado", value: @user_match.id.to_i %>
+            </div>
+
+            <div class="field">
+              <%= form.label :fecha, class: 'label' %>
+              <%= form.date_select :fecha, class: "date is-danger" %>
+            </div>
+
+            <div class="field">
+              <%= form.label :local_id, class: 'label' %>
+              <div class="control has-icons-left">
+                <div class="select is-danger">
+                  <%= form.select(:local_id, Local.all.collect { |p| [p.nombre, p.id] }, {include_blank: true}) %>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="is-hidden">
+              <%= form.label :confirma %>
+              <%= form.check_box :confirma %>
+            </div>
+
+            <div class="actions">
+
+              <%= form.submit "Crear Invitacion", class: "button is-success" %>
+              <%= link_to "Volver", matches_find_path, class: "button is-secondary", style: "background-color: white" %>
+
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -10,6 +10,7 @@ class CitaController < ApplicationController
   def create
     citum_params = params.permit(:id, :fecha, :user1_id, :user2_id, :local_id, :invitation_id)
     @citum = Citum.new(citum_params)
+    @invitation = Invitation.find(citum_params[:invitation_id])
     if @citum.save
       # render 'invitations/'+@invitation.id.to_s+'/citum/new/'+citum_params.id.to_s,
       # notice: 'Cita creada con exito'

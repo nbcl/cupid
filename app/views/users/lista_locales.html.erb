@@ -4,7 +4,7 @@
       <h1 class="title">Locales de DCCitas</h1>
 
       <% @locals.each do |local| %>
-        <%if local.confirmation == true %>
+        <%if local.confirmation == false %>
           <div class="box">
             <article class="media">
               <div class="media-left">
@@ -46,7 +46,7 @@
         <%end%>
     <% end %>
 
-      <a href="/" class="button is-secondary">Volver al Inicio</a>
+      <%= link_to "Back", :back, class: "button is-secondary", style: "background-color: white" %>
     </div>
   </div>
 </section>

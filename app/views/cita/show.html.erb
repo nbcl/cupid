@@ -1,24 +1,19 @@
+<section class="hero is-danger is-fullheight">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns">
+        <div class="column">
+          <div class="title is-1">
+            Has estado en una cita con <strong><%= User.find(@citum.invitation.user_invita).nombre %></strong>!
+          </div>
+          <div class="title is-3">
+            Ojala hayas disfrutado de esta cita! <br>
+            Si deseas puedes volver a invitar a <%= User.find(@citum.invitation.user_invita).nombre %> a otra cita en algun otro local!
+          </div>
+          <%= link_to 'Volver', '/', class: "button is-secondary", style: "background-color: white" %>
 
-<br>
-<br>
-<div class="columns">
-    <div class="column"></div>
-    <div class="column">
-        <div class="box color=red">
-        <article class="media">
-            <div class="media-content">
-            <div class="content">
-                <p>
-                <strong>Has estado en una cita con <%= @citum.invitation.user_invita%></strong>
-                <br>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
-                </p>
-            </div>
-            </div>
-        </article>
         </div>
+      </div>
     </div>
-    <div class="column"></div>
-</div>
-
-<%= link_to 'Volver', '/', class: "button is-secondary" %>
+  </div>
+</section>

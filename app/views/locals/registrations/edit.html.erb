@@ -1,5 +1,4 @@
-<section class="hero is-info is-fullheight">
-  <h2 class="title is-2 is-medium">Edit <%=# resolve_asset.to_s.humanize %></h2>
+<section class="hero is-danger is-fullheight">
     <div class="hero-body">
       <div class="container">
         <div class="columns is-centered">
@@ -9,36 +8,36 @@
                 <%= render "devise/shared/error_messages", resource: resource %>
 
                 <div class="field">
-                  <%= f.label :nombre, class: 'label' %><br />
-                  <%= f.text_field :nombre, autofocus: true, autocomplete: "nombre", class: "input" %>
+                  <%= f.label :nombre, class: 'label' %>
+                  <%= f.text_field :nombre, autofocus: true, autocomplete: "nombre", class: "input is-danger" %>
                 </div>
 
                 <div class="field">
-                  <%= f.label :email, class: 'label' %><br />
-                  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input" %>
+                  <%= f.label :email, class: 'label' %>
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input is-danger" %>
                 </div>
 
                 <div class='field'>
-                  <%= f.label :descripcion, class: 'label' %><br />
-                  <%= f.text_area :descripcion, autofocus: true, autocomplete: "descripcion", :cols => 30, :rows => 10, class: "input" %>
+                  <%= f.label :descripcion, class: 'label' %>
+                  <%= f.text_area :descripcion, autofocus: true, autocomplete: "descripcion", :cols => 30, :rows => 10, class: "input is-danger" %>
                 </div>
 
                 <!-- imagen -->
-                <div class="field" style="margin-top: 5vh; padding-left: 2vh;">                  
+                <div class="field">
                   <% if resource.avatar.attached? %>
                   <figure>
                       <%= image_tag resource.avatar, class: 'image is-128x128 is-rounded' %>
                   </figure>
                   <% else %>
-                      <p>No tienes una imagen aun!</p>
+                      <p class="label">No tienes una imagen aun!</p>
                   <% end %>
                   <div>
-                      <%= f.file_field :avatar, class: " input" %>
+                      <%= f.file_field :avatar, class: "input is-danger" %>
                   </div>
                 </div>
 
                 <!--  <div class='field'>-->
-                <!--    <%#= f.label :comuna%><br />-->
+                <!--    <%#= f.label :comuna%>-->
                     <%#= f.text_field :comuna, autofocus: true, autocomplete: "comuna"%>
                 <!--  </div>-->
                 
@@ -47,28 +46,28 @@
                 <% end %>
 
                 <div class="field">
-                  <%= f.label :password , class: 'label'%> <i>(leave blank if you don't want to change it)</i><br />
-                  <%= f.password_field :password, autocomplete: "new-password", class: "input" %>
+                  <%= f.label :password , class: 'label'%> <i>(leave blank if you don't want to change it)</i>
+                  <%= f.password_field :password, autocomplete: "new-password", class: "input is-danger" %>
                   <% if @minimum_password_length %>
-                    <br />
+                    
                     <em><%= @minimum_password_length %> characters minimum</em>
                   <% end %>
                 </div>
 
                 <div class="field">
-                  <%= f.label :password_confirmation, class: "label" %><br />
-                  <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input" %>
+                  <%= f.label :password_confirmation, class: "label" %>
+                  <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input is-danger" %>
                 </div>
 
                 <div class="field">
-                  <%= f.label :current_password, class: 'label' %> <i>(we need your current password to confirm your changes)</i><br />
+                  <%= f.label :current_password, class: 'label' %> <i>(we need your current password to confirm your changes)</i>
                   <%= f.password_field :current_password, autocomplete: "current-password", class: "input is-danger" %>
                 </div>
 
                 <%if admin_signed_in?%>
                   <%if :confirmation == false?%>
                     <div class="field">
-                      <%= f.label :confirmation, class: 'label' %><br />
+                      <%= f.label :confirmation, class: 'label' %>
                       <%= f.checkbox :confirmation %>
                     </div>
                   <%end%>
@@ -80,8 +79,7 @@
               <% end %>
             </div>
             <%if local_signed_in?%>
-              <h3 class="subtitle is-5">Cancel my account</h3>
-              <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "button is-danger" %></p>
+              <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "button is-warning" %></p>
             <%end%>
             <br>
             <%= link_to "Home", welcome_path , class: "button is-secondary" %>

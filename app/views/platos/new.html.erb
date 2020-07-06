@@ -1,41 +1,49 @@
 <section class="hero is-danger is-fullheight">
+  <h1 class="title is-2">
+    Nuevo Plato para el menu de <%= current_local.nombre %>
+  </h1>
   <div class="hero-body">
     <div class="container">
-      <div class="box">
-        <h1 class="title" style="color: hsl(0, 0%, 21%)"> 
-          Nuevo Plato para el menu de <%= current_local.nombre %>
-        </h1>
-        <div class="content">
-          <%= form_with(model: @plato, method: :post) do |form| %>
+      <div class="columns">
+        <div class="column is-5-tablet is-4-widescreen is-3-desktop">
+        </div>
+        <div class="column is-5-tablet is-4-widescreen is-3-desktop">
 
-            <div class="field">
-              <%= form.label :nombre, class: "label" %><br />
-              <%= form.text_field :nombre, autofocus: true, autocomplete: "nombre" %>
-            </div>
 
-            <div class='field'>
-              <%= form.label :descripcion, class: "label" %><br />
-              <%= form.text_area :descripcion, autofocus: true, autocomplete: "descripcion", :cols => 30, :rows => 10 %>
-            </div>
+          <div class="box">
+            <div class="content">
+              <%= form_with(model: @plato, method: :post) do |form| %>
 
-            <div class="field">
-              <%= form.label :precio, class: "label" %><br />
-              <%= form.number_field :precio, autofocus: true, autocomplete: "precio" %>
-            </div>
+                <div class="field">
+                  <%= form.label :nombre, class: "label" %>
+                  <%= form.text_field :nombre, autofocus: true, class: "input is-danger", autocomplete: "nombre" %>
+                </div>
 
-            <div class="is-invisible">
-              <%= form.label :local%> <br />
-              <%= form.number_field :local_id, autofocus: true, autocomplete: "local_id", value: current_local.id %>
-            </div>
+                <div class='field'>
+                  <%= form.label :descripcion, class: "label" %>
+                  <%= form.text_area :descripcion, autofocus: true, class: "textarea is-danger", autocomplete: "descripcion", :cols => 30, :rows => 10 %>
+                </div>
 
-            <div class="actions">
-              <%= form.submit %>
+                <div class="field">
+                  <%= form.label :precio, class: "label" %>
+                  <%= form.number_field :precio, autofocus: true, class: "input is-danger", autocomplete: "precio" %>
+                </div>
+
+                <div class="is-invisible">
+                  <%= form.label :local %>
+                  <%= form.number_field :local_id, autofocus: true, autocomplete: "local_id", value: current_local.id %>
+                </div>
+
+                <div class="actions">
+                  <%= form.submit "Crear Nuevo Plato", class: "button is-success" %>
+                  <%= link_to 'Back', :back, class: "button is-secondary" %>
+                </div>
+              <% end %>
             </div>
-          <% end %>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-<%= link_to 'Back', :back %>
 </section>

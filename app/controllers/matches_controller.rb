@@ -20,7 +20,6 @@ class MatchesController < ApplicationController
 
   def show
     @matches = Match.all
-    @invitations = Invitation.all
     render 'matches/find'
 
     #  render '/matches'

@@ -1,35 +1,30 @@
-<p id="notice"><%= notice %></p>
-<br>
-<h1 class="table" style="color:  hsl(0, 0%, 21%)">
-  <strong>Invitations</strong>
-</h1>
-<div class="table-responsive">
-  <table class="table">
-    <thead>
-      <tr>
-        <th>User invita</th>
-        <th>Fecha</th>
-        <th>Local</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @invitations.each do |invitation| %>
-        <% if invitation.user_invitado == current_user.id %>
-          <tr>
-            <td><%= invitation.user_invita %></td>
-            <td><%= invitation.fecha %></td>
-            <td><%= invitation.local_id %></td>
-            <td><%= link_to 'Ver detalle', invitation %></td>
-
-          </tr>
-          <br>
-        <% end %>
-      <% end %>
-      <br>
-    </tbody>
-  </table>
-</div>
-<br>
-
-<a href="/" class="button is-warning">Volver al atrás</a>
+<section class="hero is-danger is-fullheight">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Invitations
+      </h1>
+      <div class="columns">
+        <div class="column">
+          <% @invitations.each do |invitation| %>
+            <% if invitation.user_invitado == current_user.id %>
+              <% if invitation.citum.nil? %>
+                <div class="box">
+                  <div class="content is-medium">
+                    Haz recibido una invitacion a una cita de
+                    <strong><%= User.find(invitation.user_invita).nombre %></strong>!
+                    <br>
+                    El <strong><%= invitation.fecha %></strong>,
+                    para ir a <strong><%= Local.find(invitation.local_id).nombre %></strong>.
+                  </div>
+                  <%= link_to 'Ver detalle', new_invitation_citum_path(invitation.id), class: "button is-info" %>
+                </div>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <%= link_to "Volver a Matches", matches_find_path, class: "button is-warning" %>
+    </div>
+  </div>
+</section>

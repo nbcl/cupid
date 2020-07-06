@@ -3,7 +3,7 @@
     <div class="container">
       <div class="columns is-centered">
         <div class="column is-5-tablet is-4-desktop is-4-widescreen">
-          
+
           <%= form_with(model: invitation, local: true) do |form| %>
             <% if invitation.errors.any? %>
               <div id="error_explanation">
@@ -38,7 +38,7 @@
                 <div class="select is-danger">
                   <%= form.select(:local_id, Local.all.collect { |p| [p.nombre, p.id] }, {include_blank: true}) %>
                 </div>
-                
+
               </div>
             </div>
 
@@ -46,11 +46,11 @@
               <%= form.label :confirma %>
               <%= form.check_box :confirma %>
             </div>
-            
+
             <div class="actions">
-            
+
               <%= form.submit %>
-            
+
             </div>
           <% end %>
         </div>

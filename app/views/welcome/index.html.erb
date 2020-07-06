@@ -5,7 +5,7 @@
     <nav class="navbar has-shadow">
       <div class="navbar-brand">
         <a class="navbar-item">
-         <!--  <img src="<%#= image_path("logo.jpeg") %>" alt="Logo"> -->
+          <!--  <img src="<%#= image_path("logo.jpeg") %>" alt="Logo"> -->
           CupidoUC
         </a>
       </div>
@@ -171,15 +171,15 @@
         <div class="navbar-end">
           <div class="navbar-item has-dropdown is-hoverable" style="background-color: hsl(348, 100%, 61%)">
             <div class="navbar-link" style="background-color: hsl(348, 100%, 61%)">
-              <%# if current_user.avatar.attached? %>
-              <!--                <figure class="image is-24x24 is-rounded">-->
-              <%#= image_tag current_user.avatar %>
-              <!--                </figure>-->
-              <%# else %>
-              <figure class="image is-24x24 is-rounded">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" class="is-rounded" alt="">
-              </figure>
-              <%# end %>
+              <% if current_local.avatar.attached? %>
+                <figure class="image is-24x24 is-rounded">
+                  <%= image_tag current_local.avatar %>
+                </figure>
+              <% else %>
+                <figure class="image is-24x24 is-rounded">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" class="is-rounded" alt="">
+                </figure>
+              <% end %>
               <p style="margin: 0px 4px 0px 9px"><%= current_local.nombre %></p>
             </div>
             <div class="navbar-dropdown" style="background-color: hsl(348, 100%, 61%)">
@@ -275,74 +275,74 @@
       </div>
     </div>
     <body>
-      <div class="section is-large">
-        <div class="columns is-centered">
-            <div class="column">
-              <div class="box text is-center">
-                <h1 class="box-title pricing-card-title"> 🏙️ Locales</h1>
-                <ul class="list-unstyled mt-3 mb-4">
-                  <li>Ver todos los Locales</li>
-                </ul>
-                <a href="<%= admins_locales_path %>">
-                  <button class="button">Administrar</button>
-                </a>
-              </div>
+    <div class="section is-large">
+      <div class="columns is-centered">
+        <div class="column">
+          <div class="box text is-center">
+            <h1 class="box-title pricing-card-title"> 🏙️ Locales</h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>Ver todos los Locales</li>
+            </ul>
+            <a href="<%= admins_locales_path %>">
+              <button class="button">Administrar</button>
+            </a>
+          </div>
+        </div>
+        <div class="column">
+          <div class="box text is-center">
+            <div class="box-body">
+              <h1 class="box-title pricing-card-title"> 👥 Usuarios</h1>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li> Ver todos los usuarios</li>
+              </ul>
+              <a href="<%= admins_users_path %>">
+                <button class="button">Administrar</button>
+              </a>
             </div>
-            <div class="column">
-              <div class="box text is-center">
-                <div class="box-body">
-                  <h1 class="box-title pricing-card-title"> 👥 Usuarios</h1>
-                  <ul class="list-unstyled mt-3 mb-4">
-                    <li> Ver todos los usuarios</li>
-                  </ul>
-                  <a href="<%= admins_users_path %>">
-                    <button class="button">Administrar</button>
-                  </a>
-                </div>
-              </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="box text is-center">
+            <div class="box-body">
+              <h1 class="card-title pricing-card-title"> 👥 Comentarios</h1>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li> Ver todos los comentarios</li>
+              </ul>
+              <a href="/comentarios">
+                <button class="button">Administrar</button>
+              </a>
             </div>
-            <div class="column">
-              <div class="box text is-center">
-                <div class="box-body">
-                  <h1 class="card-title pricing-card-title"> 👥 Comentarios</h1>
-                  <ul class="list-unstyled mt-3 mb-4">
-                    <li> Ver todos los comentarios</li>
-                  </ul>
-                  <a href="/comentarios">
-                    <button class="button">Administrar</button>
-                  </a>
-                </div>
-              </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="box text is-center">
+            <div class="box-body">
+              <h1 class="card-title pricing-card-title"><strong> Gustos</strong></h1>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li> Ver todos los gustos</li>
+              </ul>
+              <a href=<%= lista_gustos_path %>>
+                <button class="button">Administrar</button>
+              </a>
             </div>
-            <div class="column">
-              <div class="box text is-center">
-                <div class="box-body">
-                  <h1 class="card-title pricing-card-title"><strong> Gustos</strong></h1>
-                  <ul class="list-unstyled mt-3 mb-4">
-                    <li> Ver todos los gustos</li>
-                  </ul>
-                  <a href=<%= lista_gustos_path %>>
-                    <button class="button">Administrar</button>
-                  </a>
-                </div>
-              </div>
-            </div>
+          </div>
+        </div>
 
-            <div class="column">
-              <div class="box text is-center">
-                <div class="box-body">
-                  <h1 class="card-title pricing-card-title"><strong> Comunas</strong></h1>
-                  <ul class="list-unstyled mt-3 mb-4">
-                    <li> Ver todos las comunas</li>
-                  </ul>
-                    <button class="button">
-                      <a href="<%= comunas_path %>"> Administrar</a>
-                    </button>
-                </div>
-              </div>
+        <div class="column">
+          <div class="box text is-center">
+            <div class="box-body">
+              <h1 class="card-title pricing-card-title"><strong> Comunas</strong></h1>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li> Ver todos las comunas</li>
+              </ul>
+              <button class="button">
+                <a href="<%= comunas_path %>"> Administrar</a>
+              </button>
             </div>
+          </div>
         </div>
       </div>
+    </div>
     </body>
   <% else %>
     <div class="hero-body">
@@ -365,7 +365,7 @@
           <div class="column">
             <a href="<%= new_admin_session_path %>" class="button is-warning">Login as Admin</a>
           </div>
-          
+
           <div class="column is-two-quarter">
 
           </div>
