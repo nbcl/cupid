@@ -41,8 +41,11 @@ class VistasController < ApplicationController
     render 'admins/form_postulacion'
   end
 
-  def responder_form_postulacion
-    render 'admins/edit_postulacion'
+  def aceptar_postulacion
+    @local = Local.find(params[:id])
+    @local.confirmation = true
+    @local.save
+    redirect_to admins_locales_path, notice: 'Local acpetado en la plataforma'
   end
 
   def show_admin_local
@@ -50,10 +53,10 @@ class VistasController < ApplicationController
     render 'locals/show'
   end
 
-  def edit_admin_local
-    @local = Local.find(params[:id])
-    render 'locals/registrations/edit'
-  end
+  # def edit_admin_local
+  #   @local = Local.find(params[:id])
+  #   render 'locals/registrations/edit'
+  # end
 
   def destroy_admin_local
     Plato.where(local_id: params[:id]).destroy_all

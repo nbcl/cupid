@@ -84,8 +84,11 @@ Rails.application.routes.draw do
   put 'valoracions/:id/', to: 'valoracions#update'
   #Delete
   delete 'valoracions/:id', to: 'valoracions#destroy'
+
   #postulacion de locales
   get 'admins/postulacion', to: 'postulantes#index'
+
+
 
   # Rutas del CRUD Admin para locals
   # Create no aplica para locals
@@ -98,7 +101,8 @@ Rails.application.routes.draw do
   delete 'admins/locals/:id', to: 'vistas#destroy_admin_local'
   
   # Confirmation
-  get 'admins/postulantes', to: 'vistas#show_admin_postulantes'
+  get '/lpostulantes', to: 'vistas#show_admin_postulantes'
+  get '/lpostulantes/accepted/:id', to: 'vistas#aceptar_postulacion', as: :aceptar
   get 'admins/postulantes/edit/:id', to:'vistas#edit_admin_local'
   post 'admins/postulantes/edit/:id', to:'vistas#edit_admin_local'
 
