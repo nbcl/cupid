@@ -20,7 +20,7 @@
     </thead>
 
     <tbody>
-    <% @locales.each do |local| %>
+    <% @locals.each do |local| %>
       <%if local.confirmation == false%>
           <tr>
           <td><%= local.id %></td>
@@ -32,7 +32,7 @@
           <td><%= local.confirmation %></td>
           <td>
             <button class="button is-warning">
-              <a href="<%= edit_admin_local_path(local.id)%>"> Editar</a>
+              <a href="<%= aceptar_path(local.id) %>"> Aceptar </a>
             </button>
           </td>
           </tr>

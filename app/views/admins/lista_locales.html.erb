@@ -19,15 +19,17 @@
 
     <tbody>
     <% @locals.each do |local| %>
-      <tr>
-        <td><%= local.id %></td>
-        <td><%= local.nombre %></td>
-        <td><%= local.email %></td>
-        <td><%= local.valoracion %></td>
-  <!--      <td style="padding:10px"><%#= local.comuna %></td>-->
-        <td><%= local.descripcion %></td>
-        <td><%= link_to 'Ver', local_path(local.id) %>
-      </tr>
+      <% if local.confirmation == true %>
+        <tr>
+          <td><%= local.id %></td>
+          <td><%= local.nombre %></td>
+          <td><%= local.email %></td>
+          <td><%= local.valoracion %></td>
+    <!--      <td style="padding:10px"><%#= local.comuna %></td>-->
+          <td><%= local.descripcion %></td>
+          <td><%= link_to 'Ver', local_path(local.id) %>
+        </tr>
+      <% end %>
     <% end %>
     </tbody>
   </table>
@@ -39,5 +41,5 @@
 </button>
 
 <button class="button is-warning">
-  <a href="<%= postulantes_path%>">Ver postulantes</a>
+  <a href="<%= lpostulantes_path%>">Ver postulantes</a>
 </button>
