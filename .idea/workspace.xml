@@ -25,7 +25,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6084fd8-bdfb-43da-ad8f-02fa1df0932c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/views/locals/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/locals/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/users/perfil.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/perfil.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -206,6 +207,7 @@
       <workItem from="1593121216598" duration="6462000" />
       <workItem from="1593193820914" duration="6360000" />
       <workItem from="1593978510982" duration="1200000" />
+      <workItem from="1594243040241" duration="17000" />
     </task>
     <servers />
   </component>
