@@ -1,272 +1,37 @@
-<section class="hero is-danger is-fullheight">
+<section class="hero is-danger is-fullheight" style='overflow: hidden;' >
 
   <% if user_signed_in? %>
-    <!-- Hero head: will stick at the top -->
-    <nav class="navbar has-shadow">
-      <div class="navbar-brand">
-        <a class="navbar-item">
-          <!--  <img src="<%#= image_path("logo.jpeg") %>" alt="Logo"> -->
-          CupidoUC
-        </a>
-      </div>
-      <div class="navbar-menu">
-        <div class="navbar-start">
-          <div class="navbar-item">
-            <small>El mejor sitio para encontrar a tu pareja ideal</small>
-          </div>
-        </div>
-      </div>
-      <div class="navbar-menu is-danger">
-        <div class="navbar-end">
-          <div class="navbar-item has-dropdown is-hoverable" style="background-color: hsl(348, 100%, 61%)">
-            <div class="navbar-link" style="background-color: hsl(348, 100%, 61%)">
-              <% if current_user.avatar.attached? %>
-                <figure class="image is-24x24 is-rounded">
-                  <%= image_tag current_user.avatar %>
-                </figure>
-              <% else %>
-                <figure class="image is-24x24 is-rounded">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" class="is-rounded" alt="">
-                </figure>
-              <% end %>
-              <p style="margin: 0px 4px 0px 9px"><%= current_user.nombre %></p>
-            </div>
-            <div class="navbar-dropdown" style="background-color: hsl(348, 100%, 61%)">
-              <a class="navbar-item" href="<%= user_perfil_path(current_user.id) %>">
-                <div>
-                <span class="icon is-small">
-                  <i class="fa fa-user-circle-o"></i>
-                </span>
-                  Profile
-                </div>
-              </a>
-              <a class="navbar-item" href="<%= destroy_user_session_path %>">
-                <div>
-                <span class="icon is-small">
-                  <i class="fa fa-sign-out"></i>
-                </span>
-                  Sign Out
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </nav>
-
-
-    <!-- Hero content: will be in the middle -->
-    <div class="hero-body">
-      <div class="container has-text-centered">
-        <!--        <figure class="image is-5by3 ">-->
-        <!--          <img src="<%#= image_path("logologo.png") %>" alt="Logo">-->
-        <!--        </figure>-->
-        <h1 class="title">
-          DCCitas
-        </h1>
-        <h2 class="subtitle">
-          Bienvenido a DCCitas, <%= current_user.nombre %>
-        </h2>
-        <br>
-        <br>
-        <div class="columns">
-          <div class="column">
-            <div class="box">
-              <!--                  <div class="media-left">-->
-              <!--                    <figure class="image is-48x48 is-centered">-->
-              <!--                      <img src="<%#= image_path("champagne.svg") %>" alt="champagne">-->
-              <!--                    </figure>-->
-              <!--                  </div>-->
-              <div class="is-grouped">
-                <p class="title is-4" style="color: hsl(0, 0%, 21%)">Citas</p>
-                <p>Busca entre usuarios de DCCitas.</p>
-              </div>
-              <br>
-              <a href="<%= interactions_find_path %>" class="button is-warning">Buscar</a>
-            </div>
-
-
-          </div>
-
-
-          <div class="column">
-            <div class="box">
-              <!--                  <div class="media-left">-->
-              <!--                    <figure class="image is-48x48 is-centered">-->
-              <!--                      <img src="<%#= image_path("restaurant.svg") %>" alt="restaurant">-->
-              <!--                    </figure>-->
-              <!--                  </div>-->
-              <div class="is-grouped">
-                <p class="title is-4" style="color: hsl(0, 0%, 21%)">Locales</p>
-                <p>Busca los locales de DCCitas.</p>
-              </div>
-
-              <br>
-              <a href="<%= users_locales_path %>" class="button is-warning">Buscar</a>
-
-
-            </div>
-          </div>
-
-          <div class="column">
-            <div class="box">
-              <div class="is-grouped">
-                <p class="title is-4" style="color: hsl(0, 0%, 21%)">Matches</p>
-                <p>Revisa tus matches.</p>
-              </div>
-              <br>
-              <a href="<%= matches_find_path %>" class="button is-warning">Ver mis matches</a>
-            </div>
-          </div>
-
-          <div class="column">
-            <div class="box">
-              <div class="is-grouped">
-                <p class="title is-4" style="color: hsl(0, 0%, 21%)">Reportar Locales</p>
-                <p>Reportar Locales</p>
-              </div>
-              <br>
-              <a href="<%= lreports_new_path %>" class="button is-warning">Reportar</a>
-            </div>
-          </div>
-
-
-          <div class="column">
-            <div class="box">
-              <div class="is-grouped">
-                <p class="title is-4" style="color: hsl(0, 0%, 21%)">Reportar Usuarios</p>
-                <p>Reportar Uusarios</p>
-              </div>
-              <br>
-              <a href="<%= ureports_new_path %>" class="button is-warning">Reportar</a>
-            </div>
-          </div>
-
-
-        </div>
-
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="row">
-
-      </div>
-    </div>
+  <section class="hero is-danger is-fullheight">
+  <meta http-equiv="refresh" content="0; url=/interactions/find" />
+  </section>
+    
   <% elsif local_signed_in? %>
-    <nav class="navbar has-shadow">
-      <div class="navbar-brand">
-        <a class="navbar-item">
-          <img src="<%= image_path("logo.png") %>" alt="Logo">
-        </a>
-      </div>
-      <div class="navbar-menu">
-        <div class="navbar-start">
-          <div class="navbar-item">
-            <small>El mejor sitio para encontrar a tu pareja ideal</small>
-          </div>
-        </div>
-      </div>
-      <div class="navbar-menu is-danger">
-        <div class="navbar-end">
-          <div class="navbar-item has-dropdown is-hoverable" style="background-color: hsl(348, 100%, 61%)">
-            <div class="navbar-link" style="background-color: hsl(348, 100%, 61%)">
-              <% if current_local.avatar.attached? %>
-                <figure class="image is-24x24 is-rounded">
-                  <%= image_tag current_local.avatar %>
-                </figure>
-              <% else %>
-                <figure class="image is-24x24 is-rounded">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" class="is-rounded" alt="">
-                </figure>
-              <% end %>
-              <p style="margin: 0px 4px 0px 9px"><%= current_local.nombre %></p>
-            </div>
-            <div class="navbar-dropdown" style="background-color: hsl(348, 100%, 61%)">
-              <a class="navbar-item" href="/locals/perfil?id=<%= current_local.id %>">
-                <div>
-                <span class="icon is-small">
-                  <i class="fa fa-user-circle-o"></i>
-                </span>
-                  Profile
-                </div>
-              </a>
-              <a class="navbar-item" href="<%= destroy_local_session_path %>">
-                <div>
-                <span class="icon is-small">
-                  <i class="fa fa-sign-out"></i>
-                </span>
-                  Sign Out
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </nav>
-
-    <div class="hero-body">
-      <div class="container has-text-centered">
+    <div class="hero-body" style="background-color: #ED6A39;">
+        <div class="container has-text-centered">
         <h1 class="title"> DCCitas </h1>
         <p class="subtitle">Bienvenido a DCCitas, <%= current_local.nombre %>.</p>
-
         <div class="columns">
-          <div class="column">
+            <div class="column">
             <div class="card has-text-centered">
-              <div class="card-content">
+                <div class="card-content">
                 <h4 class="">Comentarios</h4>
                 <div class="content">
 
-                  <p>Revisa comentarios de los usuarios sobre el local.</p>
-                  <a href="/locals/comentarios" class="button is-warning">
+                    <p>Revisa comentarios de los usuarios sobre el local.</p>
+                    <a href="/locals/comentarios" class="button is-warning">
                     Informacion
-                  </a>
+                    </a>
                 </div>
-              </div>
+                </div>
             </div>
-          </div>
+            </div>
         </div>
-      </div>
+        </div>
     </div>
 
 
+
   <% elsif admin_signed_in? %>
-    <nav class="navbar has-shadow">
-      <div class="navbar-brand">
-        <a class="navbar-item">
-          <img src="<%= image_path("logo.png") %>" alt="Logo">
-        </a>
-      </div>
-      <div class="navbar-menu">
-        <div class="navbar-start">
-          <div class="navbar-item">
-            <small>El mejor sitio para encontrar a tu pareja ideal</small>
-          </div>
-        </div>
-      </div>
-      <div class="navbar-menu is-danger">
-        <div class="navbar-end">
-          <div class="navbar-item has-dropdown is-hoverable" style="background-color: hsl(348, 100%, 61%)">
-            <div class="navbar-link" style="background-color: hsl(348, 100%, 61%)">
-              <figure class="image is-24x24 is-rounded">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" class="is-rounded" alt="">
-              </figure>
-              <p style="margin: 0px 4px 0px 9px">Admin</p>
-            </div>
-            <div class="navbar-dropdown" style="background-color: hsl(348, 100%, 61%)">
-              <a class="navbar-item" href="<%= destroy_admin_session_path %>">
-                <div>
-                <span class="icon is-small">
-                  <i class="fa fa-sign-out"></i>
-                </span>
-                  Sign Out
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </nav>
 
     <div class="hero-body">
       <div class="container has-text-centered">
@@ -345,32 +110,36 @@
     </div>
     </body>
   <% else %>
-    <div class="hero-body">
-      <div class="container">
-        <h1 class="title"> DCCitas </h1>
-        <h2 class="subtitle">Bienvenido a DCCitas, Visita.</h2>
-        <div class="columns is-centered">
-          <div class="column">
-            <a href="<%= users_locales_path %>" class="button is-warning">Ver Locales</a>
-          </div>
-          <div class="column">
-            <a href="<%= new_postulante_path %>" class="button is-warning">Registra tu local</a>
-          </div>
-          <div class="column">
-            <a href="<%= new_user_session_path %>" class="button is-warning">Login as User</a>
-          </div>
-          <div class="column">
-            <a href="<%= new_local_session_path %>" class="button is-warning">Login as Local</a>
-          </div>
-          <div class="column">
-            <a href="<%= new_admin_session_path %>" class="button is-warning">Login as Admin</a>
-          </div>
-
-          <div class="column is-two-quarter">
-
-          </div>
+    <style>
+    .hero.is-danger{
+        background-color:#f14668;
+        color:#fff;
+        background-image: linear-gradient(to right, #f14668, #f48a48);
+    }
+    </style>
+    <section class="hero is-white is-fullheight">
+    <div class="columns" style=>
+        <section class="hero is-danger is-fullheight" style='width: 40%;'>
+            <div class="hero-body">
+                <div class="container">
+                    <div class="columns is-centered">
+                        <div class="column">
+                            <h1 class="title is-spaced is-size-1-desktop is-size-2-tablet is-size-3-mobile">Cupido UC </h1>
+                            <h2 class="subtitle is-size-4-desktop">El lugar donde encontrarás el amor.</h2>
+                            <a class="button is-white" href="/users/sign_up">
+                            <span class="icon">
+                                😍
+                            </span>
+                            <span>Registrate</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="column" style="overflow: hidden;">
+            <img style="height: 110vh; width: 100%;" src="https://i.imgur.com/woqDWba.png" alt="Placeholder image">
         </div>
-      </div>
-    </div>
+    </section>
   <% end %>
 </section>

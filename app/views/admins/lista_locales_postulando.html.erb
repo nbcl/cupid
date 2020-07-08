@@ -1,51 +1,50 @@
+<style>
+.wave:hover{
+    text-decoration: none;
+    background-color: white;
+}
+</style>
 <p id="notice"><%= notice %></p>
+<section class="hero is-link is-fullheight">
+    <div class="hero-body">
+        <div class="container is-centered">
+            <h1 class="title"> Locales Postulando a DCCitas</h1>
+            <h3 class="subtitle"> A continuación se muestran los postulantes</h3>
+            <table class="table" style="border-radius: 10px; border: 0px;">
+                <thead>
+                <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Valoracion</th>
+            <!--    <th style="padding:10px">Comuna</th>-->
+                <th>Descripcion</th>
+                <th>¿Confirmado?</th>
+                <th> Acciones </th>
+                </tr>
+                </thead>
 
-<div class="hero-body">
-  <h1 class="title"> Locales Postulando a DCCitas</h1>
-  <h3 class="subtitle"> A continuación se muestran los postulantes</h3>
-</div>
-<div class="content">
-  <table class="table">
-    <thead>
-      <tr>
-      <th>ID</th>
-      <th>Nombre</th>
-      <th>Email</th>
-      <th>Valoracion</th>
-  <!--    <th style="padding:10px">Comuna</th>-->
-      <th>Descripcion</th>
-      <th>¿Confirmado?</th>
-      <th> Acciones </th>
-    </tr>
-    </thead>
-
-    <tbody>
-    <% @locals.each do |local| %>
-      <%if local.confirmation == false%>
-          <tr>
-          <td><%= local.id %></td>
-          <td><%= local.nombre %></td>
-          <td><%= local.email %></td>
-          <td><%= local.valoracion %></td>
-      <!--      <td style="padding:10px"><%#= local.comuna %></td>-->
-          <td><%= local.descripcion %></td>
-          <td><%= local.confirmation %></td>
-          <td>
-            <button class="button is-warning">
-              <a href="<%= aceptar_path(local.id) %>"> Aceptar </a>
-            </button>
-          </td>
-          </tr>
-      <%end%>
-    <% end %>
-    </tbody>
-  </table>
-</div>
-
-<button class="button">
-  <a href="/">Volver</a>
-</button>
-
-<button class="button">
-  <a href="<%= welcome_path %>">Home</a>
-</button>
+                <tbody>
+                <% @locals.each do |local| %>
+                <%if local.confirmation == false%>
+                    <tr>
+                    <td><%= local.id %></td>
+                    <td><%= local.nombre %></td>
+                    <td><%= local.email %></td>
+                    <td><%= local.valoracion %></td>
+                <!--      <td style="padding:10px"><%#= local.comuna %></td>-->
+                    <td><%= local.descripcion %></td>
+                    <td><%= local.confirmation %></td>
+                    <td>
+                        <button class="button">
+                            <a href="/lpostulantes/accepted/4" class="wave"> Aceptar </a>
+                        </button>
+                    </td>
+                    </tr>
+                <%end%>
+                <% end %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

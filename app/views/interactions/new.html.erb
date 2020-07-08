@@ -1,131 +1,18 @@
-<%
-  # We require net/http to request and json to parse
-  require 'net/http'
-  require 'json'
-  # Checks for user selection of song
-  if @destino.song
-    q = @destino.song
-    url = "https://api.spotify.com/v1/search?q=" + q + "&type=artist"
-    # Checks for Admins designation of token
-    token = @spotify.token
-    uri = URI(url)
-    # Generates new Net:HTTP GET Request to desired URI
-    request = Net::HTTP::Get.new(uri.path)
-    # Accept & Conten-Type are Spotify requested headers
-    request["Accept"] = "application/json"
-    request["Content-Type"] = "application/json"
-    # Creates new request for correct port
-    http = Net::HTTP.new(uri.host, uri.port)
-    # Asks for SSL Encryption
-    http.use_ssl = true
-    # Requests again
-    request = Net::HTTP::Get.new(uri.request_uri)
-    # Adds header with specific token
-    request['Authorization'] = "Bearer " + token
-    # Executes request
-    response = http.request(request)
-    # Parses response to JSON
-    call = JSON[response.body.force_encoding('utf-8')]
-    # Checks if there is a correct answer
-    if call['artists']
-        # Gets artist's link for first result
-        artist = call['artists']['items'][0]['external_urls']['spotify']
-        # Parses to get embed link
-        parsed = artist.to_s.split('artist')
-        parsed[0] = parsed[0] + 'embed/'
-        # Final embed link
-        embed = parsed.join('artist') 
-    # Else should execute if @Spotify.token is expired
-    else
-        embed='https://open.spotify.com/embed/artist/4q3ewBCX7sLwd24euuV69X'
-    end
-
-  # If user has not selected an artist, shows award-winning, 
-  # grammy-nominated superstar 'Bad-Bunny'
-  else
-    embed='https://open.spotify.com/embed/artist/4q3ewBCX7sLwd24euuV69X'
-  end
-%>
-<section class="hero is-fullheight is-danger">
-  <div class="hero-body">
-    <div class="columns is-centered">
-      <div class="column is-4-widescreen is-5-desktop">
-
-        <div class="card">
-          <div class="card-content">
-
-
-            <div class="media">
-              <div class="media-left">
-
-
-                <% if @destino.avatar.attached? %>
-                  <figure class="image is-128x128">
-                    <%= image_tag @destino.avatar, class: '' %>
-                  </figure>
-                <% else %>
-                  <figure class="image">
-                    <img class="" src="https://bulma.io/images/placeholders/256x256.png" alt=""/>
-                  </figure>
-                <% end %>
-              </div>
-              <div class="media-content">
-
-                <h3 class="title" style="color: hsl(0, 0%, 21%); margin-top: 4vh;"> <%= @destino.nombre %></h3>
-                <p class="heading">
-                  <strong>Edad</strong>
-                </p>
-                <p class="content">Mi edad es <%= @destino.edad_numeros %> años.</p>
-                <p class="heading">
-                  <strong>Comuna</strong>
-                </p>
-                <p class="content">Vivo en la comuna <%= @destino.comuna_id %>.</p>
-              </div>
-            </div>
-            <div class="content">
-
-              <p class="heading"><strong>Descripcion</strong></p>
-              <p><%= @destino.descripcion %> Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer
-                took a galley of type and scrambled it to make a type specimen book.</p>
-
-              <br>
-              <%= form_with(model: @Interaction, method: :post, html: {class: "has-text-centered"}) do |form| %>
-                <div class="field">
-                  <%= check_box_tag(:like) %>
-                  <%= label_tag(:like, "❤️") %>
-                </div>
-
-                <div class="actions">
-                  <%= form.submit 'Confirmar', class: "button is-warning" %>
-                  <%= link_to 'Back', interactions_find_path, class: "button is-secondary" %>
-                </div>
-
-
-                <div class="is-invisible">
-                  <%= form.label :user %> <br/>
-                  <%= form.number_field :user_id, autofocus: true, autocomplete: "user_id", value: current_user.id %>
-                </div>
-
-                <div class="is-invisible">
-                  <%= form.number_field :user_id_destiny, autofocus: true, autocomplete: "user_id_destiny", value: @destino.id %>
-                </div>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="column is-4-widescreen is-5-desktop">
-        <div class="">
-          <iframe src="<%= embed.to_s %>" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- El siguiente codigo realiza la llamada a las interaciones y crea un Match si existe Like de ambos lados -->
   <% @likesme = ActiveRecord::Base.connection %>
+  <%  refresh = ''
+      url = '' %>
   <% result = @likesme.exec_query('SELECT * FROM Interactions WHERE user_id =' + @destino.id.to_s + ';') %>
+  <% resultaux = @likesme.exec_query('SELECT * FROM Interactions WHERE user_id =' + current_user.id.to_s + ';') %>
+  <% resultaux.each do |row| %>
+    <%
+        if row['user_id_destiny'] == @destino.id
+            refresh = "refresh"
+            url = "0; url=/interactions/find"
+        end
+    %>
+  <% end %>
+
   <% result.each do |row| %>
     <%
       if row['user_id_destiny'] == current_user.id and row['like']
@@ -138,5 +25,189 @@
         end
       end
     %>
+
   <% end %>
+<meta http-equiv="<%=refresh.to_s%>" content="<%=url.to_s%>" />
+
+<%
+  # We require net/http to request and json to parse
+  require 'net/http'
+  require 'json'
+  # Checks for user selection of song
+  if @destino.song
+    if @spotify.token
+        q = @destino.song
+        url = "https://api.spotify.com/v1/search?q=" + q + "&type=artist"
+        # Checks for Admins designation of token
+        token = @spotify.token
+        uri = URI(url)
+        # Generates new Net:HTTP GET Request to desired URI
+        request = Net::HTTP::Get.new(uri.path)
+        # Accept & Conten-Type are Spotify requested headers
+        request["Accept"] = "application/json"
+        request["Content-Type"] = "application/json"
+        # Creates new request for correct port
+        http = Net::HTTP.new(uri.host, uri.port)
+        # Asks for SSL Encryption
+        http.use_ssl = true
+        # Requests again
+        request = Net::HTTP::Get.new(uri.request_uri)
+        # Adds header with specific token
+        request['Authorization'] = "Bearer " + token
+        # Executes request
+        response = http.request(request)
+        # Parses response to JSON
+        call = JSON[response.body.force_encoding('utf-8')]
+        # Checks if there is a correct answer
+        if call['artists']
+            # Gets artist's link for first result
+            artist = call['artists']['items'][0]['external_urls']['spotify']
+            # Parses to get embed link
+            parsed = artist.to_s.split('artist')
+            parsed[0] = parsed[0] + 'embed/'
+            # Final embed link
+            embed = parsed.join('artist') 
+        # Else should execute if @Spotify.token is expired
+        else
+            embed='https://open.spotify.com/embed/artist/4q3ewBCX7sLwd24euuV69X'
+        end
+    else
+        embed='https://open.spotify.com/embed/artist/4q3ewBCX7sLwd24euuV69X'
+    end
+
+    # If user has not selected an artist, shows award-winning, 
+    # grammy-nominated superstar 'Bad-Bunny'
+  else
+    embed='https://open.spotify.com/embed/artist/4q3ewBCX7sLwd24euuV69X'
+  end
+%>
+<style>
+.hero.is-danger{
+    background-color:#f14668;
+    color:#fff;
+    background-image: linear-gradient(to right, #f14668, #f48a48);
+}
+
+.button.is-secondary {
+    display: none;
+}
+.input-silent{
+    border: 0px solid black;
+    background: white;
+}
+</style>
+<section class="hero is-fullheight is-danger">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+        <div class='columns' style='margin-bottom: 10vh;'>
+            <div class='column'>
+            </div>
+            <div class='column'>
+                <div class="card">
+                    <div class="card-image">
+                        <% if @destino.avatar.attached? %>
+                            <figure class="image is-4by3" style='margin: -2px;'>
+                            <%= image_tag @destino.avatar, class: 'image is-48x48' %>
+                            </figure>
+                        <% else %>
+                            <figure class="image is-4by3">
+                            <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+                            </figure>
+                        <% end %>
+                    </div>
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                            <% if @destino.avatar.attached? %>
+                                <figure class="image is-48x48">
+                                    <%= image_tag @destino.avatar, class: 'image is-48x48 is-rounded' %>
+                                </figure>
+                            <% else %>
+                                <figure class="image is-48x48">
+                                <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+                                </figure>
+                            <% end %>
+                            </div>
+                            <div class="has-text-left">
+                                <p class="title is-4" style="color: black;"><%= @destino.nombre %>, <%= @destino.edad_numeros %></p>
+                                <p class="subtitle is-6" style="color: black;">@<%= @destino.nombre %></p>
+                            </div>
+                        </div>
+
+                        <div class="content">
+                            <%= @destino.descripcion %>
+                            <% @destino.gustos.each do |gusto| %>
+                                <div style='margin-top: 1rem;'>
+                                <button class='button is-light'><%= gusto.nombre %></button>
+                            <% end%>
+                            <% if @destino.song %>
+                                <br>
+                                <a style="margin-top: 1rem;" href="#">#<%= @destino.song %></a>
+                            <% end %>
+                            </div>
+                            <br>
+                            <iframe src="<%= embed.to_s %>" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media" style="margin-top: 1.5rem;"></iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="columns is-centered" style='margin-top: 1vh;'>
+                    <div class="column">
+                        <div class=" box has-text-centered dccitas-button">
+                            <%= form_with(model: @Interaction, method: :post, html: {class: "has-text-centered"}) do |form| %>
+                                <div class="field" style='display:none;'>
+                                <%= check_box_tag(:like, 'like', true)%>
+                                <%= label_tag(:like, "❤️") %>
+                                </div>
+
+                                <div class="actions">
+                                <%= form.submit '❤️', class: "input-silent" %>
+                                <%= link_to 'Back', interactions_find_path, class: "button is-secondary" %>
+                                </div>
+
+
+                                <div class="is-invisible" style='display:none;'>
+                                <%= form.label :user %> <br/>
+                                <%= form.number_field :user_id, autofocus: true, autocomplete: "user_id", value: current_user.id %>
+                                </div>
+
+                                <div class="is-invisible" style='display:none;'>
+                                <%= form.number_field :user_id_destiny, autofocus: true, autocomplete: "user_id_destiny", value: @destino.id %>
+                                </div>
+                            <% end %>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class=" box has-text-centered dccitas-button">
+                            <%= form_with(model: @Interaction, method: :post, html: {class: "has-text-centered"}) do |form| %>
+                                <div class="field" style='display:none;'>
+                                <%= check_box_tag(:like, 'like', false)%>
+                                <%= label_tag(:like, "❤️") %>
+                                </div>
+
+                                <div class="actions">
+                                <%= form.submit '❌', class: "input-silent" %>
+                                <%= link_to 'Back', interactions_find_path, class: "button is-secondary" %>
+                                </div>
+
+
+                                <div class="is-invisible" style='display:none;'>
+                                <%= form.label :user %> <br/>
+                                <%= form.number_field :user_id, autofocus: true, autocomplete: "user_id", value: current_user.id %>
+                                </div>
+
+                                <div class="is-invisible" style='display:none;'>
+                                <%= form.number_field :user_id_destiny, autofocus: true, autocomplete: "user_id_destiny", value: @destino.id %>
+                                </div>
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='column'>
+            </div>
+        </div>
+    </div>
+  </div>
+</section>
+
 </section>

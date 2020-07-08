@@ -7,9 +7,273 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.0/css/bulma.min.css" rel="stylesheet">
     <script src="https://use.fontawesome.com/0ec7801840.js"></script>
   </head>
+    <style>
+      ::-webkit-scrollbar {
+        display: none;
+    }
+    .navbar-item{
+        font-weight: 600;
+        font-size: 2vh;
+    }
+    .navbar-item:hover{
+        font-weight: 600;
+        font-size: 2vh;
+        text-decoration: none;
+        color: #f14668;
+
+    }
+    .hover-red:hover{
+        color: #f14668;
+    }
+    .fa{
+        font-weight: 600;
+        font-size: 3vh;
+        color: #f14668;
+    }
+  </style>
+  <% if admin_signed_in? %>
+    <nav class="navbar is-white">
+    <a href='/'><img style="object-fit: cover;"src="https://i.imgur.com/c4D3A4r.png" alt="Logo" width="80" height="50"></a>
+      <div class="navbar-brand">
+        <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <div id="navbarExampleTransparentExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item " href="/">
+            <i class="fa fa-home" aria-hidden="true"></i>
+          </a>
+          <a class="navbar-item" href="/admins/users">
+            <i class="fa fa-user" aria-hidden="true"></i>
+          </a>
+          <a class="navbar-item" href="/admins/locales">
+            <i class="fa fa-building" aria-hidden="true"></i>
+          </a>
+          <a class="navbar-item" href="/comentarios">
+            <i class="fa fa-comments" aria-hidden="true"></i>
+          </a>
+          <a class="navbar-item" href="<%= lreports_new_path %>">
+            <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+          </a>
+        </div>
+        <div class="navbar-end">
+          <div class="navbar-item has-dropdown is-hoverable">
+            <div class="navbar-link">
+              <figure class="image is-24x24 is-rounded">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" class="is-rounded" alt="">
+              </figure>
+              <p style="margin: 0px 4px 0px 9px">Admin</p>
+            </div>
+            <div class="navbar-dropdown">
+              <a class="navbar-item" href="<%= destroy_admin_session_path %>">
+                <div>
+                <span class="icon is-small">
+                  <i class="fa fa-sign-out"></i>
+                </span>
+                  Sign Out
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  <% elsif user_signed_in? %>
+    <nav class="navbar is-white">
+    <a href='/'><img style="object-fit: cover;"src="https://i.imgur.com/c4D3A4r.png" alt="Logo" width="80" height="50"></a>
+      <div class="navbar-brand">
+        <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <div id="navbarExampleTransparentExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item " href="/">
+            <i class="fa fa-home" aria-hidden="true"></i>
+          </a>
+          <a class="navbar-item" href="<%= users_locales_path %>">
+            <i class="fa fa-building" aria-hidden="true"></i>
+          </a>
+          <a class="navbar-item" href="<%= matches_find_path %>">
+            <i class="fa fa-heart" aria-hidden="true"></i>
+          </a>
+          <a class="navbar-item" href="<%= lreports_new_path %>">
+            <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+          </a>
+        </div>
+
+        <div class="navbar-end">
+          <div class="navbar-item has-dropdown is-hoverable">
+            <div class="navbar-link">
+              <% if current_user.avatar.attached? %>
+                <figure class="image is-24x24 is-rounded">
+                  <%= image_tag current_user.avatar %>
+                </figure>
+              <% else %>
+                <figure class="image is-24x24 is-rounded">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" class="is-rounded" alt="">
+                </figure>
+              <% end %>
+              <p style="margin: 0px 4px 0px 9px; font-size: 2vh;"><%= current_user.nombre %></p>
+            </div>
+            <div class="navbar-dropdown"  >
+              <a class="navbar-item" href="<%= user_perfil_path(current_user.id) %>">
+                <div>
+                <span class="icon is-small">
+                  <i class="fa fa-user-circle-o" style="font-size: 1.8vh"></i>
+                </span>
+                  Profile
+                </div>
+              </a>
+              <a class="navbar-item" href="<%= destroy_user_session_path %>">
+                <div>
+                <span class="icon is-small">
+                  <i class="fa fa-sign-out" style="font-size: 1.8vh"></i>
+                </span>
+                  Sign Out
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  <% elsif local_signed_in? %>
+    <nav class="navbar is-white">
+    <a href='/'><img style="object-fit: cover;"src="https://i.imgur.com/c4D3A4r.png" alt="Logo" width="80" height="50"></a>
+      <div class="navbar-brand">
+        <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <div id="navbarExampleTransparentExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item " href="/">
+            <i class="fa fa-home" aria-hidden="true"></i>
+          </a>
+          <a class="navbar-item" href="/locals/edit">
+            <i class="fa fa-edit" aria-hidden="true"></i>
+          </a>
+          <a class="navbar-item" href="/locals/menu">
+            <i class="fa fa-cutlery" aria-hidden="true"></i>
+          </a>
+          <a class="navbar-item" href="/locals/comentarios">
+            <i class="fa fa-comments" aria-hidden="true"></i>
+          </a>
+        </div>
+
+        <div class="navbar-end">
+          <div class="navbar-item has-dropdown is-hoverable">
+            <div class="navbar-link">
+              <% if current_local.avatar.attached? %>
+                <figure class="image is-24x24 is-rounded">
+                  <%= image_tag current_local.avatar %>
+                </figure>
+              <% else %>
+                <figure class="image is-24x24 is-rounded">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" class="is-rounded" alt="">
+                </figure>
+              <% end %>
+              <p style="margin: 0px 4px 0px 9px"><%= current_local.nombre %></p>
+            </div>
+            <div class="navbar-dropdown">
+              <a class="navbar-item" href="/locals/perfil?id=<%= current_local.id %>">
+                <div>
+                <span class="icon is-small">
+                  <i class="fa fa-user-circle-o"></i>
+                </span>
+                  Profile
+                </div>
+              </a>
+              <a class="navbar-item" href="<%= destroy_local_session_path %>">
+                <div>
+                <span class="icon is-small">
+                  <i class="fa fa-sign-out"></i>
+                </span>
+                  Sign Out
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  <% else %>
+    <nav class="navbar is-transparent" >
+    <a href='/'><img style="object-fit: cover;"src="https://i.imgur.com/c4D3A4r.png" alt="Logo" width="80" height="50"></a>
+      <div class="navbar-brand">
+        <a class="navbar-item"  href="/">
+        </a>
+        <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <div id="navbarExampleTransparentExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item " href="/">
+            Inicio
+          </a>
+          <a class="navbar-item" href="<%= users_locales_path %>">
+            Ver Locales
+          </a>
+          <a class="navbar-item" href="/locals/sign_up">
+            Registro Empresas
+          </a>
+          <a class="navbar-item" href="<%= new_local_session_path %>">
+            Login Empresas
+          </a>
+          <a class="navbar-item" href="<%= new_admin_session_path %>">
+            Login Staff
+          </a>
+        </div>
+
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="field is-grouped">
+              <p class="control">
+                <a class="button is-light" href="<%= new_user_session_path %>">
+                  <span class="icon">
+                    <i class="fa fa-heart" aria-hidden="true"></i>
+                  </span>
+                  <span> Entrar</span>
+                </a>
+              </p>
+              <p class="control">
+                <a class="button is-danger" href="/users/sign_up">
+                  <span class="icon">
+                    <i class="fa fa-sign-in" aria-hidden="true" style="color: white;"></i> 
+                  </span>
+                  <span>Registrate</span>
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  <% end %>
+
+
+
+
+
 
   <body>
     <%= yield %>

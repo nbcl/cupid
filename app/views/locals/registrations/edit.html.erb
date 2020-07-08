@@ -1,8 +1,9 @@
-<section class="hero is-danger is-fullheight">
+<section class="hero is-danger is-fullheight" style="background-color: #ED6A39;">
     <div class="hero-body">
       <div class="container">
         <div class="columns is-centered">
           <div class="column is-5-tablet is-4-desktop is-4-widescreen">
+          <h1 class="title is-1">Edita tu perfil</h1>
             <div class="box">
               <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
                 <%= render "devise/shared/error_messages", resource: resource %>

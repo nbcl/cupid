@@ -1,7 +1,40 @@
-<section class="hero is-fullheight is-danger">
+<style>
+.hero.is-danger{
+    background-color:#f14668;
+    color:#fff;
+    background-image: linear-gradient(to right, #f14668, #f48a48);
+    }
+
+#wave {
+  font-size: 2em;
+}
+.wave:hover{
+    text-decoration: none;
+}
+
+.dccitas-button {
+    transition-duration:2s;
+    -o-transition: ease .5s;
+    -webkit-transition: ease .5s;
+    -moz-transition: ease .5s;
+    transition: ease .5s;
+
+}
+.dccitas-button:hover {
+    -moz-transform: translate(0px, -2px);
+    -ms-transform: translate(0px, -2px);
+    -o-transform: translate(0px, -2px);
+    -webkit-transform: translate(0px, -2px);
+    transform: translate(0px, -2px);
+    text-decoration: none;
+    background: #f14668;
+}
+
+</style>
+<section class="hero is-fullheight is-danger" style='margin-top: -5vh'>
   <div class="hero-body">
-    <div class="container">
-      <h1 class="title"> Busqueda </h1>
+    <div class="container has-text-centered">
+      <h1 class="title"></h1>
         <% @users.each do |user| %>
           <% if current_user.comuna_id == user.comuna_id  %>
             <% result = false %>
@@ -9,53 +42,95 @@
               <% @connection = ActiveRecord::Base.connection %>
               <% result = @connection.exec_query('SELECT * FROM Interactions WHERE user_id = '+current_user.id.to_s+' AND user_id_destiny = '+user.id.to_s+';') %>
               <% if result.empty?() %>
-                <div class="columns is-centered">
-                  <div class="column is-4-desktop is-4-widescreen">
-                    <div class="box">
-                      <article class="media">
-                        <div class="media-left">
-                          <% if user.avatar.attached? %>
-                            <figure class="image is-128x128">
-                              <%= image_tag user.avatar, class: 'image is-128x128 is-rounded' %>
-                            </figure>
-                          <% else %>
-                            <figure class="image is-128x128">
-                              <img class="rounded-circle" src="https://via.placeholder.com/128" alt=""/>
-                            </figure>
-                          <% end %>
-                        </div>
-                        <div class="media-content">
-                          <div class="content">
-                            <h3 class="title" style="color: hsl(0, 0%, 21%)"> <%= user.nombre %></h3>
-                            <p>
-                              Mi edad es <%= user.edad_numeros %> años.
-                              Vivo en la comuna 1<%= user.comuna_id %>.
-                            </p>
-                          </div>
-                        </div>
-                      </article>
+                <div class='columns' style='margin-bottom: 10vh;'>
+                    <div class='column'>
                     </div>
-                    <div class="columns is-centered">
-                      <div class="column is-centered">
-                        <div class="box">
-                          <%= link_to '❤️' , interactions_new_path(user.id) %>
-                        </div>
-                      </div>
-                      <div class="column"></div>
-                      <div class="column">
-                        <div class="box">
-                          <%= link_to '❌' , interactions_new_path(user.id) %>
-                        </div>
-                      </div>
+                    <div class='column'>
+                        <div class="card">
+                            <div class="card-image">
+                                <% if user.avatar.attached? %>
+                                    <figure class="image is-4by3" style='margin: -2px;'>
+                                    <%= image_tag user.avatar, class: 'image is-48x48' %>
+                                    </figure>
+                                <% else %>
+                                    <figure class="image is-4by3">
+                                    <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+                                    </figure>
+                                <% end %>
+                            </div>
+                            <div class="card-content">
+                                <div class="media">
+                                    <div class="media-left">
+                                    <% if user.avatar.attached? %>
+                                        <figure class="image is-48x48">
+                                            <%= image_tag user.avatar, class: 'image is-48x48 is-rounded' %>
+                                        </figure>
+                                    <% else %>
+                                        <figure class="image is-48x48">
+                                        <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+                                        </figure>
+                                    <% end %>
+                                    </div>
+                                    <div class="has-text-left">
+                                        <p class="title is-4" style="color: black;"><%= user.nombre %>, <%= user.edad_numeros %></p>
+                                        <p class="subtitle is-6" style="color: black;">@<%= user.nombre %></p>
+                                    </div>
+                                </div>
 
+                                <div class="content">
+                                <%= user.descripcion %>
+                                <% if user.song %>
+                                    <br>
+                                    <a href="#">#<%= user.song %></a>
+                                <% end %>
+                                <br>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="columns is-centered" style='margin-top: 1vh;'>
+                            <a href="<%=  interactions_new_path(user.id) %>">
+                                <div class="column">
+                                <a href="<%=  interactions_new_path(user.id) %>" class="wave">
+                                    <div class="box has-text-centered dccitas-button">
+                                        <div id="wave" class='wave'>
+                                        ❤️
+                                        </div>
+                                    </div>
+                                </div>
+                                </a> 
+                            </a> 
+                            <a href="<%=  interactions_new_path(user.id) %>">
+                                <div class="column">
+                                <a href="<%=  interactions_new_path(user.id) %>" class="wave">
+                                    <div class="box has-text-centered dccitas-button">
+                                        <div id="wave" class='wave'>
+                                        🤔
+                                        </div>
+                                    </div>
+                                </div>
+                                </a> 
+                            </a> 
+                            <a href="<%=  interactions_new_path(user.id) %>">
+                                <div class="column">
+                                <a href="<%=  interactions_new_path(user.id) %>" class="wave">
+                                    <div class="box has-text-centered dccitas-button">
+                                        <div id="wave" class='wave'>
+                                        ❌
+                                        </div>
+                                    </div>
+                                </div>
+                                </a> 
+                            </a>  
+
+                        </div>
                     </div>
-                  </div>
+                    <div class='column'>
+                    </div>
                 </div>
               <% end %>
             <% end %>
           <% end %>
         <% end %>
-      <a href="/" class="button is-warning">Volver al Inicio</a>
     </div>
   </div>
 </section>

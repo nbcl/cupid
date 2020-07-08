@@ -1,45 +1,69 @@
+<style>
+.wave:hover{
+    text-decoration: none;
+    background-color: white;
+}
+</style>
 <p id="notice"><%= notice %></p>
+<section class="hero is-link is-fullheight">
+    <div class="hero-body">
+        <div class="container is-centered">
+            <div class="content">
+                <h1 class="title"> Locales de DCCitas</h1>
+                <table class="table" style="border-radius: 10px; border: 0px;">
+                    <thead>
+                        <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>Valoracion</th>
+                        <th>Descripcion</th>
+                        <th> Acciones </th>
+                        <th> Eliminar </th>
+                        </tr>
+                    </thead>
 
-<div class="hero-body">
-  <h1 class="title"> Locales de DCCitas</h1>
-</div>
-<div class="content">
-  <table class="table">
-    <thead>
-    <tr>
-      <th>ID</th>
-      <th>Nombre</th>
-      <th>Email</th>
-      <th>Valoracion</th>
-  <!--    <th style="padding:10px">Comuna</th>-->
-      <th>Descripcion</th>
-      <th> Acciones </th>
-    </tr>
-    </thead>
+                    <tbody>
+                        <% @locals.each do |local| %>
+                            <% if local.confirmation == true %>
+                                <tr>
+                                <td><%= local.id %></td>
+                                <td><%= local.nombre %></td>
+                                <td><%= local.email %></td>
+                                <% if local.valoracion%>
+                                    <td><%= local.valoracion %></td>
+                                <% else %>
+                                    <td>Sin Valoración</td>
+                                <% end %>
+                            <!--      <td style="padding:10px"><%#= local.comuna %></td>-->
+                                <td><%= local.descripcion %></td>
+                                <td><%= link_to 'Ver', local_path(local.id) %>
 
-    <tbody>
-    <% @locals.each do |local| %>
-      <% if local.confirmation == true %>
-        <tr>
-          <td><%= local.id %></td>
-          <td><%= local.nombre %></td>
-          <td><%= local.email %></td>
-          <td><%= local.valoracion %></td>
-    <!--      <td style="padding:10px"><%#= local.comuna %></td>-->
-          <td><%= local.descripcion %></td>
-          <td><%= link_to 'Ver', local_path(local.id) %>
-        </tr>
-      <% end %>
-    <% end %>
-    </tbody>
-  </table>
-</div>
+                                    <!-- El siguiente codigo realiza una llamada a los reportes y permite eliminarlo si tiene 3 reports-->
+                                <%@reports = ActiveRecord::Base.connection
+                                result = @reports.exec_query('SELECT * FROM lreports WHERE reported_id =' + local.id.to_s + ';')
+                                counter = 0
+                                result.each do |row|
+                                    counter += 1
+                                end
+                                if counter >= 2%>
+                                    <td data-toggle="tooltip" title="Este local ha sido reportado 3 veces." class="wave"><a alert="Estás seguro?" rel="nofollow" data-method="delete" href="/admins/locals/<%=local.id%>" class="wave">Eliminar Local</a></td>
+                                <%else%>
+                                    <td>No es posible eliminar</td>
+                                <%end%>
+                                </tr>
+                            <% end %>
+                        <% end %>
+                    </tbody>
+                </table>
+                <button class="button is-secondary">
+                <a href="<%= welcome_path %>">Home</a>
+                </button>
 
-
-<button class="button is-secondary">
-  <a href="<%= welcome_path %>">Home</a>
-</button>
-
-<button class="button is-warning">
-  <a href="<%= lpostulantes_path%>">Ver postulantes</a>
-</button>
+                <button class="button is-light">
+                <a href="<%= lpostulantes_path%>" style="background-color: white;" class="wave is-light">Ver postulantes</a>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>

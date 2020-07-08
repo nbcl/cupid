@@ -1,9 +1,9 @@
 <section class="hero is-danger is-fullheight">
-<h1 class="title is-1">Registrate como usuario</h1>
   <div class="hero-body">
     <div class="container">
       <div class="columns is-centered">
-        <div class="column is-5-tablet is-4-desktop is-4-widescreen">
+        <div class="column is-5-tablet is-4-desktop is-4-widescreen" style="margin-top: 0vh;"> 
+        <h1 class="title is-1">Registrate</h1>
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name),
                        html: {class: "box"}) do |f| %>
             <%= render "devise/shared/error_messages", resource: resource %>

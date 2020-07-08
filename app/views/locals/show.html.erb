@@ -39,15 +39,18 @@
           <div class="column">
 
             <p class="title is-4" style="color: hsl(0, 0%, 21%)">
-              Valoracion de este local: <br>
+              Valoración de este local: <br>
               <% if @promedio == 0 %>
                 <%= @valor %>
               <% else %>
                 <%= @promedio %> Estrellas
               <% end %>
-
+                                            <a class="" aria-label="info" href="/lreports/new">
+                      <span class="icon is-small">
+                        <i class="fa fa-exclamation-circle"></i>
+                      </span>
+                    </a>
             </p>
-
             <p class="title is-4" style="color: hsl(0, 0%, 21%)">
               Menu
             </p>
