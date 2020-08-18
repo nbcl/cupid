@@ -1,11 +1,7 @@
-# DCCitas
-
-[Link Heroku](https://rocky-badlands-03545.herokuapp.com/)
-
 # Cupid
 
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://mit-license.org/)
-[![Live Demo](https://rocky-badlands-03545.herokuapp.com/)](#)
+[![Live Demo](https://img.shields.io/badge/demo-online-green.svg)](https://rocky-badlands-03545.herokuapp.com/)
 
 A dating app made with Ruby, AJAX and Ruby on Rails with Spotify integration.
 
